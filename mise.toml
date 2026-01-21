@@ -1,9 +1,19 @@
 [tools]
-#pre-commit = "latest"
+pre-commit = "4.5"
+python = "3.13"
+ruff = "0.14.13"
+uv = "0.9"
 
 [settings]
 experimental = true
+python.uv_venv_auto = true
+
+[env]
+OLLAMA_BASE_URL="http://host.docker.internal:11434"
 
 [hooks]
-# enter = "bash ./scripts/setup_project"
+enter = "bash ./scripts/setup_project"
 
+[tasks.docker-build]
+description = "Build Docker images"
+run = "bash ./scripts/build_docker_images"

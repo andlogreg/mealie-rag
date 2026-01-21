@@ -1,0 +1,18 @@
+{
+    "packages": {
+        "src/mealierag": {
+            "release-type": "python",
+            "package-name": "mealierag",
+            "component": "mealierag",
+            "include-component-in-tag": true,
+            "changelog-path": "CHANGELOG.md",
+            "extra-files": [
+                {
+                    "type": "toml",
+                    "path": "uv.lock",
+                    "jsonpath": "$.package[?(@.name.value=='mealierag')].version"
+                }
+            ]
+        }
+    }
+}

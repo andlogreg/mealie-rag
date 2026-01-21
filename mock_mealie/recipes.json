@@ -1,0 +1,290 @@
+[
+    {
+        "slug": "spaghetti-carbonara",
+        "name": "Spaghetti Carbonara",
+        "description": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+        "recipeCategory": [
+            "Dinner",
+            "Italian"
+        ],
+        "tags": [
+            "pasta",
+            "pork",
+            "quick"
+        ],
+        "recipeIngredient": [
+            "400g spaghetti",
+            "150g pancetta, diced",
+            "4 large eggs",
+            "50g pecorino cheese, grated",
+            "50g parmesan cheese, grated",
+            "Black pepper"
+        ],
+        "recipeInstructions": [
+            "Boil water for pasta.",
+            "Fry pancetta until crisp.",
+            "Beat eggs with cheese and pepper.",
+            "Cook pasta until al dente.",
+            "Mix hot pasta with egg mixture and pancetta quickly to create a creamy sauce."
+        ]
+    },
+    {
+        "slug": "vegetable-stir-fry",
+        "name": "Vegetable Stir Fry",
+        "description": "A quick and healthy vegetarian stir fry with soy sauce.",
+        "recipeCategory": [
+            "Dinner",
+            "Asian"
+        ],
+        "tags": [
+            "vegetarian",
+            "healthy",
+            "quick"
+        ],
+        "recipeIngredient": [
+            "1 broccoli head, chopped",
+            "2 carrots, sliced",
+            "1 bell pepper, sliced",
+            "200g snap peas",
+            "3 tbsp soy sauce",
+            "1 tbsp ginger, grated",
+            "1 clove garlic, minced"
+        ],
+        "recipeInstructions": [
+            "Heat oil in a wok.",
+            "Stir fry ginger and garlic.",
+            "Add vegetables and cook for 5-7 minutes.",
+            "Add soy sauce and toss well.",
+            "Serve with rice."
+        ]
+    },
+    {
+        "slug": "grilled-chicken-salad",
+        "name": "Grilled Chicken Salad",
+        "description": "A light and refreshing salad with grilled chicken breast.",
+        "recipeCategory": [
+            "Lunch",
+            "Healthy"
+        ],
+        "tags": [
+            "high-protein",
+            "low-carb",
+            "gluten-free"
+        ],
+        "recipeIngredient": [
+            "2 chicken breasts",
+            "Mixed salad greens",
+            "1 cucumber, sliced",
+            "10 cherry tomatoes",
+            "Olive oil",
+            "Lemon juice"
+        ],
+        "recipeInstructions": [
+            "Grill chicken breasts until cooked through.",
+            "Slice chicken.",
+            "Toss salad greens, cucumber, and tomatoes.",
+            "Top with chicken.",
+            "Drizzle with olive oil and lemon juice."
+        ]
+    },
+    {
+        "slug": "beef-tacos",
+        "name": "Beef Tacos",
+        "description": "Classic Mexican-style beef tacos with fresh toppings.",
+        "recipeCategory": [
+            "Dinner",
+            "Mexican"
+        ],
+        "tags": [
+            "beef",
+            "family-friendly"
+        ],
+        "recipeIngredient": [
+            "500g ground beef",
+            "1 packet taco seasoning",
+            "8 taco shells",
+            "Lettuce, shredded",
+            "Cheddar cheese, shredded",
+            "Salsa",
+            "Sour cream"
+        ],
+        "recipeInstructions": [
+            "Brown ground beef in a pan.",
+            "Add taco seasoning and water as per packet instructions.",
+            "Simmer until thickened.",
+            "Warm taco shells.",
+            "Assemble tacos with beef and toppings."
+        ]
+    },
+    {
+        "slug": "lentil-soup",
+        "name": "Lentil Soup",
+        "description": "Hearty and nutritious vegan lentil soup.",
+        "recipeCategory": [
+            "Lunch",
+            "Soup"
+        ],
+        "tags": [
+            "vegan",
+            "high-fiber",
+            "budget-friendly"
+        ],
+        "recipeIngredient": [
+            "1 cup dried lentils",
+            "1 onion, diced",
+            "2 carrots, diced",
+            "2 celery stalks, diced",
+            "4 cups vegetable broth",
+            "1 tsp cumin",
+            "1 tsp thyme"
+        ],
+        "recipeInstructions": [
+            "Sauté onion, carrots, and celery.",
+            "Add lentils, broth, and spices.",
+            "Simmer for 30-40 minutes until lentils are soft.",
+            "Blend half the soup for creaminess if desired."
+        ]
+    },
+    {
+        "slug": "chicken-tikka-masala",
+        "name": "Chicken Tikka Masala",
+        "description": "Creamy and spicy Indian chicken curry.",
+        "recipeCategory": [
+            "Dinner",
+            "Indian"
+        ],
+        "tags": [
+            "chicken",
+            "spicy",
+            "comfort-food"
+        ],
+        "recipeIngredient": [
+            "500g chicken thighs, cubed",
+            "1 cup yogurt",
+            "2 tbsp tikka masala paste",
+            "1 can tomato puree",
+            "1/2 cup heavy cream",
+            "Cilantro"
+        ],
+        "recipeInstructions": [
+            "Marinate chicken in yogurt and paste for 1 hour.",
+            "Grill or fry chicken until charred.",
+            "Simmer tomato puree and cream.",
+            "Add chicken to sauce and simmer for 10 minutes.",
+            "Garnish with cilantro."
+        ]
+    },
+    {
+        "slug": "mushroom-risotto",
+        "name": "Mushroom Risotto",
+        "description": "Creamy Italian rice dish with mixed mushrooms.",
+        "recipeCategory": [
+            "Dinner",
+            "Italian"
+        ],
+        "tags": [
+            "vegetarian",
+            "rice",
+            "gourmet"
+        ],
+        "recipeIngredient": [
+            "1.5 cups arborio rice",
+            "200g mushrooms, sliced",
+            "1 onion, finely chopped",
+            "1/2 cup white wine",
+            "4 cups vegetable stock",
+            "Butter",
+            "Parmesan cheese"
+        ],
+        "recipeInstructions": [
+            "Sauté mushrooms and set aside.",
+            "Sauté onion, then add rice and toast slightly.",
+            "Add wine and let evaporate.",
+            "Gradually add stock, stirring constantly.",
+            "Stir in mushrooms, butter, and parmesan at the end."
+        ]
+    },
+    {
+        "slug": "salmon-asparagus",
+        "name": "Baked Salmon with Asparagus",
+        "description": "Simple sheet pan dinner with healthy fats.",
+        "recipeCategory": [
+            "Dinner",
+            "Healthy"
+        ],
+        "tags": [
+            "pescatarian",
+            "keto",
+            "gluten-free"
+        ],
+        "recipeIngredient": [
+            "2 salmon fillets",
+            "1 bunch asparagus",
+            "2 tbsp olive oil",
+            "1 lemon, sliced",
+            "Dill",
+            "Salt and pepper"
+        ],
+        "recipeInstructions": [
+            "Preheat oven to 400°F (200°C).",
+            "Place salmon and asparagus on a baking sheet.",
+            "Drizzle with oil and season.",
+            "Top with lemon slices and dill.",
+            "Bake for 12-15 minutes."
+        ]
+    },
+    {
+        "slug": "oatmeal-berries",
+        "name": "Oatmeal with Berries",
+        "description": "Warm breakfast oats with fresh antioxidant-rich berries.",
+        "recipeCategory": [
+            "Breakfast",
+            "Healthy"
+        ],
+        "tags": [
+            "vegan",
+            "breakfast",
+            "easy"
+        ],
+        "recipeIngredient": [
+            "1/2 cup rolled oats",
+            "1 cup almond milk",
+            "1 tbsp drizzle maple syrup",
+            "1/2 cup mixed berries",
+            "1 tbsp chia seeds"
+        ],
+        "recipeInstructions": [
+            "Combine oats and milk in a pot.",
+            "Cook over medium heat until thickened.",
+            "Stir in maple syrup.",
+            "Top with fresh berries and chia seeds."
+        ]
+    },
+    {
+        "slug": "beef-burger",
+        "name": "Classic Beef Burger",
+        "description": "Juicy homemade beef burger with fries.",
+        "recipeCategory": [
+            "Dinner",
+            "American"
+        ],
+        "tags": [
+            "beef",
+            "cheat-meal"
+        ],
+        "recipeIngredient": [
+            "500g ground beef",
+            "4 burger buns",
+            "Lettuce, tomato, onion",
+            "Cheese slices",
+            "4 large potatoes, cut into fries",
+            "Salt"
+        ],
+        "recipeInstructions": [
+            "Form beef into patties.",
+            "Fry or grill patties to desired doneness.",
+            "Fry potatoes until golden.",
+            "Assemble burgers with buns and toppings."
+        ]
+    }
+]

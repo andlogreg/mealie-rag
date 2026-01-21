@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+# Get dirs
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASE_DIR="$(dirname "$SCRIPT_DIR")"
+
+echo "Building Docker images..."
+echo "Building mealierag image..."
+docker build -t mealierag:dev -f "$BASE_DIR/src/mealierag/Dockerfile" "$BASE_DIR/src/mealierag"
