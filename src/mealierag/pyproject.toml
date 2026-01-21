@@ -1,0 +1,28 @@
+[project]
+name = "mealierag"
+version = "0.0.0"
+description = "A RAG application for recipe search"
+readme = "README.md"
+authors = [
+    { name = "andlogreg", email = "tbd@email.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "gradio>=6.3.0",
+    "ollama>=0.6.1",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.12.0",
+    "qdrant-client>=1.16.2",
+    "requests>=2.32.5",
+    "typer[all]>=0.21.1",
+]
+
+[project.scripts]
+mealierag = "mealierag.cli:app"
+
+[tool.ruff]
+lint.extend-select = ["I"]
+
+[build-system]
+requires = ["uv_build>=0.9.26,<0.10.0"]
+build-backend = "uv_build"
