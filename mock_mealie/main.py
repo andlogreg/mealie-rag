@@ -45,7 +45,7 @@ def get_recipes(page: int = 1, per_page: int = 50):
 @app.get("/api/recipes/{slug}")
 def get_recipe(slug: str):
     for recipe in recipes:
-        if recipe["slug"] == slug:
+        if recipe["slug"] == slug or recipe.get("id") == slug:
             return recipe
     raise HTTPException(status_code=404, detail="Recipe not found")
 
