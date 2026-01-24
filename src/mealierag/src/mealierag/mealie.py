@@ -4,11 +4,14 @@ Mealie module.
 Contains functions to interact with Mealie, including fetching recipes and recipe details.
 """
 
+import logging
 from typing import List
 
 import requests
 
 from .models import Recipe, RecipeResponse
+
+logger = logging.getLogger(__name__)
 
 
 def fetch_recipes(
@@ -24,13 +27,13 @@ def fetch_recipes(
     Returns:
         List of recipes
     """
-    print(f"Fetching recipes from {mealie_api_url}...")
+    logger.info(f"Fetching recipes from {mealie_api_url}...")
     all_recipes: List[Recipe] = []
     page = 1
 
     try:
         while True:
-            print(f"Fetching page {page}...")
+            logger.info(f"Fetching page {page}...")
             response = requests.get(
                 mealie_api_url,
                 headers={"Authorization": f"Bearer {mealie_token}"},
@@ -57,7 +60,7 @@ def fetch_recipes(
                     f"Unexpected response format: {type(data)}, Full response: {data}"
                 )
 
-        print(f"Fetched {len(all_recipes)} recipes.")
+        logger.info(f"Fetched {len(all_recipes)} recipes.")
         return all_recipes
     except Exception as e:
         raise Exception(f"Error fetching recipes: {e}") from e
@@ -75,7 +78,7 @@ def fetch_full_recipe(recipe: Recipe, mealie_api_url: str, mealie_token: str) ->
     Returns:
         Full recipe details
     """
-    print(f"Fetching recipe {recipe.name}...")
+    logger.info(f"Fetching recipe {recipe.name}...")
     try:
         response = requests.get(
             f"{mealie_api_url}/{recipe.id}",

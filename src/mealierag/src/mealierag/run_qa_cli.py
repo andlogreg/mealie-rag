@@ -2,6 +2,7 @@
 Run the QA Rag interface in the terminal.
 """
 
+import logging
 import sys
 from typing import Dict, List
 
@@ -16,6 +17,8 @@ from .vectordb import get_vector_db_client, retrieve_results
 # Client initialization
 ollama_client = ollama.Client(host=settings.ollama_base_url)
 vector_db_client = get_vector_db_client(settings.qdrant_url)
+
+logger = logging.getLogger(__name__)
 
 
 def get_hits(query) -> List[ScoredPoint]:
@@ -47,7 +50,7 @@ def generate_response(messages: List[Dict[str, str]]):
         print("\n")
         return full_response
     except Exception as e:
-        print(f"\nError generating response: {e}")
+        logger.error(f"Error generating response: {e}", exc_info=True)
         return "Sorry, I encountered an error talking to the AI."
 
 
@@ -57,12 +60,13 @@ def main():
     # Initial check if collection exists
     # TODO: Abstract this to vectordb.py
     if not vector_db_client.collection_exists(settings.collection_name):
-        print("Error: Recipe collection not found. Did you run 'scripts/ingest.py'?")
+        logger.error("Recipe collection not found. Did you run 'scripts/ingest.py'?")
         sys.exit(1)
 
     while True:
         try:
             user_input = input("\n👤 You: ")
+            logger.info(f"Received input: {user_input}. This is Name: {__name__}")
             if user_input.lower() in ["exit", "quit"]:
                 break
 
