@@ -4,6 +4,8 @@ CLI module.
 Contains main entry points.
 """
 
+import logging
+
 import typer
 
 from .run_fetch import main as fetch_main
@@ -12,6 +14,23 @@ from .run_qa_cli import main as qa_cli_main
 from .run_qa_ui import main as qa_ui_main
 
 app = typer.Typer()
+
+
+def setup_logging(log_level: str, dependency_log_level: str):
+    logging.basicConfig(
+        level=dependency_log_level.upper(),
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+    logging.getLogger("mealierag").setLevel(log_level.upper())
+
+
+@app.callback()
+def callback(log_level: str = "INFO", dependency_log_level: str = "WARNING"):
+    """
+    Mealie RAG CLI.
+    """
+    setup_logging(log_level, dependency_log_level)
 
 
 @app.command()

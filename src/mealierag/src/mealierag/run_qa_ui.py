@@ -2,6 +2,7 @@
 Serve the QA Rag interface in the browser.
 """
 
+import logging
 from typing import List
 
 import gradio as gr
@@ -12,6 +13,8 @@ from .chat import populate_messages
 from .config import settings
 from .embeddings import get_embedding
 from .vectordb import get_vector_db_client, retrieve_results
+
+logger = logging.getLogger(__name__)
 
 
 def get_hits(query, ollama_client, vector_db_client):
@@ -25,7 +28,7 @@ def print_hits(hits: List[ScoredPoint]):
     hits_str = ""
     for hit in hits:
         hits_str += f"**{hit.payload['name']}** Rating: {hit.payload['rating']} Tags: {hit.payload['tags']} Category: {hit.payload['category']}\n"
-    print(hits_str)
+    logger.info(hits_str)
     return hits_str
 
 
