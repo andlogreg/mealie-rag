@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.3.0...mealierag-v0.4.0) (2026-01-25)
+
+
+### Features
+
+* **chat:** add llm_temperature and llm_seed parameters and improve prompt structure ([#9](https://github.com/andlogreg/mealie-rag-poc/issues/9)) ([d7f24d6](https://github.com/andlogreg/mealie-rag-poc/commit/d7f24d6b2f2ffe17db9a5b62f0bc02ac0bc57e6e))
+
 ## [0.3.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.2.0...mealierag-v0.3.0) (2026-01-25)
 
 
