@@ -68,10 +68,15 @@ with gr.Blocks(title="🍳 MealieChef") as demo:
         chatbot=gr.Chatbot(height=500),
         textbox=gr.Textbox(placeholder="Ask me about your recipes...", scale=7),
     )
+    logout_button = gr.Button("Logout", link="/logout")
 
 
 def main():
-    demo.launch(server_name="0.0.0.0", server_port=settings.ui_port)
+    demo.launch(
+        server_name="0.0.0.0",
+        server_port=settings.ui_port,
+        auth=(settings.ui_username, settings.ui_password.get_secret_value()),
+    )
 
 
 if __name__ == "__main__":
