@@ -2,6 +2,8 @@
 Config module.
 """
 
+from typing import Optional
+
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -29,7 +31,9 @@ class Settings(BaseSettings):
     # embedding_model: str = "nomic-embed-text"
     embedding_model: str = Field("bge-m3", description="Embedding Model")
 
-    llm_model: str = Field("gemma3:4b", description="LLM Model")
+    llm_model: str = Field("llama3.1:8b", description="LLM Model")
+    llm_temperature: float = Field(0.2, description="LLM Temperature")
+    llm_seed: Optional[int] = Field(None, description="LLM Seed")
 
     ui_port: int = Field(7860, description="Port to serve the UI on")
     ui_username: str = Field("mealie", description="UI Username")

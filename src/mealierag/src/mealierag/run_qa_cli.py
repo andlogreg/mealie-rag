@@ -26,7 +26,10 @@ def get_hits(query) -> List[ScoredPoint]:
     if not query_vector:
         return []
     return retrieve_results(
-        query_vector, vector_db_client, settings.vectordb_collection_name
+        query_vector,
+        vector_db_client,
+        settings.vectordb_collection_name,
+        k=settings.vectordb_k,
     )
 
 
@@ -40,8 +43,17 @@ def print_hits(hits: List[ScoredPoint]):
 def generate_response(messages: List[Dict[str, str]]):
     print("\nThinking...", end="", flush=True)
     try:
+        logger.info("Generating response...", extra={"messages": messages})
+        options = {
+            "temperature": settings.llm_temperature,
+        }
+        if settings.llm_seed is not None:
+            options["seed"] = settings.llm_seed
         response = ollama_client.chat(
-            model=settings.llm_model, messages=messages, stream=True
+            model=settings.llm_model,
+            messages=messages,
+            stream=True,
+            options=options,
         )
         print("\r🤖 MealieChef: ", end="")
         full_response = ""

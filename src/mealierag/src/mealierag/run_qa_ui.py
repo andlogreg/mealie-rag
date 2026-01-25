@@ -57,14 +57,22 @@ def chat_fn(message: str, history: List[List[str]]):
     yield partial
     messages = populate_messages(message, hits)
 
+    logger.info("Generating response...", extra={"messages": messages})
+    options = {
+        "temperature": settings.llm_temperature,
+    }
+    if settings.llm_seed is not None:
+        options["seed"] = settings.llm_seed
     response = ollama_client.chat(
-        model=settings.llm_model, messages=messages, stream=True
+        model=settings.llm_model, messages=messages, stream=True, options=options
     )
 
     partial = "**🤖 MealieChef:**\n"
     for chunk in response:
         partial += chunk["message"]["content"]
         yield partial
+
+    logger.info("Response generation finished.", extra={"partial": partial})
 
     partial += (
         "\n\n" + "### 🐛 Recipes context used for the above answer: ###\n" + hit_str
