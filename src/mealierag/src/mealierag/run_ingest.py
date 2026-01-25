@@ -20,8 +20,8 @@ logger = logging.getLogger(__name__)
 
 def main():
     # 1. Initialize Qdrant Client
-    logger.info(f"Connecting to Qdrant at {settings.vector_db_url}...")
-    client = get_vector_db_client(settings.vector_db_url)
+    logger.info(f"Connecting to Qdrant at {settings.vectordb_url}...")
+    client = get_vector_db_client(settings.vectordb_url)
 
     # 2. Get Data
     # TODO: We fetch full recipes to memory. This is not scalable. We should process them in batches.
