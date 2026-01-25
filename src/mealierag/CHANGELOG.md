@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.2.0...mealierag-v0.3.0) (2026-01-25)
+
+
+### Features
+
+* **ux:** give user context and expose vectordb_k variable ([#7](https://github.com/andlogreg/mealie-rag-poc/issues/7)) ([be53e13](https://github.com/andlogreg/mealie-rag-poc/commit/be53e13fd00b9c57c5e56a3ab867145597622be4))
+
 ## [0.2.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.1.0...mealierag-v0.2.0) (2026-01-25)
 
 
