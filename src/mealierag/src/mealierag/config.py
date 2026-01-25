@@ -2,7 +2,7 @@
 Config module.
 """
 
-from pydantic import Field
+from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -27,6 +27,8 @@ class Settings(BaseSettings):
     llm_model: str = Field("gemma3:4b", description="LLM Model")
 
     ui_port: int = Field(7860, description="Port to serve the UI on")
+    ui_username: str = Field("mealie", description="UI Username")
+    ui_password: SecretStr = Field("rag", description="UI Password")
 
     # ingest specific settings
     delete_collection_if_exists: bool = Field(
