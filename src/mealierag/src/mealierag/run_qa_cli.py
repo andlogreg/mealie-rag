@@ -16,7 +16,7 @@ from .vectordb import get_vector_db_client, retrieve_results
 
 # Client initialization
 ollama_client = ollama.Client(host=settings.ollama_base_url)
-vector_db_client = get_vector_db_client(settings.qdrant_url)
+vector_db_client = get_vector_db_client(settings.vectordb_url)
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +25,9 @@ def get_hits(query) -> List[ScoredPoint]:
     query_vector = get_embedding(query, ollama_client, settings)
     if not query_vector:
         return []
-    return retrieve_results(query_vector, vector_db_client, settings.collection_name)
+    return retrieve_results(
+        query_vector, vector_db_client, settings.vectordb_collection_name
+    )
 
 
 def print_hits(hits: List[ScoredPoint]):
@@ -59,7 +61,7 @@ def main():
 
     # Initial check if collection exists
     # TODO: Abstract this to vectordb.py
-    if not vector_db_client.collection_exists(settings.collection_name):
+    if not vector_db_client.collection_exists(settings.vectordb_collection_name):
         logger.error("Recipe collection not found. Did you run 'scripts/ingest.py'?")
         sys.exit(1)
 

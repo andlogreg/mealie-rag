@@ -10,6 +10,7 @@ python.uv_venv_auto = true
 
 [env]
 OLLAMA_BASE_URL="http://host.docker.internal:11434"
+VECTORDB_K="10"
 
 [hooks]
 enter = "bash ./scripts/setup_project"

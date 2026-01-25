@@ -19,7 +19,7 @@ The application is configured via environment variables:
 
 - `MEALIE_API_URL`: URL to your Mealie API (e.g., `http://localhost:9000/api/recipes`).
 - `MEALIE_TOKEN`: Your Mealie API token.
-- `QDRANT_URL`: URL to Qdrant (default: `http://localhost:6333`).
+- `VECTORDB_URL`: URL to Qdrant (default: `http://localhost:6333`).
 - `OLLAMA_BASE_URL`: URL to Ollama (default: `http://localhost:11434`).
 
 ## Usage

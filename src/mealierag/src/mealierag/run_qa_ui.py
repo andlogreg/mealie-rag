@@ -21,21 +21,29 @@ def get_hits(query, ollama_client, vector_db_client):
     query_vector = get_embedding(query, ollama_client, settings)
     if not query_vector:
         return []
-    return retrieve_results(query_vector, vector_db_client, settings.collection_name)
+    return retrieve_results(
+        query_vector,
+        vector_db_client,
+        settings.vectordb_collection_name,
+        k=settings.vectordb_k,
+    )
 
 
 def print_hits(hits: List[ScoredPoint]):
-    hits_str = ""
+    hits_table = "| Name | Rating | Tags | Category |\n|---|---|---|---|\n"
     for hit in hits:
-        hits_str += f"**{hit.payload['name']}** Rating: {hit.payload['rating']} Tags: {hit.payload['tags']} Category: {hit.payload['category']}\n"
-    logger.info(hits_str)
-    return hits_str
+        tags = hit.payload.get("tags", [])
+        if isinstance(tags, list):
+            tags = ", ".join(tags)
+        hits_table += f"| {hit.payload.get('name', 'N/A')} | {hit.payload.get('rating', 'N/A')} | {tags} | {hit.payload.get('category', 'N/A')} |\n"
+    logger.info(hits_table)
+    return hits_table
 
 
 def chat_fn(message: str, history: List[List[str]]):
     # TODO: re-use client instances
     ollama_client = ollama.Client(host=settings.ollama_base_url)
-    vector_db_client = get_vector_db_client(settings.qdrant_url)
+    vector_db_client = get_vector_db_client(settings.vectordb_url)
 
     partial = " 🔍 Finding relevant recipes..."
     yield partial

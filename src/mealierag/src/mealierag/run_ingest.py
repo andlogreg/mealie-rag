@@ -20,8 +20,8 @@ logger = logging.getLogger(__name__)
 
 def main():
     # 1. Initialize Qdrant Client
-    logger.info(f"Connecting to Qdrant at {settings.qdrant_url}...")
-    client = get_vector_db_client(settings.qdrant_url)
+    logger.info(f"Connecting to Qdrant at {settings.vector_db_url}...")
+    client = get_vector_db_client(settings.vector_db_url)
 
     # 2. Get Data
     # TODO: We fetch full recipes to memory. This is not scalable. We should process them in batches.
@@ -34,18 +34,20 @@ def main():
     vector_size = len(dummy_embedding)
     logger.info(f"Embedding dimension: {vector_size}")
 
-    if client.collection_exists(settings.collection_name):
+    if client.collection_exists(settings.vectordb_collection_name):
         if settings.delete_collection_if_exists:
             logger.info(
-                f"Collection '{settings.collection_name}' already exists. Recreating..."
+                f"Collection '{settings.vectordb_collection_name}' already exists. Recreating..."
             )
-            client.delete_collection(settings.collection_name)
+            client.delete_collection(settings.vectordb_collection_name)
         else:
-            raise Exception(f"Collection '{settings.collection_name}' already exists.")
+            raise Exception(
+                f"Collection '{settings.vectordb_collection_name}' already exists."
+            )
 
-    logger.info(f"Creating collection '{settings.collection_name}'...")
+    logger.info(f"Creating collection '{settings.vectordb_collection_name}'...")
     client.create_collection(
-        collection_name=settings.collection_name,
+        collection_name=settings.vectordb_collection_name,
         vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
     )
 
@@ -74,7 +76,7 @@ def main():
         points.append(point)
 
     # Upsert batch
-    client.upsert(collection_name=settings.collection_name, points=points)
+    client.upsert(collection_name=settings.vectordb_collection_name, points=points)
     logger.info(f"Successfully indexed {len(points)} recipes.")
 
 

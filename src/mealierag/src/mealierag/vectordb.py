@@ -14,7 +14,17 @@ def get_vector_db_client(url: str) -> QdrantClient:
 def retrieve_results(
     query_vector, client: QdrantClient, collection_name: str, k: int = 3
 ) -> list[ScoredPoint]:
-    """Retrieve search results from Qdrant"""
+    """Retrieve search results from Qdrant
+
+    Args:
+        query_vector: The query vector
+        client: The Qdrant client
+        collection_name: The name of the collection
+        k: The number of results to return
+
+    Returns:
+        list[ScoredPoint]: The search results
+    """
     results = client.query_points(
         collection_name=collection_name, query=query_vector, limit=k
     )

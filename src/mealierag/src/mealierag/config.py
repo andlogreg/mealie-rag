@@ -19,8 +19,13 @@ class Settings(BaseSettings):
     ollama_base_url: str = Field(
         "http://localhost:11434", description="Ollama Base URL"
     )
-    qdrant_url: str = Field("http://localhost:6333", description="Qdrant URL")
-    collection_name: str = Field("mealie_recipes", description="Qdrant Collection Name")
+    vectordb_url: str = Field(
+        "http://localhost:6333", description="Vector DB (qdrant) URL"
+    )
+    vectordb_collection_name: str = Field(
+        "mealie_recipes", description="Qdrant Collection Name"
+    )
+    vectordb_k: int = Field(3, description="Number of results to return when searching")
     # embedding_model: str = "nomic-embed-text"
     embedding_model: str = Field("bge-m3", description="Embedding Model")
 
