@@ -30,7 +30,7 @@ def main():
     # 3. Create Collection if not exists
     logger.info("Determining embedding dimension...")
     dummy_text = "test"
-    dummy_embedding = get_embedding(dummy_text, ollama_client, settings)
+    dummy_embedding = get_embedding([dummy_text], ollama_client, settings)[0]
     vector_size = len(dummy_embedding)
     logger.info(f"Embedding dimension: {vector_size}")
 
@@ -56,7 +56,9 @@ def main():
     points = []
     for idx, r in enumerate(recipes):
         # Generate embedding
-        embedding = get_embedding(r.get_text_for_embedding(), ollama_client, settings)
+        embedding = get_embedding(
+            [r.get_text_for_embedding()], ollama_client, settings
+        )[0]
 
         # Create Point
         # We use idx as ID (integer). In production, consider UUIDs to avoid collisions in future ingestions.

@@ -4,8 +4,6 @@ Chat module.
 Contains the system prompt and functions to populate messages for RAG.
 """
 
-from typing import List
-
 from qdrant_client.models import ScoredPoint
 
 from .config import settings
@@ -68,7 +66,7 @@ USER_MESSAGE = """
 {query}"""
 
 
-def populate_context(hits: List[ScoredPoint]) -> str:
+def populate_context(hits: list[ScoredPoint]) -> str:
     """Populate context from search hits"""
     # Format Context
     context_text = ""
@@ -77,7 +75,9 @@ def populate_context(hits: List[ScoredPoint]) -> str:
     return context_text
 
 
-def populate_messages(query: str, context_results: List[ScoredPoint]) -> List[dict]:
+def populate_messages(
+    query: str, context_results: list[ScoredPoint]
+) -> list[dict[str, str]]:
     """Populate messages for RAG"""
     context_text = populate_context(context_results)
 
