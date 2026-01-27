@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.4.0...mealierag-v0.5.0) (2026-01-27)
+
+
+### Features
+
+* **query:** Implement MultiQueryQueryBuilder, refactors and add tests ([#11](https://github.com/andlogreg/mealie-rag-poc/issues/11)) ([37d72e4](https://github.com/andlogreg/mealie-rag-poc/commit/37d72e4fb8a3afbffec2d040fec70f1596dc75a7))
+
 ## [0.4.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.3.0...mealierag-v0.4.0) (2026-01-25)
 
 

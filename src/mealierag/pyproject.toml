@@ -1,6 +1,6 @@
 [project]
 name = "mealierag"
-version = "0.4.0"
+version = "0.5.0"
 description = "A RAG application for recipe search"
 readme = "README.md"
 authors = [
