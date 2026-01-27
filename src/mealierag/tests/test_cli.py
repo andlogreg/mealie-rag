@@ -12,7 +12,10 @@ def test_setup_logging(mocker):
     mock_logger = MagicMock()
     mock_get_logger = mocker.patch("logging.getLogger", return_value=mock_logger)
 
-    setup_logging("DEBUG", "INFO")
+    mocker.patch("mealierag.cli.settings.log_level", "DEBUG")
+    mocker.patch("mealierag.cli.settings.dependency_log_level", "INFO")
+
+    setup_logging()
 
     assert mock_get_logger.call_count >= 2
     mock_logger.setLevel.assert_called()

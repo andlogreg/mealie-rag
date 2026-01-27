@@ -53,6 +53,11 @@ class Settings(BaseSettings):
         False, description="Delete the collection if it exists before ingesting"
     )
 
+    log_level: str = Field("INFO", description="Log level for the application")
+    dependency_log_level: str = Field(
+        "WARNING", description="Log level for dependencies"
+    )
+
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 

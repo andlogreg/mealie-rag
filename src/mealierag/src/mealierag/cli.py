@@ -18,7 +18,7 @@ from .run_qa_ui import main as qa_ui_main
 app = typer.Typer()
 
 
-def setup_logging(log_level: str, dependency_log_level: str):
+def setup_logging():
     formatter = JsonFormatter(
         fmt="%(asctime)s %(name)s %(levelname)s %(msg)s", style="%"
     )
@@ -27,17 +27,17 @@ def setup_logging(log_level: str, dependency_log_level: str):
 
     root_logger = logging.getLogger()
     root_logger.addHandler(handler)
-    root_logger.setLevel(dependency_log_level.upper())
+    root_logger.setLevel(settings.dependency_log_level.upper())
 
-    logging.getLogger("mealierag").setLevel(log_level.upper())
+    logging.getLogger("mealierag").setLevel(settings.log_level.upper())
 
 
 @app.callback()
-def callback(log_level: str = "INFO", dependency_log_level: str = "WARNING"):
+def callback():
     """
     Mealie RAG CLI.
     """
-    setup_logging(log_level, dependency_log_level)
+    setup_logging()
     logging.getLogger("mealierag").info(f"Configuration: {settings.model_dump_json()}")
 
 
