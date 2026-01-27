@@ -22,6 +22,8 @@ jobs:
     name: Test MealieRAG
     needs: check_paths
     if: ${{ needs.check_paths.outputs.should_run == 'true' }}
+    permissions:
+      pull-requests: write
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -61,8 +63,6 @@ jobs:
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
         if: github.event_name == 'pull_request'
-        permissions:
-          pull-requests: write
         with:
           header: test-coverage
           recreate: true
