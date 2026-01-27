@@ -2,10 +2,15 @@
 Config module.
 """
 
-from typing import Optional
+from enum import StrEnum, auto
 
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class SearchStrategy(StrEnum):
+    SIMPLE = auto()
+    MULTIQUERY = auto()
 
 
 # TODO break down into multiple config files depending on which entrypoint is used
@@ -33,11 +38,15 @@ class Settings(BaseSettings):
 
     llm_model: str = Field("llama3.1:8b", description="LLM Model")
     llm_temperature: float = Field(0.2, description="LLM Temperature")
-    llm_seed: Optional[int] = Field(None, description="LLM Seed")
+    llm_seed: int | None = Field(None, description="LLM Seed")
 
     ui_port: int = Field(7860, description="Port to serve the UI on")
     ui_username: str = Field("mealie", description="UI Username")
     ui_password: SecretStr = Field("rag", description="UI Password")
+
+    search_strategy: SearchStrategy = Field(
+        SearchStrategy.SIMPLE, description="Search Strategy"
+    )
 
     # ingest specific settings
     delete_collection_if_exists: bool = Field(

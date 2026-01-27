@@ -4,8 +4,6 @@ Models module.
 Contains Pydantic models for Mealie API responses.
 """
 
-from typing import List, Optional
-
 from pydantic import BaseModel, ConfigDict, Field
 
 
@@ -28,33 +26,33 @@ class RecipeInstruction(BaseModel):
 
 
 class Recipe(BaseModel):
-    id: Optional[str] = None
-    userId: Optional[str] = None
-    householdId: Optional[str] = None
-    groupId: Optional[str] = None
+    id: str | None = None
+    userId: str | None = None
+    householdId: str | None = None
+    groupId: str | None = None
     name: str
     slug: str
-    image: Optional[str] = None
-    recipeServings: Optional[float] = None
-    recipeYieldQuantity: Optional[float] = None
-    recipeYield: Optional[str] = None
-    totalTime: Optional[str] = None
-    prepTime: Optional[str] = None
-    cookTime: Optional[str] = None
-    performTime: Optional[str] = None
-    description: Optional[str] = None
-    recipeCategory: List[str] = Field(default_factory=list)
-    tags: List[str] = Field(default_factory=list)
-    tools: List[str] = Field(default_factory=list)
-    rating: Optional[float] = None
-    orgURL: Optional[str] = None
-    dateAdded: Optional[str] = None
-    dateUpdated: Optional[str] = None
-    createdAt: Optional[str] = None
-    updatedAt: Optional[str] = None
-    lastMade: Optional[str] = None
-    recipeIngredient: List[RecipeIngredient] = Field(default_factory=list)
-    recipeInstructions: List[RecipeInstruction] = Field(default_factory=list)
+    image: str | None = None
+    recipeServings: float | None = None
+    recipeYieldQuantity: float | None = None
+    recipeYield: str | None = None
+    totalTime: str | None = None
+    prepTime: str | None = None
+    cookTime: str | None = None
+    performTime: str | None = None
+    description: str | None = None
+    recipeCategory: list[str] = Field(default_factory=list)
+    tags: list[str] = Field(default_factory=list)
+    tools: list[str] = Field(default_factory=list)
+    rating: float | None = None
+    orgURL: str | None = None
+    dateAdded: str | None = None
+    dateUpdated: str | None = None
+    createdAt: str | None = None
+    updatedAt: str | None = None
+    lastMade: str | None = None
+    recipeIngredient: list[RecipeIngredient] = Field(default_factory=list)
+    recipeInstructions: list[RecipeInstruction] = Field(default_factory=list)
 
     model_config = ConfigDict(extra="ignore")
 
@@ -73,8 +71,8 @@ class RecipeResponse(BaseModel):
     per_page: int = Field(alias="per_page")
     total: int
     total_pages: int
-    items: List[Recipe]
-    next: Optional[str] = None
-    previous: Optional[str] = None
+    items: list[Recipe]
+    next: str | None = None
+    previous: str | None = None
 
     model_config = ConfigDict(extra="ignore")

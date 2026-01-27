@@ -5,7 +5,6 @@ Contains functions to interact with Mealie, including fetching recipes and recip
 """
 
 import logging
-from typing import List
 
 import requests
 
@@ -16,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 def fetch_recipes(
     mealie_api_url: str, mealie_token: str, per_page: int = 10
-) -> List[Recipe]:
+) -> list[Recipe]:
     """
     Fetch all recipes from Mealie.
 
@@ -28,7 +27,7 @@ def fetch_recipes(
         List of recipes
     """
     logger.info(f"Fetching recipes from {mealie_api_url}...")
-    all_recipes: List[Recipe] = []
+    all_recipes: list[Recipe] = []
     page = 1
 
     try:
@@ -90,7 +89,7 @@ def fetch_full_recipe(recipe: Recipe, mealie_api_url: str, mealie_token: str) ->
         raise Exception(f"Error fetching recipe {recipe.id}: {e}") from e
 
 
-def fetch_full_recipes(mealie_api_url: str, mealie_token: str) -> List[Recipe]:
+def fetch_full_recipes(mealie_api_url: str, mealie_token: str) -> list[Recipe]:
     """
     Fetch all recipes with full details from Mealie.
 

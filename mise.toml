@@ -18,3 +18,7 @@ enter = "bash ./scripts/setup_project"
 [tasks.docker-build]
 description = "Build Docker images"
 run = "bash ./scripts/build_docker_images"
+
+[tasks.mealierag-tests]
+description = "Run tests"
+run = "cd src/mealierag && uv run pytest --cov=mealierag"

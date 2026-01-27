@@ -31,4 +31,14 @@ build-backend = "uv_build"
 [dependency-groups]
 dev = [
     "ruff==0.14.13",
+    "pytest~=9.0.2",
+    "pytest-cov~=7.0.0",
+    "pytest-mock~=3.15.1",
+]
+
+[tool.pytest.ini_options]
+minversion = "9.0"
+addopts = "-ra --cov-report=term-missing"
+testpaths = [
+    "tests",
 ]

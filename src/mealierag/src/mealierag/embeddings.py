@@ -4,27 +4,32 @@ Embeddings module.
 Contains functions to generate embeddings.
 """
 
+import logging
+
 import ollama
 
 from .config import Settings
 
+logger = logging.getLogger(__name__)
+
 
 def get_embedding(
-    text: str, ollama_client: ollama.Client, settings: Settings
-) -> list[float]:
+    texts: list[str], ollama_client: ollama.Client, settings: Settings
+) -> list[list[float]]:
     """
-    Generate embedding for a given text.
+    Generate embedding for a list of texts.
 
     Args:
-        text: Text to generate embedding for
+        texts: List of texts to generate embedding for
         ollama_client: Ollama client
         settings: Settings
 
     Returns:
-        Embedding for the given text
+        List of embeddings for the given texts
     """
     try:
-        response = ollama_client.embed(model=settings.embedding_model, input=[text])
-        return response["embeddings"][0]
+        logger.debug("Generating embedding", extra={"texts": texts})
+        response = ollama_client.embed(model=settings.embedding_model, input=texts)
+        return response["embeddings"]
     except Exception as e:
         raise Exception(f"Error generating embedding: {e}")
