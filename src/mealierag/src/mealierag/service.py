@@ -1,6 +1,6 @@
 import logging
 from collections.abc import Generator
-from typing import Any
+from typing import Any, Callable
 
 from qdrant_client.http.models import ScoredPoint
 
@@ -8,7 +8,8 @@ from .chat import populate_messages
 from .config import SearchStrategy, settings
 from .embeddings import get_embedding
 from .llm_client import OllamaClient
-from .query_builder import DefaultQueryBuilder, MultiQueryQueryBuilder
+from .prompts import LangfusePromptManager
+from .query_builder import DefaultQueryBuilder, MultiQueryQueryBuilder, QueryBuilder
 from .vectordb import (
     get_vector_db_client,
     retrieve_results_rrf,
@@ -19,21 +20,19 @@ logger = logging.getLogger(__name__)
 
 
 class MealieRAGService:
-    def __init__(self):
-        self.ollama_client = OllamaClient(settings.ollama_base_url)
-        self.vector_db_client = get_vector_db_client(settings.vectordb_url)
-
-        if settings.search_strategy == SearchStrategy.MULTIQUERY:
-            self.query_builder = MultiQueryQueryBuilder(
-                ollama_client=self.ollama_client,
-                model=settings.llm_model,
-                temperature=settings.llm_temperature,
-                seed=settings.llm_seed,
-            )
-            self._retrieve_results = retrieve_results_rrf
-        else:
-            self.query_builder = DefaultQueryBuilder()
-            self._retrieve_results = retrieve_results_simple
+    def __init__(
+        self,
+        ollama_client: OllamaClient,
+        vector_db_client: Any,
+        prompt_manager: LangfusePromptManager,
+        query_builder: QueryBuilder,
+        retrieve_results_fn: Callable,
+    ):
+        self.ollama_client = ollama_client
+        self.vector_db_client = vector_db_client
+        self.prompt_manager = prompt_manager
+        self.query_builder = query_builder
+        self._retrieve_results = retrieve_results_fn
 
     def generate_queries(self, user_input: str) -> list[str]:
         """
@@ -70,7 +69,7 @@ class MealieRAGService:
             "Populating messages",
             extra={"user_input": user_input, "hits_count": len(hits)},
         )
-        return populate_messages(user_input, hits)
+        return populate_messages(user_input, hits, self.prompt_manager)
 
     def chat(
         self, messages: list[dict[str, str]]
@@ -97,3 +96,32 @@ class MealieRAGService:
         if not healthy:
             logger.error(f"Collection '{settings.vectordb_collection_name}' not found.")
         return healthy
+
+
+def create_mealie_rag_service(settings_obj=settings) -> MealieRAGService:
+    """
+    Factory function to create a MealieRAGService instance with all dependencies.
+    """
+    ollama_client = OllamaClient(settings_obj.ollama_base_url)
+    vector_db_client = get_vector_db_client(settings_obj.vectordb_url)
+    prompt_manager = LangfusePromptManager()
+
+    if settings_obj.search_strategy == SearchStrategy.MULTIQUERY:
+        query_builder = MultiQueryQueryBuilder(
+            ollama_client=ollama_client,
+            model=settings_obj.llm_model,
+            temperature=settings_obj.llm_temperature,
+            seed=settings_obj.llm_seed,
+        )
+        retrieve_results_fn = retrieve_results_rrf
+    else:
+        query_builder = DefaultQueryBuilder()
+        retrieve_results_fn = retrieve_results_simple
+
+    return MealieRAGService(
+        ollama_client=ollama_client,
+        vector_db_client=vector_db_client,
+        prompt_manager=prompt_manager,
+        query_builder=query_builder,
+        retrieve_results_fn=retrieve_results_fn,
+    )

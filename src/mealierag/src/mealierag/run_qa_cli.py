@@ -7,7 +7,7 @@ import sys
 
 from qdrant_client.http.models import ScoredPoint
 
-from .service import MealieRAGService
+from .service import create_mealie_rag_service
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ def print_hits(hits: list[ScoredPoint]):
 def main():
     print("Welcome to Mealie QA! (Type 'exit' to quit)")
 
-    service = MealieRAGService()
+    service = create_mealie_rag_service()
 
     # Initial check
     if not service.check_health():

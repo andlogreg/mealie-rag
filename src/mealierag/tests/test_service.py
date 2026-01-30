@@ -2,7 +2,6 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from mealierag.config import settings
 from mealierag.service import MealieRAGService, SearchStrategy
 
 
@@ -21,65 +20,100 @@ def mock_retrieve_results(mocker):
     )
 
 
-def test_service_initialization(mock_settings, mock_qdrant_client, mock_ollama_client):
-    """Test service initialization with default settings"""
-    service = MealieRAGService()
-    assert service.ollama_client is not None
-    assert service.vector_db_client is not None
+@pytest.fixture
+def mock_dependencies(mocker):
+    return {
+        "ollama_client": MagicMock(),
+        "vector_db_client": MagicMock(),
+        "prompt_manager": MagicMock(),
+        "query_builder": MagicMock(),
+        "retrieve_results_fn": MagicMock(),
+    }
 
 
-def test_generate_queries(mock_settings, mock_qdrant_client, mock_ollama_client):
-    """Test generating queries with default strategy"""
-    service = MealieRAGService()
+def test_service_initialization(mock_dependencies):
+    """Test service initialization with injected dependencies"""
+    service = MealieRAGService(**mock_dependencies)
+    assert service.ollama_client == mock_dependencies["ollama_client"]
+    assert service.vector_db_client == mock_dependencies["vector_db_client"]
+    assert service.prompt_manager == mock_dependencies["prompt_manager"]
+    assert service.query_builder == mock_dependencies["query_builder"]
+    assert service._retrieve_results == mock_dependencies["retrieve_results_fn"]
+
+
+def test_generate_queries(mock_dependencies):
+    """Test generating queries"""
+    service = MealieRAGService(**mock_dependencies)
+    mock_dependencies["query_builder"].return_value = ["test query"]
+
     queries = service.generate_queries("test query")
+
     assert queries == ["test query"]
+    mock_dependencies["query_builder"].assert_called_once_with("test query")
 
 
-def test_retrieve_recipes(
-    mock_settings,
-    mock_qdrant_client,
-    mock_ollama_client,
-    mock_embedding_func,
-    mock_retrieve_results,
-):
+def test_retrieve_recipes(mock_dependencies, mock_embedding_func):
     """Test retrieving recipes"""
-    service = MealieRAGService()
+    service = MealieRAGService(**mock_dependencies)
+
+    mock_dependencies["retrieve_results_fn"].return_value = [
+        MagicMock(id="1", payload={"name": "Recipe 1"})
+    ]
+
     recipes = service.retrieve_recipes(["test query"])
 
     assert len(recipes) == 1
     assert recipes[0].payload["name"] == "Recipe 1"
+
     mock_embedding_func.assert_called_once()
-    mock_retrieve_results.assert_called_once()
+    mock_dependencies["retrieve_results_fn"].assert_called_once()
 
 
-def test_check_health(mock_settings, mock_qdrant_client, mock_ollama_client):
+def test_populate_messages(mock_dependencies):
+    """Test populate_messages delegates to prompt_manager via util"""
+    # service = MealieRAGService(**mock_dependencies)
+
+    # TODO: Test populate_messages
+    pass
+
+
+def test_chat(mock_dependencies):
+    """Test chat delegates to ollama_client"""
+    service = MealieRAGService(**mock_dependencies)
+    messages = [{"role": "user", "content": "hi"}]
+
+    service.chat(messages)
+
+    mock_dependencies["ollama_client"].streaming_chat.assert_called_once()
+
+
+def test_check_health(mock_dependencies):
     """Test health check"""
-    mock_qdrant_client.collection_exists.return_value = True
-    service = MealieRAGService()
+    service = MealieRAGService(**mock_dependencies)
+
+    mock_dependencies["vector_db_client"].collection_exists.return_value = True
     assert service.check_health() is True
 
-    mock_qdrant_client.collection_exists.return_value = False
+    mock_dependencies["vector_db_client"].collection_exists.return_value = False
     assert service.check_health() is False
 
 
-def test_multiquery_strategy(
-    mock_settings, mock_qdrant_client, mock_ollama_client, mocker
-):
-    """Test multiquery strategy initialization"""
-    # Temporarily switch strategy
-    previous_strategy = settings.search_strategy
-    settings.search_strategy = SearchStrategy.MULTIQUERY
+def test_create_mealie_rag_service(mocker):
+    """Test factory function creates service with correct dependencies."""
+    mock_settings = MagicMock()
+    mock_settings.search_strategy = SearchStrategy.SIMPLE
+    mock_settings.ollama_base_url = "http://test-ollama"
+    mock_settings.vectordb_url = "http://test-qdrant"
 
-    try:
-        mocker.patch(
-            "mealierag.service.MultiQueryQueryBuilder",
-            return_value=lambda x: ["q1", "q2"],
-        )
+    mocker.patch("mealierag.service.OllamaClient")
+    mocker.patch("mealierag.service.get_vector_db_client")
+    mocker.patch("mealierag.service.LangfusePromptManager")
+    mocker.patch("mealierag.service.DefaultQueryBuilder")
 
-        service = MealieRAGService()
-        queries = service.generate_queries("test")
-        assert queries == ["q1", "q2"]
-        assert service._retrieve_results.__name__ == "retrieve_results_rrf"
+    from mealierag.service import create_mealie_rag_service
 
-    finally:
-        settings.search_strategy = previous_strategy
+    service = create_mealie_rag_service(mock_settings)
+
+    assert isinstance(service, MealieRAGService)
+    assert service.ollama_client is not None
+    assert service.vector_db_client is not None

@@ -8,12 +8,12 @@ import gradio as gr
 from qdrant_client.http.models import ScoredPoint
 
 from .config import settings
-from .service import MealieRAGService
+from .service import create_mealie_rag_service
 
 logger = logging.getLogger(__name__)
 
 # Initialize service
-service = MealieRAGService()
+service = create_mealie_rag_service()
 
 
 def print_hits(hits: list[ScoredPoint]):

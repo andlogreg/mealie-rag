@@ -1,12 +1,13 @@
+from unittest.mock import MagicMock
+
 from qdrant_client.http.models import ScoredPoint
 
 from mealierag.chat import (
-    SYSTEM_PROMPT,
-    USER_MESSAGE,
     populate_context,
     populate_messages,
 )
 from mealierag.config import settings
+from mealierag.prompts import PromptType
 
 
 def test_populate_context():
@@ -55,16 +56,20 @@ def test_populate_messages():
     ]
     query = "What can I cook?"
 
-    messages = populate_messages(query, hits)
+    mock_prompt_manager = MagicMock()
+    mock_prompt_manager.get_prompt.side_effect = [
+        "System Prompt",
+        "User Message",
+    ]
+
+    messages = populate_messages(query, hits, mock_prompt_manager)
 
     assert len(messages) == 2
     assert messages[0]["role"] == "system"
-    assert messages[0]["content"] == SYSTEM_PROMPT.format(
-        external_url=settings.mealie_external_url
-    )
+    assert messages[0]["content"] == "System Prompt"
     assert messages[1]["role"] == "user"
+    assert messages[1]["content"] == "User Message"
 
-    context_text = populate_context(hits)
-    expected_user_msg = USER_MESSAGE.format(context_text=context_text, query=query)
-
-    assert messages[1]["content"] == expected_user_msg
+    mock_prompt_manager.get_prompt.assert_any_call(
+        PromptType.GENERATION_SYSTEM, external_url=settings.mealie_external_url
+    )
