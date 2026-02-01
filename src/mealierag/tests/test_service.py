@@ -2,6 +2,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
+from mealierag.api import ChatMessages
 from mealierag.service import MealieRAGService, SearchStrategy
 
 
@@ -23,7 +24,7 @@ def mock_retrieve_results(mocker):
 @pytest.fixture
 def mock_dependencies(mocker):
     return {
-        "ollama_client": MagicMock(),
+        "llm_client": MagicMock(),
         "vector_db_client": MagicMock(),
         "prompt_manager": MagicMock(),
         "query_builder": MagicMock(),
@@ -34,7 +35,7 @@ def mock_dependencies(mocker):
 def test_service_initialization(mock_dependencies):
     """Test service initialization with injected dependencies"""
     service = MealieRAGService(**mock_dependencies)
-    assert service.ollama_client == mock_dependencies["ollama_client"]
+    assert service.llm_client == mock_dependencies["llm_client"]
     assert service.vector_db_client == mock_dependencies["vector_db_client"]
     assert service.prompt_manager == mock_dependencies["prompt_manager"]
     assert service.query_builder == mock_dependencies["query_builder"]
@@ -80,11 +81,11 @@ def test_populate_messages(mock_dependencies):
 def test_chat(mock_dependencies):
     """Test chat delegates to ollama_client"""
     service = MealieRAGService(**mock_dependencies)
-    messages = [{"role": "user", "content": "hi"}]
+    messages = ChatMessages(messages=[{"role": "user", "content": "hi"}])
 
     service.chat(messages)
 
-    mock_dependencies["ollama_client"].streaming_chat.assert_called_once()
+    mock_dependencies["llm_client"].streaming_chat.assert_called_once()
 
 
 def test_check_health(mock_dependencies):
@@ -100,20 +101,33 @@ def test_check_health(mock_dependencies):
 
 def test_create_mealie_rag_service(mocker):
     """Test factory function creates service with correct dependencies."""
+    from mealierag.config import LLMProvider
+
     mock_settings = MagicMock()
     mock_settings.search_strategy = SearchStrategy.SIMPLE
-    mock_settings.ollama_base_url = "http://test-ollama"
+    mock_settings.llm_provider = LLMProvider.OLLAMA
+    mock_settings.llm_base_url = "http://test-ollama"
     mock_settings.vectordb_url = "http://test-qdrant"
 
     mocker.patch("mealierag.service.OllamaClient")
+    mocker.patch("mealierag.service.OpenAIClient")
     mocker.patch("mealierag.service.get_vector_db_client")
     mocker.patch("mealierag.service.LangfusePromptManager")
     mocker.patch("mealierag.service.DefaultQueryBuilder")
 
     from mealierag.service import create_mealie_rag_service
 
+    # Test Ollama
     service = create_mealie_rag_service(mock_settings)
 
     assert isinstance(service, MealieRAGService)
-    assert service.ollama_client is not None
+    assert service.llm_client is not None
     assert service.vector_db_client is not None
+
+    # Test OpenAI
+    mock_settings.llm_provider = LLMProvider.OPENAI
+    mock_settings.llm_api_key = MagicMock(get_secret_value=lambda: "test-key")
+
+    service_openai = create_mealie_rag_service(mock_settings)
+    assert isinstance(service_openai, MealieRAGService)
+    assert service_openai.llm_client is not None

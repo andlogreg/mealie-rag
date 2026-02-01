@@ -13,6 +13,11 @@ class SearchStrategy(StrEnum):
     MULTIQUERY = auto()
 
 
+class LLMProvider(StrEnum):
+    OLLAMA = auto()
+    OPENAI = auto()
+
+
 # TODO break down into multiple config files depending on which entrypoint is used
 class Settings(BaseSettings):
     mealie_api_url: str = Field(
@@ -23,9 +28,6 @@ class Settings(BaseSettings):
     )
     mealie_token: str | None = Field(None, description="Mealie API Token")
 
-    ollama_base_url: str = Field(
-        "http://localhost:11434", description="Ollama Base URL"
-    )
     vectordb_url: str = Field(
         "http://localhost:6333", description="Vector DB (qdrant) URL"
     )
@@ -34,9 +36,15 @@ class Settings(BaseSettings):
     )
     vectordb_k: int = Field(3, description="Number of results to return when searching")
     # embedding_model: str = "nomic-embed-text"
-    embedding_model: str = Field("bge-m3", description="Embedding Model")
+    embedding_model: str = Field("mealie-rag-embedding", description="Embedding Model")
 
-    llm_model: str = Field("llama3.1:8b", description="LLM Model")
+    llm_provider: LLMProvider = Field(LLMProvider.OLLAMA, description="LLM Provider")
+    llm_base_url: str = Field(
+        "http://localhost:11434", description="LLM Provider Base URL"
+    )
+    llm_api_key: SecretStr | None = Field(None, description="LLM Provider API Key")
+
+    llm_model: str = Field("mealie-rag-llm", description="LLM Model")
     llm_temperature: float = Field(0.2, description="LLM Temperature")
     llm_seed: int | None = Field(None, description="LLM Seed")
 
@@ -57,6 +65,18 @@ class Settings(BaseSettings):
     dependency_log_level: str = Field(
         "WARNING", description="Log level for dependencies"
     )
+
+    tracing_base_url: str = Field(
+        "https://cloud.langfuse.com", description="Langfuse Base URL"
+    )
+    tracing_public_key: SecretStr = Field(
+        "pk-lf-test", description="Langfuse Public Key"
+    )
+    tracing_secret_key: SecretStr = Field(
+        "sk-lf-test", description="Langfuse Secret Key"
+    )
+    tracing_environment: str = Field("development", description="Langfuse Environment")
+    tracing_enabled: bool = Field(False, description="Enable tracing")
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

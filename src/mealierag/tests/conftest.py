@@ -13,7 +13,7 @@ def mock_env(monkeypatch):
     monkeypatch.setenv("MEALIE_API_URL", "http://test-mealie/api/recipes")
     monkeypatch.setenv("MEALIE_TOKEN", "test-token")
     monkeypatch.setenv("VECTORDB_URL", "http://test-qdrant")
-    monkeypatch.setenv("OLLAMA_BASE_URL", "http://test-ollama")
+    monkeypatch.setenv("LLM_BASE_URL", "http://test-ollama")
 
 
 @pytest.fixture

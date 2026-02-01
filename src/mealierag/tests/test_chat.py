@@ -57,19 +57,26 @@ def test_populate_messages():
     query = "What can I cook?"
 
     mock_prompt_manager = MagicMock()
-    mock_prompt_manager.get_prompt.side_effect = [
-        "System Prompt",
-        "User Message",
+    mock_prompt = MagicMock()
+    mock_prompt.compile.return_value = [
+        {"role": "system", "content": "System Prompt"},
+        {"role": "user", "content": "User Message"},
     ]
+    mock_prompt_manager.get_prompt.return_value = mock_prompt
 
     messages = populate_messages(query, hits, mock_prompt_manager)
 
-    assert len(messages) == 2
-    assert messages[0]["role"] == "system"
-    assert messages[0]["content"] == "System Prompt"
-    assert messages[1]["role"] == "user"
-    assert messages[1]["content"] == "User Message"
+    assert messages.messages_count == 2
+    assert messages.messages[0]["role"] == "system"
+    assert messages.messages[0]["content"] == "System Prompt"
+    assert messages.messages[1]["role"] == "user"
+    assert messages.messages[1]["content"] == "User Message"
 
-    mock_prompt_manager.get_prompt.assert_any_call(
-        PromptType.GENERATION_SYSTEM, external_url=settings.mealie_external_url
+    mock_prompt_manager.get_prompt.assert_any_call(PromptType.CHAT_GENERATION)
+
+    # Check compile call on the prompt object
+    mock_prompt.compile.assert_called_with(
+        external_url=settings.mealie_external_url,
+        context_text="[RECIPE_START]\nRecipeName: Recipe 1\nRecipeID: uuid-1\nDescription[RECIPE_END]\n",
+        query="What can I cook?",
     )

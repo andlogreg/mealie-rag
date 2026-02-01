@@ -11,6 +11,7 @@ dependencies = [
     "gradio~=6.3.0",
     "langfuse~=3.12.1",
     "ollama~=0.6.1",
+    "openai~=2.16.0",
     "pydantic~=2.12.5",
     "pydantic-settings~=2.12.0",
     "python-json-logger~=4.0.0",

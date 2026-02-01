@@ -13,7 +13,11 @@ def test_default_query_builder():
 def test_multi_query_query_builder(mock_ollama_client):
     """Test MultiQueryQueryBuilder."""
     builder = MultiQueryQueryBuilder(
-        ollama_client=mock_ollama_client, model="test-model", temperature=0.7, seed=42
+        llm_client=mock_ollama_client,
+        model="test-model",
+        temperature=0.7,
+        seed=42,
+        prompt_manager=MagicMock(),
     )
 
     # Mock LLM response
@@ -38,7 +42,9 @@ def test_multi_query_query_builder(mock_ollama_client):
 
 def test_multi_query_parsing():
     """Test parsing logic specifically."""
-    builder = MultiQueryQueryBuilder(MagicMock(), "model", 0.1, 1)
+    builder = MultiQueryQueryBuilder(
+        MagicMock(), "model", 0.1, 1, prompt_manager=MagicMock()
+    )
 
     raw_response = """
     1. First Query
