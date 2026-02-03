@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     mealie_external_url: str = Field(
         "http://localhost:9000", description="Mealie External URL (for links)"
     )
-    mealie_token: str | None = Field(None, description="Mealie API Token")
+    mealie_token: SecretStr | None = Field(None, description="Mealie API Token")
 
     vectordb_url: str = Field(
         "http://localhost:6333", description="Vector DB (qdrant) URL"

@@ -19,7 +19,7 @@ def test_run_fetch_main(mocker, mock_settings):
     main()
 
     mock_fetch.assert_called_with(
-        mock_settings.mealie_api_url, mock_settings.mealie_token
+        mock_settings.mealie_api_url, mock_settings.mealie_token.get_secret_value()
     )
     mock_logger.info.assert_any_call("Successfully fetched 2 recipes.")
 
