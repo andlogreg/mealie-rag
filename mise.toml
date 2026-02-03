@@ -10,6 +10,8 @@ python.uv_venv_auto = true
 
 [env]
 OLLAMA_BASE_URL="http://host.docker.internal:11434"
+LLM_BASE_URL="http://localhost:4000"
+LLM_PROVIDER="openai"
 VECTORDB_K="10"
 
 [hooks]

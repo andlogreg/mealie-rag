@@ -1,10 +1,10 @@
 model_list:
-  - model_name: llama3.1:8b
+  - model_name: mealie-rag-llm
     litellm_params:
       model: ollama/llama3.1:8b
       api_base: os.environ/OLLAMA_BASE_URL
       api_key: ""
-  - model_name: bge-m3
+  - model_name: mealie-rag-embedding
     litellm_params:
       model: ollama/bge-m3
       api_base: os.environ/OLLAMA_BASE_URL
