@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.7.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.6.0...mealierag-v0.7.0) (2026-02-03)
+
+
+### Features
+
+* trigger release ([ab5609c](https://github.com/andlogreg/mealie-rag-poc/commit/ab5609c4eb13b409a98b7f886f4ebe7dcc16b657))
+
+
+### Bug Fixes
+
+* **config:** make mealie token a secret ([e84dcf4](https://github.com/andlogreg/mealie-rag-poc/commit/e84dcf4e14f5a79e8cd32cf7aadfc68bec1f9e5c))
+* **ingest:** fix ingest job ([889aa6a](https://github.com/andlogreg/mealie-rag-poc/commit/889aa6a5637839d5fa32f53687c172b2beaa1baf))
+* **ingest:** fix ingest job ([7d92f62](https://github.com/andlogreg/mealie-rag-poc/commit/7d92f620db53a9bfe816d59edba36ad245ef2c4c))
+
 ## [0.6.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.5.1...mealierag-v0.6.0) (2026-02-03)
 
 
