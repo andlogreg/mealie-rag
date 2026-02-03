@@ -8,12 +8,14 @@ import gradio as gr
 from qdrant_client.http.models import ScoredPoint
 
 from .config import settings
-from .service import MealieRAGService
+from .service import create_mealie_rag_service
+from .tracing import TraceContext, tracer
 
 logger = logging.getLogger(__name__)
 
 # Initialize service
-service = MealieRAGService()
+trace_context = TraceContext()
+service = create_mealie_rag_service()
 
 
 def print_hits(hits: list[ScoredPoint]):
@@ -27,53 +29,103 @@ def print_hits(hits: list[ScoredPoint]):
     return hits_table
 
 
-def chat_fn(message: str, history: list[list[str]]):
-    partial = " 👾 Consulting the digital oracles..."
-    yield partial
+def transform_fn(inputs):
+    """Helper function to disable automatic output tracing"""
+    return None
 
-    queries = service.generate_queries(message)
+
+@tracer.observe(transform_to_string=transform_fn)
+def process_input(user_input: str):
+    """Process the user input and generate a response."""
+    trace_context.set_trace_id(tracer.get_current_trace_id())
+    tracer.update_current_trace(
+        name="qa_ui_trace",
+        session_id=trace_context.session_id,
+        input=user_input,
+    )
+    tracer.update_current_span(
+        name="qa_ui",
+        input=user_input,
+    )
+
+    partial = " 👾 Consulting the digital oracles..."
+    yield partial, None
+
+    queries = service.generate_queries(user_input)
 
     partial += "\n 🔍 Finding relevant recipes..."
-    yield partial
+    yield partial, None
 
     hits = service.retrieve_recipes(queries)
 
     if not hits:
-        yield "I couldn't find any relevant recipes."
+        yield "I couldn't find any relevant recipes.", None
         return
 
     hit_str = print_hits(hits)
 
     partial += "\n 🤔 Done! Processing your request..."
-    yield partial
+    yield partial, None
 
-    messages = service.populate_messages(message, hits)
+    messages = service.populate_messages(user_input, hits)
 
     logger.debug("Generating response...")
     response_stream = service.chat(messages)
 
     partial = "**🤖 MealieChef:**\n"
+    response = ""
     for chunk in response_stream:
-        partial += chunk["message"]["content"]
-        yield partial
+        partial += chunk
+        response += chunk
+        yield partial, None
 
     logger.debug("Response generation finished.")
 
-    partial += (
-        "\n\n" + "### 🐛 Recipes context used for the above answer: ###\n" + hit_str
+    debug_info = (
+        "### 🐛 Recipes context used for the above answer: ###\n"
+        + hit_str
+        + "\n\n[View trace](%s)" % tracer.get_trace_url(trace_context.trace_id)
     )
-    yield partial
+    yield partial, gr.Markdown(value=debug_info)
+
+    tracer.update_current_span(
+        output=response,
+    )
+    tracer.update_current_trace(
+        output=partial + "\n\n" + debug_info,
+    )
 
 
-with gr.Blocks(title="🍳 MealieChef") as demo:
-    gr.Markdown("# 🍳 MealieChef\nYour personal recipe assistant")
+def chat_fn(message: str, history: list[list[str]]):
+    yield from process_input(message)
 
+
+def handle_like(data: gr.LikeData):
+    """Handle the like event from the user."""
+    if data.liked:
+        tracer.create_score(
+            value=1, name="user-feedback", trace_id=trace_context.trace_id
+        )
+    else:
+        tracer.create_score(
+            value=0, name="user-feedback", trace_id=trace_context.trace_id
+        )
+
+
+with gr.Blocks() as demo:
+    debug_output = gr.Markdown(label="Debug Output", render=False, min_height=300)
+    logout_button = gr.Button("Logout", link="/logout", size="sm", variant="secondary")
+    chatbot = gr.Chatbot(height=500)
+    chatbot.like(handle_like, None, None)
+    chatbot.clear(trace_context.create_new_session_id, None, None)
     chat = gr.ChatInterface(
         fn=chat_fn,
-        chatbot=gr.Chatbot(height=500),
-        textbox=gr.Textbox(placeholder="Ask me about your recipes...", scale=7),
+        chatbot=chatbot,
+        title="🍳 MealieChef",
+        description="Your personal recipe assistant",
+        additional_outputs=[debug_output],
     )
-    logout_button = gr.Button("Logout", link="/logout")
+    debug_output.render()
 
 
 def main():

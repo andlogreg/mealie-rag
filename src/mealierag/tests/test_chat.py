@@ -1,12 +1,13 @@
+from unittest.mock import MagicMock
+
 from qdrant_client.http.models import ScoredPoint
 
 from mealierag.chat import (
-    SYSTEM_PROMPT,
-    USER_MESSAGE,
     populate_context,
     populate_messages,
 )
 from mealierag.config import settings
+from mealierag.prompts import PromptType
 
 
 def test_populate_context():
@@ -55,16 +56,27 @@ def test_populate_messages():
     ]
     query = "What can I cook?"
 
-    messages = populate_messages(query, hits)
+    mock_prompt_manager = MagicMock()
+    mock_prompt = MagicMock()
+    mock_prompt.compile.return_value = [
+        {"role": "system", "content": "System Prompt"},
+        {"role": "user", "content": "User Message"},
+    ]
+    mock_prompt_manager.get_prompt.return_value = mock_prompt
 
-    assert len(messages) == 2
-    assert messages[0]["role"] == "system"
-    assert messages[0]["content"] == SYSTEM_PROMPT.format(
-        external_url=settings.mealie_external_url
+    messages = populate_messages(query, hits, mock_prompt_manager)
+
+    assert messages.messages_count == 2
+    assert messages.messages[0]["role"] == "system"
+    assert messages.messages[0]["content"] == "System Prompt"
+    assert messages.messages[1]["role"] == "user"
+    assert messages.messages[1]["content"] == "User Message"
+
+    mock_prompt_manager.get_prompt.assert_any_call(PromptType.CHAT_GENERATION)
+
+    # Check compile call on the prompt object
+    mock_prompt.compile.assert_called_with(
+        external_url=settings.mealie_external_url,
+        context_text="[RECIPE_START]\nRecipeName: Recipe 1\nRecipeID: uuid-1\nDescription[RECIPE_END]\n",
+        query="What can I cook?",
     )
-    assert messages[1]["role"] == "user"
-
-    context_text = populate_context(hits)
-    expected_user_msg = USER_MESSAGE.format(context_text=context_text, query=query)
-
-    assert messages[1]["content"] == expected_user_msg

@@ -13,7 +13,7 @@ from .mealie import fetch_full_recipes
 from .vectordb import get_vector_db_client
 
 # Client initialization
-ollama_client = ollama.Client(host=settings.ollama_base_url)
+ollama_client = ollama.Client(host=settings.llm_base_url)
 
 logger = logging.getLogger(__name__)
 

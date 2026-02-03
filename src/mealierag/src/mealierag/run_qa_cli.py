@@ -7,7 +7,12 @@ import sys
 
 from qdrant_client.http.models import ScoredPoint
 
-from .service import MealieRAGService
+from .service import create_mealie_rag_service
+from .tracing import TraceContext, tracer
+
+# Initialize service
+trace_context = TraceContext()
+service = create_mealie_rag_service()
 
 logger = logging.getLogger(__name__)
 
@@ -19,10 +24,64 @@ def print_hits(hits: list[ScoredPoint]):
         )
 
 
+def transform_fn(inputs):
+    """Helper function to disable automatic output tracing"""
+    return None
+
+
+@tracer.observe(transform_to_string=transform_fn)
+def process_input(user_input: str):
+    trace_context.set_trace_id(tracer.get_current_trace_id())
+    tracer.update_current_trace(
+        name="qa_cli_trace",
+        session_id=trace_context.session_id,
+        input=user_input,
+    )
+    tracer.update_current_span(
+        name="qa_cli",
+        input=user_input,
+    )
+    print(" 👾 Consulting the digital oracles...")
+    queries = service.generate_queries(user_input)
+
+    print(" 🔍 Finding relevant recipes...")
+
+    hits = service.retrieve_recipes(queries)
+
+    if not hits:
+        print("No relevant recipes found.")
+        return
+    print_hits(hits)
+
+    # Populate messages
+    messages = service.populate_messages(user_input, hits)
+
+    # Generate response
+    print("\nThinking...\n", end="", flush=True)
+    full_response = ""
+    try:
+        response_stream = service.chat(messages)
+        print("\r🤖 MealieChef: ", end="")
+        for chunk in response_stream:
+            full_response += chunk
+            print(chunk, end="", flush=True)
+        print("\n")
+    except Exception as e:
+        logger.error(f"Error generating response: {e}", exc_info=True)
+        print("Sorry, I encountered an error talking to the AI.")
+
+    tracer.update_current_span(
+        output=full_response,
+    )
+    tracer.update_current_trace(
+        output=full_response,
+    )
+
+    return full_response
+
+
 def main():
     print("Welcome to Mealie QA! (Type 'exit' to quit)")
-
-    service = MealieRAGService()
 
     # Initial check
     if not service.check_health():
@@ -39,33 +98,7 @@ def main():
             if not user_input.strip():
                 continue
 
-            print(" 👾 Consulting the digital oracles...")
-            queries = service.generate_queries(user_input)
-
-            print(" 🔍 Finding relevant recipes...")
-
-            hits = service.retrieve_recipes(queries)
-
-            if not hits:
-                print("No relevant recipes found.")
-                continue
-            print_hits(hits)
-
-            # Populate messages
-            messages = service.populate_messages(user_input, hits)
-
-            # Generate response
-            print("\nThinking...\n", end="", flush=True)
-            try:
-                response_stream = service.chat(messages)
-                print("\r🤖 MealieChef: ", end="")
-                for chunk in response_stream:
-                    content = chunk["message"]["content"]
-                    print(content, end="", flush=True)
-                print("\n")
-            except Exception as e:
-                logger.error(f"Error generating response: {e}", exc_info=True)
-                print("Sorry, I encountered an error talking to the AI.")
+            process_input(user_input)
 
         except KeyboardInterrupt:
             print("\nGoodbye!")

@@ -1,0 +1,45 @@
+services:
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - ./.docker_volumes/qdrant_data:/qdrant/storage
+
+  mock_mealie:
+    build: ./mock_mealie
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./mock_mealie:/app
+
+  litellm:
+    build:
+      # context: .
+      args:
+        target: runtime
+    image: docker.litellm.ai/berriai/litellm:main-stable
+    volumes:
+     - ./litellm/config.yaml:/app/config.yaml
+    command:
+     - "--config=/app/config.yaml"
+    ports:
+      - "4000:4000" # Map the container port to the host, change the host port if necessary
+    env_file:
+      - ./litellm/.env # Load local .env file
+    environment:
+      - LANGFUSE_SECRET_KEY
+      - LANGFUSE_PUBLIC_KEY
+      - LANGFUSE_HOST
+      - OLLAMA_BASE_URL
+      - LITELLM_MASTER_KEY
+
+  # ollama:
+  #   image: ollama/ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+
+# volumes:
+  # ollama_data:

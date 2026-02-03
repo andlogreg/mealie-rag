@@ -1,3 +1,4 @@
+from mealierag.api import ChatMessages
 from mealierag.llm_client import OllamaClient
 
 
@@ -11,26 +12,30 @@ def test_ollama_client_streaming_chat(mock_ollama_client):
     """Test streaming chat."""
     client = OllamaClient("http://test")
 
-    messages = [{"role": "user", "content": "hello"}]
+    messages = ChatMessages(messages=[{"role": "user", "content": "hello"}])
 
-    mock_ollama_client.chat.return_value = iter(["chunk1", "chunk2"])
+    mock_ollama_client.chat.return_value = iter(
+        [{"message": {"content": "chunk1"}}, {"message": {"content": "chunk2"}}]
+    )
 
     response = client.streaming_chat(messages, "model", 0.5, 42)
 
+    result = list(response)
+
     mock_ollama_client.chat.assert_called_with(
         model="model",
-        messages=messages,
+        messages=messages.messages,
         stream=True,
         options={"temperature": 0.5, "seed": 42},
     )
-    assert list(response) == ["chunk1", "chunk2"]
+    assert result == ["chunk1", "chunk2"]
 
 
 def test_ollama_client_chat(mock_ollama_client):
     """Test non-streaming chat."""
     client = OllamaClient("http://test")
 
-    messages = [{"role": "user", "content": "hello"}]
+    messages = ChatMessages(messages=[{"role": "user", "content": "hello"}])
 
     mock_ollama_client.chat.return_value = {"message": {"content": "response"}}
 
@@ -38,7 +43,7 @@ def test_ollama_client_chat(mock_ollama_client):
 
     mock_ollama_client.chat.assert_called_with(
         model="model",
-        messages=messages,
+        messages=messages.messages,
         stream=False,
         options={"temperature": 0.5, "seed": 42},
     )

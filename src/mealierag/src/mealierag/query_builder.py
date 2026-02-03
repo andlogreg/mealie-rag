@@ -2,25 +2,11 @@ import logging
 import re
 from abc import ABC, abstractmethod
 
-from .llm_client import OllamaClient
+from .api import ChatMessages
+from .llm_client import LLMClient
+from .prompts import PromptManager, PromptType
 
 logger = logging.getLogger(__name__)
-
-MULTI_QUERY_PROMPT = """
-You are a culinary search optimization expert. Your goal is to expand a user's recipe request into five distinct search queries to ensure the most relevant recipes are retrieved from a vector database.
-
-## INSTRUCTIONS
-Generate 5 variations of the original user question. Focus on different culinary dimensions such as:
-1.  **Direct Synonyms:** Use different names for the same dish or key ingredients.
-2.  **Ingredient-Based:** Focus on the primary flavors or components.
-3.  **Technique/Method:** Reference how the dish is prepared (e.g., "slow cooked," "one-pot," "grilled").
-4.  **Occasion/Category:** Relate it to meal types (e.g., "quick weeknight dinner," "healthy breakfast").
-5.  **Descriptive/Sensory:** Use adjectives describing texture or flavor profiles (e.g., "spicy," "crunchy," "comfort food").
-6. **General -> Specific:** If present, translate generic terms that one can use for search but typically are not mentioned in recipes (eg, "meat") to related more specific terms that could actually be mentioned in recipes (eg, "Chicken", "beef", etc)
-
-## OUTPUT FORMAT
-Provide exclusively the variations separated by newlines. Do not include numbering or any introductory text or notes.
-"""
 
 
 class QueryBuilder(ABC):
@@ -70,25 +56,27 @@ class MultiQueryQueryBuilder(QueryBuilder):
 
     def __init__(
         self,
-        ollama_client: OllamaClient,
+        llm_client: LLMClient,
         model: str,
         temperature: float,
         seed: int,
+        prompt_manager: PromptManager,
     ):
         """
         Initialize the MultiQueryQueryBuilder.
 
         Args:
-            ollama_client: Client for interacting with the Ollama API.
+            llm_client: Client for interacting with the LLM API.
             model: The name of the LLM model to use.
             temperature: Sampling temperature for the LLM.
             seed: Random seed for reproducibility.
+            prompt_manager: Manager for retrieving prompts.
         """
-        self.system_prompt = MULTI_QUERY_PROMPT
-        self.ollama_client = ollama_client
+        self.llm_client = llm_client
         self.model = model
         self.temperature = temperature
         self.seed = seed
+        self.prompt_manager = prompt_manager
 
     def build(self, user_input: str) -> list[str]:
         """
@@ -100,17 +88,17 @@ class MultiQueryQueryBuilder(QueryBuilder):
         Returns:
             A list of generated search queries.
         """
-        messages = [
-            {"role": "system", "content": self.system_prompt},
-            {"role": "user", "content": user_input},
-        ]
+        prompt = self.prompt_manager.get_prompt(PromptType.MULTI_QUERY_BUILDER)
+        messages = prompt.compile(user_input=user_input)
+        chat_messages = ChatMessages(messages=messages, prompt=prompt)
 
         logger.debug(
-            "Generating multi-query variations", extra={"user_input": user_input}
+            "Generating multi-query variations",
+            extra={"user_input": user_input, "messages": messages},
         )
 
-        response = self.ollama_client.chat(
-            messages=messages,
+        response = self.llm_client.chat(
+            chat_messages=chat_messages,
             model=self.model,
             temperature=self.temperature,
             seed=self.seed,
