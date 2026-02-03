@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.5.1...mealierag-v0.6.0) (2026-02-03)
+
+
+### Features
+
+* **prompts:** prompt management using langfuse ([f608051](https://github.com/andlogreg/mealie-rag-poc/commit/f6080518f155e0e5a72ecd21b3cf686c8b89a0db))
+* **tracing,refactor:** add tracing with langfuse AND openAI LLM Client ([ffd1ad1](https://github.com/andlogreg/mealie-rag-poc/commit/ffd1ad1d6b5e8bdaf0e22a0218c7ea70178b41fd))
+
 ## [0.5.1](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.5.0...mealierag-v0.5.1) (2026-01-27)
 
 
