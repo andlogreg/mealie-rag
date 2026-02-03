@@ -13,7 +13,9 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    recipes = fetch_full_recipes(settings.mealie_api_url, settings.mealie_token)
+    recipes = fetch_full_recipes(
+        settings.mealie_api_url, settings.mealie_token.get_secret_value()
+    )
     logger.info(f"Successfully fetched {len(recipes)} recipes.")
 
     if recipes:
