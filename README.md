@@ -6,7 +6,7 @@
 
 **Mealie RAG** is a Retrieval-Augmented Generation (RAG) system built as a companion to [Mealie](https://mealie.io/). It acts as a culinary assistant ("MealieChef"), allowing users to interact with their personal recipe collection using natural language!
 
-I'm using this project as a **learning platform** for operationalizing GenAI systems. It moves beyond simple prototypes to explore the engineering challenges of building observable, reliable, and structured RAG pipelines. As such... ⚠️ Things may break or pivot significantly without notice!
+I use this project as an **engineering sandbox** to explore the challenges of operationalizing GenAI systems. It moves beyond simple prototypes to explore the engineering challenges of building observable, reliable, and structured RAG pipelines. As such... ⚠️ Things may break or pivot significantly without notice!
 
 ## Current Architecture
 
@@ -24,6 +24,6 @@ I'm using this project as a **learning platform** for operationalizing GenAI sys
 ## Technology Stack
 
 *   **Core Application**: Python, Typer (CLI), Gradio (Web UI)
-*   **Inference & Storage**: Qdrant, OpenAI SDK / LiteLLM (Code-level abstraction for Ollama/OpenAI)
+*   **Inference & Storage**: Qdrant, OpenAI SDK / Ollama (Code-level abstraction for Ollama/OpenAI)
 *   **Observability**: Langfuse
 *   **Infrastructure**: Docker Compose, GitHub Actions
