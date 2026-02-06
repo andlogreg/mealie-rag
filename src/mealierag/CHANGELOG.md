@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.7.0...mealierag-v0.7.1) (2026-02-06)
+
+
+### Documentation
+
+* **READMES:** update docs ([#19](https://github.com/andlogreg/mealie-rag-poc/issues/19)) ([3a08615](https://github.com/andlogreg/mealie-rag-poc/commit/3a08615bc935fc3901e7bc20c007cf46f62e6581))
+
 ## [0.7.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.6.0...mealierag-v0.7.0) (2026-02-03)
 
 
