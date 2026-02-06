@@ -1,17 +1,29 @@
-# [WIP] Mealie RAG PoC
+# Mealie RAG
 
 <img src="assets/screenshot.png" alt="Mealie RAG Screenshot" width="600">
 
 ## Overview
 
-Contains a Proof of Concept (PoC) for a Retrieval-Augmented Generation (RAG) system built on top of [Mealie](https://mealie.io/). It allows users to chat with their recipes!
+**Mealie RAG** is a Retrieval-Augmented Generation (RAG) system built as a companion to [Mealie](https://mealie.io/). It acts as a culinary assistant ("MealieChef"), allowing users to interact with their personal recipe collection using natural language!
 
-Currently, it uses (may change in the future):
-- **Mealie**: Source of recipe data.
-- **Qdrant**: Vector database for storing recipe embeddings.
-- **Ollama**: Local LLM and embedding provider.
-- **Typer**: CLI for managing ingestion and interaction.
-- **Gradio**: Web UI for the database chat.
+I'm using this project as a **learning platform** for operationalizing GenAI systems. It moves beyond simple prototypes to explore the engineering challenges of building observable, reliable, and structured RAG pipelines. As such... ⚠️ Things may break or pivot significantly without notice!
 
+## Current Architecture
 
-... Now go to [src/mealierag/README.md](src/mealierag/README.md).
+<img src="assets/arch.png" alt="Mealie RAG Architecture" width="800">
+
+## Engineering Highlights
+
+*   **Advanced Retrieval Strategies**: Implements **Multi-Query Expansion** and **Reciprocal Rank Fusion (RRF)** to improve context relevance, mitigating the limitations of simple semantic search.
+*   **End-to-End Observability**: Integration with **Langfuse** for tracing execution paths, managing prompts versions, and tracking model usage/costs.
+*   **Data Infrastructure**: Integration with **Qdrant** for efficient vector operations.
+*   **Reproducibility & Standards**:
+    *   **Modern Tooling**: managed via `uv` (dependency resolution) and `mise` (tool versioning).
+    *   **Code Quality**: Enforced via strict typing, `ruff` linting/formatting, and pre-commit hooks.
+
+## Technology Stack
+
+*   **Core Application**: Python, Typer (CLI), Gradio (Web UI)
+*   **Inference & Storage**: Qdrant, OpenAI SDK / LiteLLM (Code-level abstraction for Ollama/OpenAI)
+*   **Observability**: Langfuse
+*   **Infrastructure**: Docker Compose, GitHub Actions
