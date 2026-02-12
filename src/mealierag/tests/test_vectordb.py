@@ -61,3 +61,69 @@ def test_retrieve_results_rrf(mock_qdrant_client):
     assert len(call_args.kwargs["prefetch"]) == 2
 
     assert results == ["result1", "result2"]
+
+
+def test_build_filters_none():
+    """Test _build_filters with None."""
+    from mealierag.vectordb import _build_filters
+
+    assert _build_filters(None) is None
+
+
+def test_build_filters_empty():
+    """Test _build_filters with empty extraction."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(expanded_queries=["q1"])
+    assert _build_filters(qe) is None
+
+
+def test_build_filters_negative_ingredients():
+    """Test _build_filters with negative ingredients."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(
+        expanded_queries=["q1"], negative_ingredients=["onion", "garlic"]
+    )
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    assert filters.must is None
+    assert len(filters.must_not) == 2
+    assert filters.must_not[0].key == "ingredients"
+    assert filters.must_not[0].match.text == "onion"
+
+
+def test_build_filters_ratings():
+    """Test _build_filters with rating range."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(expanded_queries=["q1"], min_rating=4, max_rating=5)
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    assert filters.must_not is None
+    assert len(filters.must) == 1
+    assert filters.must[0].key == "rating"
+    assert filters.must[0].range.gte == 4
+    assert filters.must[0].range.lt == 5
+
+
+def test_build_filters_all():
+    """Test _build_filters with all conditions."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(
+        expanded_queries=["q1"],
+        negative_ingredients=["onion"],
+        min_rating=3,
+    )
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    assert len(filters.must_not) == 1
+    assert len(filters.must) == 1

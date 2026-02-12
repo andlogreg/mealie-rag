@@ -77,3 +77,17 @@ def test_recipe_model_context_text():
 
     for part in expected_parts:
         assert part in text
+
+
+def test_ingredient_methods():
+    """Test RecipeIngredient methods."""
+    ing = RecipeIngredient(display="test ingredient")
+    assert ing.get_text_for_embedding() == "test ingredient"
+    assert ing.get_text_for_context() == "test ingredient"
+
+
+def test_instruction_methods():
+    """Test RecipeInstruction methods."""
+    instr = RecipeInstruction(text="test instruction")
+    assert instr.get_text_for_embedding() == "test instruction"
+    assert instr.get_text_for_context() == "test instruction"

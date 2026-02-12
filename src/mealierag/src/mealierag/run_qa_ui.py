@@ -133,6 +133,9 @@ def main():
         server_name="0.0.0.0",
         server_port=settings.ui_port,
         auth=(settings.ui_username, settings.ui_password.get_secret_value()),
+        share=False,
+        max_threads=5,
+        enable_monitoring=False,
     )
 
 

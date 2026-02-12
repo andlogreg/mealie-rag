@@ -26,6 +26,15 @@ def get_vector_db_client(url: str) -> QdrantClient:
 
 
 def _build_filters(query_extraction: QueryExtraction | None) -> models.Filter | None:
+    """
+    Build Qdrant filters from the extracted query parameters.
+
+    Args:
+        query_extraction: Extracted query parameters.
+
+    Returns:
+        models.Filter or None: Qdrant filter object or None if no filters are needed.
+    """
     if not query_extraction:
         return None
 
