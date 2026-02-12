@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.8.0](https://github.com/andlogreg/mealie-rag/compare/mealierag-v0.7.0...mealierag-v0.8.0) (2026-02-12)
+
+
+### Features
+
+* **query-builder:** query builder with structured output ([#21](https://github.com/andlogreg/mealie-rag/issues/21)) ([6e2074b](https://github.com/andlogreg/mealie-rag/commit/6e2074b15e675670cbbd1c348bcf18e3c09bbe7c))
+
+
+### Documentation
+
+* **READMES:** update docs ([#19](https://github.com/andlogreg/mealie-rag/issues/19)) ([3a08615](https://github.com/andlogreg/mealie-rag/commit/3a08615bc935fc3901e7bc20c007cf46f62e6581))
+
 ## [0.7.0](https://github.com/andlogreg/mealie-rag-poc/compare/mealierag-v0.6.0...mealierag-v0.7.0) (2026-02-03)
 
 
