@@ -3,6 +3,7 @@ from unittest.mock import MagicMock
 import pytest
 from qdrant_client.http.models import ScoredPoint
 
+from mealierag.models import QueryExtraction
 from mealierag.run_qa_cli import main
 
 
@@ -20,7 +21,9 @@ def test_run_qa_cli_loop(mocker):
     """Test CLI loop execution."""
     mock_service = MagicMock()
     mock_service.check_health.return_value = True
-    mock_service.generate_queries.return_value = ["query"]
+    mock_service.generate_queries.return_value = QueryExtraction(
+        expanded_queries=["query"]
+    )
     mock_service.retrieve_recipes.return_value = [
         ScoredPoint(
             id=1,

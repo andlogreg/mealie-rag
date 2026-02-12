@@ -28,7 +28,7 @@ def test_retrieve_results_simple(mock_qdrant_client):
     )
 
     mock_qdrant_client.query_points.assert_called_with(
-        collection_name="test_collection", query=[0.1, 0.2], limit=2
+        collection_name="test_collection", query=[0.1, 0.2], limit=2, query_filter=None
     )
     assert results == ["result1", "result2"]
 

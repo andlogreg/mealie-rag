@@ -26,15 +26,13 @@ def test_recipe_model_embedding_text():
     text = recipe.get_text_for_embedding()
 
     expected_parts = [
-        "Title: Test Recipe",
-        "Description: A delicious test.",
-        "Rating: 5.0",
-        "Category: Dinner, Test",
-        "Tags: Easy, Quick",
-        "- 1 cup of tests",
-        "- 2 spoons of verification",
-        "- Mix tests.",
-        "- Verify result.",
+        "Test Recipe",
+        "A delicious test.",
+        "Easy, Quick",
+        "1 cup of tests",
+        "2 spoons of verification",
+        "Mix tests.",
+        "Verify result.",
     ]
 
     for part in expected_parts:

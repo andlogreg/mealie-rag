@@ -42,11 +42,11 @@ def process_input(user_input: str):
         input=user_input,
     )
     print(" 👾 Consulting the digital oracles...")
-    queries = service.generate_queries(user_input)
+    query_extraction = service.generate_queries(user_input)
 
     print(" 🔍 Finding relevant recipes...")
 
-    hits = service.retrieve_recipes(queries)
+    hits = service.retrieve_recipes(query_extraction)
 
     if not hits:
         print("No relevant recipes found.")

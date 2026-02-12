@@ -46,6 +46,7 @@ def test_ollama_client_chat(mock_ollama_client):
         messages=messages.messages,
         stream=False,
         options={"temperature": 0.5, "seed": 42},
+        format=None,
     )
     assert response == "response"
 

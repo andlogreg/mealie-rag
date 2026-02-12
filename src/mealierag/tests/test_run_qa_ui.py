@@ -2,6 +2,7 @@ from unittest.mock import MagicMock
 
 from qdrant_client.http.models import ScoredPoint
 
+from mealierag.models import QueryExtraction
 from mealierag.run_qa_ui import chat_fn, print_hits
 
 
@@ -25,7 +26,9 @@ def test_chat_fn(mocker):
     mock_service_instance = MagicMock()
     mocker.patch("mealierag.run_qa_ui.service", mock_service_instance)
 
-    mock_service_instance.generate_queries.return_value = ["query"]
+    mock_service_instance.generate_queries.return_value = QueryExtraction(
+        expanded_queries=["query"]
+    )
     mock_service_instance.retrieve_recipes.return_value = [
         ScoredPoint(id=1, version=1, score=1.0, payload={"name": "Recipe 1"})
     ]
@@ -54,7 +57,9 @@ def test_chat_fn_no_results(mocker):
     mock_service_instance = MagicMock()
     mocker.patch("mealierag.run_qa_ui.service", mock_service_instance)
 
-    mock_service_instance.generate_queries.return_value = ["query"]
+    mock_service_instance.generate_queries.return_value = QueryExtraction(
+        expanded_queries=["query"]
+    )
     mock_service_instance.retrieve_recipes.return_value = []
 
     generator = chat_fn("test message", [])

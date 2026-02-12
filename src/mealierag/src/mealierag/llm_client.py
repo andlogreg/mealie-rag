@@ -1,11 +1,15 @@
 from abc import abstractmethod
 from collections.abc import Generator
+from typing import TypeVar
 
 import ollama
 import openai
+from pydantic import BaseModel
 
 from .api import ChatMessages
 from .tracing import tracer
+
+T = TypeVar("T", bound=BaseModel)
 
 
 class LLMClient:
@@ -29,7 +33,8 @@ class LLMClient:
         model: str,
         temperature: float = 0.7,
         seed: int | None = None,
-    ) -> str:
+        response_model: type[T] | None = None,
+    ) -> str | T:
         pass
 
     @abstractmethod
@@ -78,14 +83,22 @@ class OllamaClient(LLMClient):
         model: str,
         temperature: float = 0.7,
         seed: int | None = None,
-    ) -> str:
+        response_model: type[T] | None = None,
+    ) -> str | T:
+        options = self._get_options(temperature, seed)
+        format = None if response_model is None else response_model.model_json_schema()
+
         response = self.client.chat(
             model=model,
             messages=chat_messages.messages,
             stream=False,
-            options=self._get_options(temperature, seed),
+            options=options,
+            format=format,
         )
-        return response["message"]["content"]
+        content = response["message"]["content"]
+        if response_model:
+            return response_model.model_validate_json(content)
+        return content
 
     def embed(self, *args, **kwargs):
         return self.client.embed(*args, **kwargs)
@@ -138,7 +151,21 @@ class OpenAIClient(LLMClient):
         model: str,
         temperature: float = 0.7,
         seed: int | None = None,
-    ) -> str:
+        response_model: type[T] | None = None,
+    ) -> str | T:
+        if response_model:
+            response = self.client.chat.completions.parse(
+                model=model,
+                messages=chat_messages.messages,
+                temperature=temperature,
+                seed=seed,
+                response_format=response_model,
+                extra_body=self._get_tracing_metadata(
+                    generation_name="chat", chat_messages=chat_messages
+                ),
+            )
+            return response.choices[0].message.parsed
+
         response = self.client.chat.completions.create(
             model=model,
             messages=chat_messages.messages,

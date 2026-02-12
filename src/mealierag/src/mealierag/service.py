@@ -9,6 +9,7 @@ from .chat import populate_messages
 from .config import LLMProvider, SearchStrategy, settings
 from .embeddings import get_embedding
 from .llm_client import LLMClient, OllamaClient, OpenAIClient
+from .models import QueryExtraction
 from .prompts import LangfusePromptManager
 from .query_builder import DefaultQueryBuilder, MultiQueryQueryBuilder, QueryBuilder
 from .tracing import tracer
@@ -37,20 +38,28 @@ class MealieRAGService:
         self._retrieve_results = retrieve_results_fn
 
     @tracer.observe(name="service_generate_queries", as_type="span")
-    def generate_queries(self, user_input: str) -> list[str]:
+    def generate_queries(self, user_input: str) -> QueryExtraction:
         """
-        Generate search queries based on user input.
+        Generate search queries and negative constraints based on user input.
         """
         logger.debug("Generating queries", extra={"user_input": user_input})
         return self.query_builder(user_input)
 
     @tracer.observe(name="service_retrieve_recipes", as_type="retriever")
-    def retrieve_recipes(self, queries: list[str]) -> list[ScoredPoint]:
+    def retrieve_recipes(self, query_extraction: QueryExtraction) -> list[ScoredPoint]:
         """
-        Retrieve relevant recipes using the provided queries.
+        Retrieve relevant recipes using the provided queries and constraints.
         """
-        logger.debug("Retrieving recipes", extra={"queries_count": len(queries)})
-        query_vectors = get_embedding(queries, self.llm_client, settings)
+        logger.debug(
+            "Retrieving recipes",
+            extra={
+                "queries_count": len(query_extraction.expanded_queries),
+                "query_extraction": query_extraction.model_dump_json(),
+            },
+        )
+        query_vectors = get_embedding(
+            query_extraction.expanded_queries, self.llm_client, settings
+        )
 
         if not query_vectors:
             logger.warning("No embeddings generated for queries")
@@ -61,6 +70,7 @@ class MealieRAGService:
             self.vector_db_client,
             settings.vectordb_collection_name,
             k=settings.vectordb_k,
+            query_extraction=query_extraction,
         )
 
     def populate_messages(
