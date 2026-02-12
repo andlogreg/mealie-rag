@@ -44,6 +44,8 @@ def test_run_ingest_main(mocker, mock_settings, mock_qdrant_client):
     assert call_args.kwargs["collection_name"] == mock_settings.vectordb_collection_name
     assert len(call_args.kwargs["points"]) == 1
     assert call_args.kwargs["points"][0].payload["name"] == "Test Recipe"
+    assert "model_dump" in call_args.kwargs["points"][0].payload
+    assert call_args.kwargs["points"][0].payload["model_dump"]["name"] == "Test Recipe"
 
     # Verify embedding called with correct client
     assert mock_get_embedding.call_args[0][1] == mock_ollama_instance

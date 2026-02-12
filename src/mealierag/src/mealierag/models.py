@@ -15,6 +15,9 @@ class RecipeIngredient(BaseModel):
     def get_text_for_embedding(self):
         return self.display
 
+    def get_text_for_context(self):
+        return self.display
+
 
 class RecipeInstruction(BaseModel):
     text: str
@@ -22,6 +25,9 @@ class RecipeInstruction(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     def get_text_for_embedding(self):
+        return self.text
+
+    def get_text_for_context(self):
         return self.text
 
 
@@ -62,6 +68,18 @@ class Recipe(BaseModel):
             text_content += f"{ing.get_text_for_embedding()}\n"
         for step in self.recipeInstructions:
             text_content += f"{step.get_text_for_embedding()}\n"
+        return text_content
+
+    def get_text_for_context(self):
+        text_content = (
+            f"RecipeName: {self.name}\nRecipeID: {self.id}\nRating: {self.rating}\n"
+        )
+        text_content += "Ingredients:\n"
+        for ing in self.recipeIngredient:
+            text_content += f"- {ing.get_text_for_context()}\n"
+        text_content += "Instructions:\n"
+        for step in self.recipeInstructions:
+            text_content += f"- {step.get_text_for_context()}\n"
         return text_content
 
 

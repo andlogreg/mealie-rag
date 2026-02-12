@@ -21,6 +21,14 @@ def test_populate_context():
                 "name": "Recipe 1",
                 "recipe_id": "uuid-1",
                 "text": "Description of Recipe 1",
+                "model_dump": {
+                    "name": "Recipe 1",
+                    "slug": "recipe-1",
+                    "id": "uuid-1",
+                    "rating": None,
+                    "recipeIngredient": [],
+                    "recipeInstructions": [],
+                },
             },
         ),
         ScoredPoint(
@@ -31,6 +39,14 @@ def test_populate_context():
                 "name": "Recipe 2",
                 "recipe_id": "uuid-2",
                 "text": "Description of Recipe 2",
+                "model_dump": {
+                    "name": "Recipe 2",
+                    "slug": "recipe-2",
+                    "id": "uuid-2",
+                    "rating": None,
+                    "recipeIngredient": [],
+                    "recipeInstructions": [],
+                },
             },
         ),
     ]
@@ -40,8 +56,12 @@ def test_populate_context():
     assert "[RECIPE_START]" in context
     assert "RecipeName: Recipe 1" in context
     assert "RecipeID: uuid-1" in context
-    assert "Description of Recipe 1" in context
+    # Description is no longer in the context
+    # assert "Description of Recipe 1" in context
     assert "RecipeName: Recipe 2" in context
+    assert "Rating: None" in context
+    assert "Ingredients:" in context
+    assert "Instructions:" in context
 
 
 def test_populate_messages():
@@ -51,7 +71,19 @@ def test_populate_messages():
             id=1,
             version=1,
             score=0.9,
-            payload={"name": "Recipe 1", "recipe_id": "uuid-1", "text": "Description"},
+            payload={
+                "name": "Recipe 1",
+                "recipe_id": "uuid-1",
+                "text": "Description",
+                "model_dump": {
+                    "name": "Recipe 1",
+                    "slug": "recipe-1",
+                    "id": "uuid-1",
+                    "rating": None,
+                    "recipeIngredient": [],
+                    "recipeInstructions": [],
+                },
+            },
         )
     ]
     query = "What can I cook?"
@@ -75,8 +107,17 @@ def test_populate_messages():
     mock_prompt_manager.get_prompt.assert_any_call(PromptType.CHAT_GENERATION)
 
     # Check compile call on the prompt object
+    expected_context = (
+        "[RECIPE_START]\n"
+        "RecipeName: Recipe 1\n"
+        "RecipeID: uuid-1\n"
+        "Rating: None\n"
+        "Ingredients:\n"
+        "Instructions:\n"
+        "[RECIPE_END]\n"
+    )
     mock_prompt.compile.assert_called_with(
         external_url=settings.mealie_external_url,
-        context_text="[RECIPE_START]\nRecipeName: Recipe 1\nRecipeID: uuid-1\nDescription[RECIPE_END]\n",
+        context_text=expected_context,
         query="What can I cook?",
     )
