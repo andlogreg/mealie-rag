@@ -8,6 +8,7 @@ from qdrant_client.models import ScoredPoint
 
 from .api import ChatMessages
 from .config import settings
+from .models import Recipe
 from .prompts import PromptManager, PromptType
 
 
@@ -16,7 +17,8 @@ def populate_context(hits: list[ScoredPoint]) -> str:
     # Format Context
     context_text = ""
     for hit in hits:
-        context_text += f"[RECIPE_START]\nRecipeName: {hit.payload['name']}\nRecipeID: {hit.payload['recipe_id']}\n{hit.payload['text']}[RECIPE_END]\n"
+        model = Recipe(**hit.payload["model_dump"])
+        context_text += f"[RECIPE_START]\n{model.get_text_for_context()}[RECIPE_END]\n"
     return context_text
 
 

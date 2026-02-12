@@ -80,6 +80,8 @@ def main():
                 "tags": r.tags,
                 "rating": r.rating,
                 "text": r.get_text_for_embedding(),
+                "ingredients": [ing.display for ing in r.recipeIngredient],
+                "model_dump": r.model_dump(),
             },
         )
         points.append(point)

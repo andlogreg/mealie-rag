@@ -51,12 +51,12 @@ def process_input(user_input: str):
     partial = " 👾 Consulting the digital oracles..."
     yield partial, None
 
-    queries = service.generate_queries(user_input)
+    query_extraction = service.generate_queries(user_input)
 
     partial += "\n 🔍 Finding relevant recipes..."
     yield partial, None
 
-    hits = service.retrieve_recipes(queries)
+    hits = service.retrieve_recipes(query_extraction)
 
     if not hits:
         yield "I couldn't find any relevant recipes.", None
@@ -133,6 +133,9 @@ def main():
         server_name="0.0.0.0",
         server_port=settings.ui_port,
         auth=(settings.ui_username, settings.ui_password.get_secret_value()),
+        share=False,
+        max_threads=5,
+        enable_monitoring=False,
     )
 
 

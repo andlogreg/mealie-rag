@@ -4,6 +4,7 @@ model_list:
       model: ollama/llama3.1:8b
       api_base: os.environ/OLLAMA_BASE_URL
       api_key: ""
+      num_ctx: 8192
   - model_name: mealie-rag-embedding
     litellm_params:
       model: ollama/bge-m3

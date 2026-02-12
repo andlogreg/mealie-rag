@@ -3,6 +3,7 @@ from unittest.mock import MagicMock
 import pytest
 
 from mealierag.api import ChatMessages
+from mealierag.models import QueryExtraction
 from mealierag.service import MealieRAGService, SearchStrategy
 
 
@@ -45,11 +46,13 @@ def test_service_initialization(mock_dependencies):
 def test_generate_queries(mock_dependencies):
     """Test generating queries"""
     service = MealieRAGService(**mock_dependencies)
-    mock_dependencies["query_builder"].return_value = ["test query"]
 
-    queries = service.generate_queries("test query")
+    expected_extraction = QueryExtraction(expanded_queries=["test query"])
+    mock_dependencies["query_builder"].return_value = expected_extraction
 
-    assert queries == ["test query"]
+    result = service.generate_queries("test query")
+
+    assert result == expected_extraction
     mock_dependencies["query_builder"].assert_called_once_with("test query")
 
 
@@ -61,7 +64,8 @@ def test_retrieve_recipes(mock_dependencies, mock_embedding_func):
         MagicMock(id="1", payload={"name": "Recipe 1"})
     ]
 
-    recipes = service.retrieve_recipes(["test query"])
+    extraction = QueryExtraction(expanded_queries=["test query"])
+    recipes = service.retrieve_recipes(extraction)
 
     assert len(recipes) == 1
     assert recipes[0].payload["name"] == "Recipe 1"

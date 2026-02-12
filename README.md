@@ -14,7 +14,7 @@ I use this project as an **engineering sandbox** to explore the challenges of op
 
 ## Engineering Highlights
 
-*   **Advanced Retrieval Strategies**: Implements **Multi-Query Expansion** and **Reciprocal Rank Fusion (RRF)** to improve context relevance, mitigating the limitations of simple semantic search.
+*   **Advanced Retrieval Strategies**: Implements **Structured Query Extraction**, **Multi-Query Expansion**, and **Reciprocal Rank Fusion (RRF)** to filter and rank results.
 *   **End-to-End Observability**: Integration with **Langfuse** for tracing execution paths, managing prompts versions, and tracking model usage/costs.
 *   **Data Infrastructure**: Integration with **Qdrant** for efficient vector operations.
 *   **Reproducibility & Standards**:

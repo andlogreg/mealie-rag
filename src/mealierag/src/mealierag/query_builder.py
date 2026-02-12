@@ -1,9 +1,9 @@
 import logging
-import re
 from abc import ABC, abstractmethod
 
 from .api import ChatMessages
 from .llm_client import LLMClient
+from .models import QueryExtraction
 from .prompts import PromptManager, PromptType
 
 logger = logging.getLogger(__name__)
@@ -18,19 +18,19 @@ class QueryBuilder(ABC):
     """
 
     @abstractmethod
-    def build(self, user_input: str) -> list[str]:
+    def build(self, user_input: str) -> QueryExtraction:
         """
-        Build a list of search queries from the user input.
+        Build query from the user input.
 
         Args:
             user_input: The raw query string from the user.
 
         Returns:
-            A list of query strings to be used for retrieval.
+            QueryExtraction: The generated query.
         """
         pass
 
-    def __call__(self, user_input: str) -> list[str]:
+    def __call__(self, user_input: str) -> QueryExtraction:
         """
         Allow the instance to be called directly to generate queries.
         """
@@ -42,11 +42,11 @@ class DefaultQueryBuilder(QueryBuilder):
     A simple query builder that uses the user's input as the single search query.
     """
 
-    def build(self, user_input: str) -> list[str]:
+    def build(self, user_input: str) -> QueryExtraction:
         """
-        Returns the user input as a single-item list.
+        Returns the user input as a single-item list wrapped in QueryExtraction.
         """
-        return [user_input]
+        return QueryExtraction(expanded_queries=[user_input])
 
 
 class MultiQueryQueryBuilder(QueryBuilder):
@@ -78,15 +78,15 @@ class MultiQueryQueryBuilder(QueryBuilder):
         self.seed = seed
         self.prompt_manager = prompt_manager
 
-    def build(self, user_input: str) -> list[str]:
+    def build(self, user_input: str) -> QueryExtraction:
         """
-        Generate multiple search queries.
+        Generate multiple search queries and extract negative constraints.
 
         Args:
             user_input: The raw user query.
 
         Returns:
-            A list of generated search queries.
+            QueryExtraction: The generated queries and negative constraints.
         """
         prompt = self.prompt_manager.get_prompt(PromptType.MULTI_QUERY_BUILDER)
         messages = prompt.compile(user_input=user_input)
@@ -102,28 +102,7 @@ class MultiQueryQueryBuilder(QueryBuilder):
             model=self.model,
             temperature=self.temperature,
             seed=self.seed,
+            response_model=QueryExtraction,
         )
         logger.debug("Generated queries", extra={"response": response})
-        queries = self._parse_response(response)
-        logger.debug("Parsed queries", extra={"queries": queries})
-        return queries
-
-    def _parse_response(self, response: str) -> list[str]:
-        """
-        Parse and clean the LLM response into a list of queries.
-        Handles potentially malformed output like numbered lists.
-        """
-        queries = []
-        for line in response.splitlines():
-            line = line.strip()
-            if not line:
-                continue
-
-            # Remove leading numbers/bullets (e.g., "1. ", "- ", "* ")
-            # This regex matches optional whitespace, optional number/bullet, and checks for the rest
-            cleaned_line = re.sub(r"^[\d\-\*\.]+\s+", "", line)
-
-            if cleaned_line:
-                queries.append(cleaned_line)
-
-        return queries
+        return response

@@ -1,13 +1,14 @@
 from unittest.mock import MagicMock
 
+from mealierag.models import QueryExtraction
 from mealierag.query_builder import DefaultQueryBuilder, MultiQueryQueryBuilder
 
 
 def test_default_query_builder():
     """Test DefaultQueryBuilder."""
     builder = DefaultQueryBuilder()
-    queries = builder("test query")
-    assert queries == ["test query"]
+    result = builder("test query")
+    assert result.expanded_queries == ["test query"]
 
 
 def test_multi_query_query_builder(mock_ollama_client):
@@ -21,10 +22,12 @@ def test_multi_query_query_builder(mock_ollama_client):
     )
 
     # Mock LLM response
-    response_text = "1. Query 1\n- Query 2\nQuery 3"
-    mock_ollama_client.chat.return_value = response_text
+    mock_ollama_client.chat.return_value = QueryExtraction(
+        expanded_queries=["Query 1", "Query 2", "Query 3"]
+    )
 
-    queries = builder("original query")
+    response = builder("original query")
+    queries = response.expanded_queries
 
     # Check if chat was called correctly
     mock_ollama_client.chat.assert_called_once()
@@ -32,36 +35,10 @@ def test_multi_query_query_builder(mock_ollama_client):
     assert call_kwargs["model"] == "test-model"
     assert call_kwargs["temperature"] == 0.7
     assert call_kwargs["seed"] == 42
+    assert call_kwargs["response_model"] == QueryExtraction
 
     # Check parsing logic
     assert len(queries) == 3
     assert "Query 1" in queries
     assert "Query 2" in queries
     assert "Query 3" in queries
-
-
-def test_multi_query_parsing():
-    """Test parsing logic specifically."""
-    builder = MultiQueryQueryBuilder(
-        MagicMock(), "model", 0.1, 1, prompt_manager=MagicMock()
-    )
-
-    raw_response = """
-    1. First Query
-    2. Second Query
-    - Third Query
-    * Fourth Query
-    Fifth Query
-    """
-
-    queries = builder._parse_response(raw_response)
-
-    expected = [
-        "First Query",
-        "Second Query",
-        "Third Query",
-        "Fourth Query",
-        "Fifth Query",
-    ]
-
-    assert queries == expected
