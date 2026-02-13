@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 def print_hits(hits: list[ScoredPoint]):
     for hit in hits:
         print(
-            f"**Name:** {hit.payload['name']} **Rating:** {hit.payload['rating']} **Tags:** {hit.payload['tags']} **Category:** {hit.payload['category']}"
+            f"**Name:** {hit.payload['name']} **Rating:** {hit.payload['rating']} **Tags:** {hit.payload['tags']} **Category:** {hit.payload['category']} **Score:** {hit.score}"
         )
 
 

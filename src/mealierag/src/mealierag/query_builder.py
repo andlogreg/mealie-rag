@@ -105,4 +105,27 @@ class MultiQueryQueryBuilder(QueryBuilder):
             response_model=QueryExtraction,
         )
         logger.debug("Generated queries", extra={"response": response})
+
+        culinary_brainstorm_prompt = self.prompt_manager.get_prompt(
+            PromptType.CULINARY_BRAINSTORM
+        )
+        for idx, query in enumerate(response.expanded_queries):
+            messages = culinary_brainstorm_prompt.compile(user_input=query)
+            chat_messages = ChatMessages(
+                messages=messages, prompt=culinary_brainstorm_prompt
+            )
+            culinary_brainstorm_response = self.llm_client.chat(
+                chat_messages=chat_messages,
+                model=self.model,
+                temperature=self.temperature,
+                seed=self.seed,
+            )
+            logger.debug(
+                "Generated culinary brainstorm",
+                extra={"response": culinary_brainstorm_response},
+            )
+            response.expanded_queries[idx] = culinary_brainstorm_response
+
+        logger.debug("Final Generated queries", extra={"response": response})
+
         return response

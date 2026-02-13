@@ -19,12 +19,12 @@ service = create_mealie_rag_service()
 
 
 def print_hits(hits: list[ScoredPoint]):
-    hits_table = "| Name | Rating | Tags | Category |\n|---|---|---|---|\n"
+    hits_table = "| Name | Rating | Tags | Category | Score |\n|---|---|---|---|---|\n"
     for hit in hits:
         tags = hit.payload.get("tags", [])
         if isinstance(tags, list):
             tags = ", ".join(tags)
-        hits_table += f"| {hit.payload.get('name', 'N/A')} | {hit.payload.get('rating', 'N/A')} | {tags} | {hit.payload.get('category', 'N/A')} |\n"
+        hits_table += f"| {hit.payload.get('name', 'N/A')} | {hit.payload.get('rating', 'N/A')} | {tags} | {hit.payload.get('category', 'N/A')} | {hit.score} |\n"
     logger.debug("Hits table", extra={"hits_table": hits_table})
     return hits_table
 
