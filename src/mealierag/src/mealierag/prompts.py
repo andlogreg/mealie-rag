@@ -10,6 +10,7 @@ from .config import settings
 class PromptType(StrEnum):
     CHAT_GENERATION = "chat-generation"
     MULTI_QUERY_BUILDER = "multi-query-builder-generation"
+    CULINARY_BRAINSTORM = "culinary-brainstorm"
 
 
 class PromptManager(ABC):
