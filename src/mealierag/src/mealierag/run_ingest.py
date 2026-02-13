@@ -4,7 +4,7 @@ Ingest Mealie recipes into the vector database.
 
 import logging
 
-from qdrant_client.models import Distance, VectorParams
+from qdrant_client import models
 
 from .config import LLMProvider, settings
 from .embeddings import get_embedding
@@ -77,7 +77,22 @@ def main():
     logger.info(f"Creating collection '{settings.vectordb_collection_name}'...")
     vector_db_client.create_collection(
         collection_name=settings.vectordb_collection_name,
-        vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
+        vectors_config=models.VectorParams(
+            size=vector_size, distance=models.Distance.COSINE
+        ),
+    )
+    vector_db_client.create_payload_index(
+        collection_name=settings.vectordb_collection_name,
+        field_name="ingredients",
+        field_schema=models.TextIndexParams(
+            type=models.TextIndexType.TEXT,
+            lowercase=True,
+            ascii_folding=True,
+            # stopwords=...,
+            stemmer=models.SnowballParams(
+                type=models.Snowball.SNOWBALL, language=models.SnowballLanguage.ENGLISH
+            ),
+        ),
     )
 
     # 5. Process and Upsert
