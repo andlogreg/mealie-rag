@@ -29,7 +29,13 @@ def test_run_qa_cli_loop(mocker):
             id=1,
             version=1,
             score=1.0,
-            payload={"name": "Recipe", "rating": 5, "tags": [], "category": "Test"},
+            payload={
+                "name": "Recipe",
+                "rating": 5,
+                "tags": [],
+                "category": "Test",
+                "recipe_id": "123",
+            },
         )
     ]
     mock_service.populate_messages.return_value = []

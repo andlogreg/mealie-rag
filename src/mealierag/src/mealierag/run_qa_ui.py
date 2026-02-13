@@ -21,10 +21,13 @@ service = create_mealie_rag_service()
 def print_hits(hits: list[ScoredPoint]):
     hits_table = "| Name | Rating | Tags | Category | Score |\n|---|---|---|---|---|\n"
     for hit in hits:
+        recipe_url = (
+            f"{settings.mealie_external_url}/g/home/r/{hit.payload['recipe_id']}"
+        )
         tags = hit.payload.get("tags", [])
         if isinstance(tags, list):
             tags = ", ".join(tags)
-        hits_table += f"| {hit.payload.get('name', 'N/A')} | {hit.payload.get('rating', 'N/A')} | {tags} | {hit.payload.get('category', 'N/A')} | {hit.score} |\n"
+        hits_table += f"| [{hit.payload.get('name', 'N/A')}]({recipe_url}) | {hit.payload.get('rating', 'N/A')} | {tags} | {hit.payload.get('category', 'N/A')} | {hit.score} |\n"
     logger.debug("Hits table", extra={"hits_table": hits_table})
     return hits_table
 
@@ -47,25 +50,31 @@ def process_input(user_input: str):
         name="qa_ui",
         input=user_input,
     )
+    debug_info = "\n\n[View trace](%s)" % tracer.get_trace_url(trace_context.trace_id)
 
     partial = " 👾 Consulting the digital oracles..."
-    yield partial, None
+    yield partial, gr.Markdown(value=debug_info)
 
     query_extraction = service.generate_queries(user_input)
 
     partial += "\n 🔍 Finding relevant recipes..."
-    yield partial, None
+    yield partial, gr.Markdown(value=debug_info)
 
     hits = service.retrieve_recipes(query_extraction)
 
     if not hits:
-        yield "I couldn't find any relevant recipes.", None
+        yield "I couldn't find any relevant recipes.", gr.Markdown(value=debug_info)
         return
 
     hit_str = print_hits(hits)
+    debug_info = (
+        "### 🤓 Recipes context for the above answer: ###\n"
+        + hit_str
+        + "\n\n[View trace](%s)" % tracer.get_trace_url(trace_context.trace_id)
+    )
 
     partial += "\n 🤔 Done! Processing your request..."
-    yield partial, None
+    yield partial, gr.Markdown(value=debug_info)
 
     messages = service.populate_messages(user_input, hits)
 
@@ -77,15 +86,10 @@ def process_input(user_input: str):
     for chunk in response_stream:
         partial += chunk
         response += chunk
-        yield partial, None
+        yield partial, gr.Markdown(value=debug_info)
 
     logger.debug("Response generation finished.")
 
-    debug_info = (
-        "### 🐛 Recipes context used for the above answer: ###\n"
-        + hit_str
-        + "\n\n[View trace](%s)" % tracer.get_trace_url(trace_context.trace_id)
-    )
     yield partial, gr.Markdown(value=debug_info)
 
     tracer.update_current_span(

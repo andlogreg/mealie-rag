@@ -7,6 +7,7 @@ import sys
 
 from qdrant_client.http.models import ScoredPoint
 
+from .config import settings
 from .service import create_mealie_rag_service
 from .tracing import TraceContext, tracer
 
@@ -19,8 +20,11 @@ logger = logging.getLogger(__name__)
 
 def print_hits(hits: list[ScoredPoint]):
     for hit in hits:
+        recipe_url = (
+            f"{settings.mealie_external_url}/g/home/r/{hit.payload['recipe_id']}"
+        )
         print(
-            f"**Name:** {hit.payload['name']} **Rating:** {hit.payload['rating']} **Tags:** {hit.payload['tags']} **Category:** {hit.payload['category']} **Score:** {hit.score}"
+            f"**Name:** [{hit.payload['name']}]({recipe_url}) **Rating:** {hit.payload['rating']} **Tags:** {hit.payload['tags']} **Category:** {hit.payload['category']} **Score:** {hit.score}"
         )
 
 
