@@ -7,7 +7,7 @@ Contains Pydantic models for Mealie API responses.
 from collections.abc import Iterator
 from itertools import chain
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
 
 class RecipeIngredient(BaseModel):
@@ -100,7 +100,9 @@ class Recipe(BaseModel):
         description="True if the recipe is considered healthy based on ingredients and cooking method",
     )
     recipeIngredients: list[RecipeIngredient] = Field(
-        default_factory=list, description="Ingredients of the recipe"
+        default_factory=list,
+        description="Ingredients of the recipe",
+        validation_alias=AliasChoices("recipeIngredient", "recipeIngredients"),
     )
     recipeInstructions: list[RecipeInstruction] = Field(
         default_factory=list, description="Instructions of the recipe"

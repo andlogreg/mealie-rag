@@ -28,6 +28,9 @@ def test_run_ingest_main(mocker, mock_settings, mock_qdrant_client):
         "mealierag.run_ingest.get_vector_db_client", return_value=mock_qdrant_client
     )
 
+    # Mock Langfuse prompt manager
+    mocker.patch("mealierag.run_ingest.LangfusePromptManager")
+
     # Setup Qdrant behavior
     mock_qdrant_client.collection_exists.return_value = False
 
@@ -63,6 +66,7 @@ def test_run_ingest_recreate_collection(mocker, mock_settings, mock_qdrant_clien
     mocker.patch(
         "mealierag.run_ingest.get_vector_db_client", return_value=mock_qdrant_client
     )
+    mocker.patch("mealierag.run_ingest.LangfusePromptManager")
 
     mock_qdrant_client.collection_exists.return_value = True
 
@@ -88,6 +92,7 @@ def test_run_ingest_existing_collection_error(
     mocker.patch(
         "mealierag.run_ingest.get_vector_db_client", return_value=mock_qdrant_client
     )
+    mocker.patch("mealierag.run_ingest.LangfusePromptManager")
 
     mock_qdrant_client.collection_exists.return_value = True
 
