@@ -12,7 +12,7 @@ app = FastAPI()
 
 def load_recipes():
     with open("recipes.json", "r") as f:
-        return json.load(f)
+        return json.load(f)["items"]
 
 
 recipes = load_recipes()

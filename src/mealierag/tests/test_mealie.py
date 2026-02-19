@@ -107,13 +107,13 @@ def test_fetch_full_recipes(mocker):
     mocker.patch("mealierag.mealie.fetch_recipes", return_value=mock_recipes)
 
     # Mock fetch_full_recipe
-    mock_full_recipe = MagicMock()
+    mock_full_recipe = Recipe(name="Full Recipe", slug="full", id="999")
     mocker.patch("mealierag.mealie.fetch_full_recipe", return_value=mock_full_recipe)
 
     full_recipes = fetch_full_recipes(base_url, token)
 
     assert len(full_recipes) == 2
-    assert full_recipes == [mock_full_recipe, mock_full_recipe]
+    assert full_recipes.items == [mock_full_recipe, mock_full_recipe]
 
 
 def test_fetch_recipes_validation_error(mocker):
