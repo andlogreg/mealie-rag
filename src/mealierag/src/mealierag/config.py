@@ -34,6 +34,9 @@ class Settings(BaseSettings):
     vectordb_collection_name: str = Field(
         "mealie_recipes", description="Qdrant Collection Name"
     )
+    vectordb_path: str | None = Field(
+        None, description="Path to local Qdrant storage (if using local mode)"
+    )
     vectordb_k: int = Field(3, description="Number of results to return when searching")
     # embedding_model: str = "nomic-embed-text"
     embedding_model: str = Field("mealie-rag-embedding", description="Embedding Model")

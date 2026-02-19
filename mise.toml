@@ -13,6 +13,8 @@ OLLAMA_BASE_URL="http://host.docker.internal:11434"
 LLM_BASE_URL="http://localhost:4000"
 LLM_PROVIDER="openai"
 VECTORDB_K="10"
+RAGAS_DO_NOT_TRACK="true"
+LLM_TEMPERATURE="0.1"
 
 [hooks]
 enter = "bash ./scripts/setup_project"

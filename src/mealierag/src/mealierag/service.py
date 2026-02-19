@@ -118,7 +118,9 @@ def create_mealie_rag_service(settings_obj=settings) -> MealieRAGService:
     """
     Factory function to create a MealieRAGService instance with all dependencies.
     """
-    vector_db_client = get_vector_db_client(settings_obj.vectordb_url)
+    vector_db_client = get_vector_db_client(
+        url=settings_obj.vectordb_url, path=settings_obj.vectordb_path
+    )
     prompt_manager = LangfusePromptManager()
 
     if settings_obj.llm_provider == LLMProvider.OLLAMA:
