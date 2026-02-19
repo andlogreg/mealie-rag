@@ -1,1490 +1,1650 @@
-[
+{
+  "items": [
     {
-        "slug": "spaghetti-carbonara",
-        "name": "Spaghetti Carbonara",
-        "description": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
-        "recipeCategory": [
-            "Dinner",
-            "Italian"
-        ],
-        "tags": [
-            "pasta",
-            "pork",
-            "quick"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "400g spaghetti"
-            },
-            {
-                "display": "150g pancetta, diced"
-            },
-            {
-                "display": "4 large eggs"
-            },
-            {
-                "display": "50g pecorino cheese, grated"
-            },
-            {
-                "display": "50g parmesan cheese, grated"
-            },
-            {
-                "display": "Black pepper"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Boil water for pasta."
-            },
-            {
-                "text": "Fry pancetta until crisp."
-            },
-            {
-                "text": "Beat eggs with cheese and pepper."
-            },
-            {
-                "text": "Cook pasta until al dente."
-            },
-            {
-                "text": "Mix hot pasta with egg mixture and pancetta quickly to create a creamy sauce."
-            }
-        ],
-        "id": "cdd6f9f8-74f8-4717-9dc8-07b777ebbd20",
-        "rating": 1
+      "id": "c31c8c4d-d265-4fc7-acda-510160920efa",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Oven Roasted Vegetables (Mediterranean Style)",
+      "slug": "oven-roasted-vegetables-mediterranean-style",
+      "image": "no image",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": null,
+      "orgURL": null,
+      "dateAdded": "2026-02-15",
+      "dateUpdated": "2026-02-15T14:39:09.728933Z",
+      "createdAt": "2026-02-15T14:38:21.680135Z",
+      "updatedAt": "2026-02-15T14:39:09.752689Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "1 cauliflower"
+        },
+        {
+          "display": "1 onion red or white"
+        },
+        {
+          "display": "2 Pepper colours of choice"
+        },
+        {
+          "display": "3 tablespoons olive oils"
+        },
+        {
+          "display": "3 cloves garlics chopped, optional"
+        },
+        {
+          "display": "1 teaspoon paprika sweet or smoked"
+        },
+        {
+          "display": "1 teaspoon oregano or thyme"
+        },
+        {
+          "display": "salt and pepper to taste"
+        },
+        {
+          "display": "¹/₂ lemon Juice, optional, to finish"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Preheat the oven to 200°C."
+        },
+        {
+          "text": "Cut the cauliflower into medium florets."
+        },
+        {
+          "text": "Slice the onion into half-moons and the peppers into wide strips."
+        },
+        {
+          "text": "Place everything in a large baking tray. Add the garlic, olive oil, and seasonings."
+        },
+        {
+          "text": "Mix well to coat all the vegetables."
+        },
+        {
+          "text": "Bake for 25-35 minutes, stirring halfway through, until golden and tender at the edges."
+        },
+        {
+          "text": "Finish with a few drops of lemon juice and, if desired, fresh parsley or crumbled feta cheese."
+        }
+      ]
     },
     {
-        "slug": "vegetable-stir-fry",
-        "name": "Vegetable Stir Fry",
-        "description": "A quick and healthy vegetarian stir fry with soy sauce.",
-        "recipeCategory": [
-            "Dinner",
-            "Asian"
-        ],
-        "tags": [
-            "vegetarian",
-            "healthy",
-            "quick"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 broccoli head, chopped"
-            },
-            {
-                "display": "2 carrots, sliced"
-            },
-            {
-                "display": "1 bell pepper, sliced"
-            },
-            {
-                "display": "200g snap peas"
-            },
-            {
-                "display": "3 tbsp soy sauce"
-            },
-            {
-                "display": "1 tbsp ginger, grated"
-            },
-            {
-                "display": "1 clove garlic, minced"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Heat oil in a wok."
-            },
-            {
-                "text": "Stir fry ginger and garlic."
-            },
-            {
-                "text": "Add vegetables and cook for 5-7 minutes."
-            },
-            {
-                "text": "Add soy sauce and toss well."
-            },
-            {
-                "text": "Serve with rice."
-            }
-        ],
-        "id": "42e5811b-0eef-4adb-b7c1-b3b1227803a7",
-        "rating": 2
+      "id": "47bd14e1-046d-489a-b124-b03fe60103ee",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Chicken Fillets Rolled with Olives",
+      "slug": "chicken-fillets-rolled-with-olives",
+      "image": "no image",
+      "recipeServings": 4.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A simple and succulent recipe full of flavour, ideal for a delightful meal.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 4.0,
+      "orgURL": null,
+      "dateAdded": "2026-02-14",
+      "dateUpdated": "2026-02-14T00:39:23.052318Z",
+      "createdAt": "2026-02-14T00:38:37.293090Z",
+      "updatedAt": "2026-02-14T00:39:28.562545Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "4 chicken breast fillets thin"
+        },
+        {
+          "display": "12 black olives green or black"
+        },
+        {
+          "display": "2 cloves garlics chopped"
+        },
+        {
+          "display": "1 teaspoon oregano or thyme"
+        },
+        {
+          "display": "Salt and pepper to taste"
+        },
+        {
+          "display": "1 teaspoon paprika optional"
+        },
+        {
+          "display": "¹/₂ cup white wine optional, but recommended"
+        },
+        {
+          "display": "2 tablespoons olive oils"
+        },
+        {
+          "display": "Toothpicks to close the rolls"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Season the fillets with salt, pepper, garlic, oregano, and paprika. Let them rest for 15-30 minutes to develop flavour."
+        },
+        {
+          "text": "Slice the olives into rounds (or keep whole if you prefer more texture)."
+        },
+        {
+          "text": "Place some olives on each fillet and roll tightly. Secure with toothpicks."
+        },
+        {
+          "text": "Heat the olive oil in a pan over medium heat. Place the rolls with the seam side down first. Brown well on all sides (about 8-10 minutes total)."
+        },
+        {
+          "text": "If using white wine, add to the pan, cover, and cook for another 5 minutes until the chicken is well cooked and succulent. Let the sauce reduce slightly before serving."
+        }
+      ]
     },
     {
-        "slug": "grilled-chicken-salad",
-        "name": "Grilled Chicken Salad",
-        "description": "A light and refreshing salad with grilled chicken breast.",
-        "recipeCategory": [
-            "Lunch",
-            "Healthy"
-        ],
-        "tags": [
-            "high-protein",
-            "low-carb",
-            "gluten-free"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "2 chicken breasts"
-            },
-            {
-                "display": "Mixed salad greens"
-            },
-            {
-                "display": "1 cucumber, sliced"
-            },
-            {
-                "display": "10 cherry tomatoes"
-            },
-            {
-                "display": "Olive oil"
-            },
-            {
-                "display": "Lemon juice"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Grill chicken breasts until cooked through."
-            },
-            {
-                "text": "Slice chicken."
-            },
-            {
-                "text": "Toss salad greens, cucumber, and tomatoes."
-            },
-            {
-                "text": "Top with chicken."
-            },
-            {
-                "text": "Drizzle with olive oil and lemon juice."
-            }
-        ],
-        "id": "b6b4a865-c443-48cc-951b-ad7daabb68c8",
-        "rating": 1
+      "id": "a4cc3afb-b674-4828-8603-9a27fe5bc976",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Simple Grilled Hake",
+      "slug": "simple-grilled-hake",
+      "image": "no image",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A simple and delicious grilled hake recipe.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 5.0,
+      "orgURL": null,
+      "dateAdded": "2026-02-10",
+      "dateUpdated": "2026-02-10T21:14:16.171622Z",
+      "createdAt": "2026-02-10T21:13:27.883615Z",
+      "updatedAt": "2026-02-10T21:14:19.215900Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "4"
+        },
+        {
+          "display": "2 cloves garlics chopped"
+        },
+        {
+          "display": "1 lemon Juice of"
+        },
+        {
+          "display": "Salt to taste"
+        },
+        {
+          "display": "Black pepper to taste"
+        },
+        {
+          "display": "olive oils"
+        },
+        {
+          "display": "Optional: herbs (parsley, coriander, thyme, or rosemary)"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Season the fish with salt, pepper, garlic, and lemon juice. Let it rest for 10–15 minutes."
+        },
+        {
+          "text": "Heat a frying pan or grill well and drizzle with olive oil."
+        },
+        {
+          "text": "Place the hake and grill on medium heat for about 3–4 minutes on each side, until golden and tender."
+        },
+        {
+          "text": "Finish with a drizzle of olive oil and fresh herbs, if desired."
+        }
+      ]
     },
     {
-        "slug": "beef-tacos",
-        "name": "Beef Tacos",
-        "description": "Classic Mexican-style beef tacos with fresh toppings.",
-        "recipeCategory": [
-            "Dinner",
-            "Mexican"
-        ],
-        "tags": [
-            "beef",
-            "family-friendly"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "500g ground beef"
-            },
-            {
-                "display": "1 packet taco seasoning"
-            },
-            {
-                "display": "8 taco shells"
-            },
-            {
-                "display": "Lettuce, shredded"
-            },
-            {
-                "display": "Cheddar cheese, shredded"
-            },
-            {
-                "display": "Salsa"
-            },
-            {
-                "display": "Sour cream"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Brown ground beef in a pan."
-            },
-            {
-                "text": "Add taco seasoning and water as per packet instructions."
-            },
-            {
-                "text": "Simmer until thickened."
-            },
-            {
-                "text": "Warm taco shells."
-            },
-            {
-                "text": "Assemble tacos with beef and toppings."
-            }
-        ],
-        "id": "be1433f9-af74-45bd-9f10-5766794d1ad4",
-        "rating": 4
+      "id": "4a5b4da8-c30e-4f5e-9a1d-c4787299feec",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Quick Sautéed Vegetables (Frying Pan)",
+      "slug": "quick-sauteed-vegetables-frying-pan",
+      "image": "no image",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": "15 minutes",
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A simple and quick recipe for sautéed vegetables, perfect as a side dish or base for dishes.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": null,
+      "orgURL": null,
+      "dateAdded": "2026-02-10",
+      "dateUpdated": "2026-02-10T21:12:23.971985Z",
+      "createdAt": "2026-02-10T21:12:14.921746Z",
+      "updatedAt": "2026-02-10T21:12:23.987619Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "Aubergine in medium cubes"
+        },
+        {
+          "display": "Courgettes in half-moons"
+        },
+        {
+          "display": "Pepper in strips"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Cut vegetables – 3 to 5 min"
+        },
+        {
+          "text": "Heat the frying pan + olive oil – 1 min on medium-high heat."
+        },
+        {
+          "text": "Sauté the aubergine – 5 to 6 min alone in the pan, stir occasionally until golden and soft."
+        },
+        {
+          "text": "Add courgettes + pepper – 4 to 5 min, keep on medium-high heat until soft but still firm."
+        },
+        {
+          "text": "Season and finish – 1 min with salt, pepper, garlic/herbs. If desired, a dash of lemon at the end."
+        }
+      ]
     },
     {
-        "slug": "lentil-soup",
-        "name": "Lentil Soup",
-        "description": "Hearty and nutritious vegan lentil soup.",
-        "recipeCategory": [
-            "Lunch",
-            "Soup"
-        ],
-        "tags": [
-            "vegan",
-            "high-fiber",
-            "budget-friendly"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 cup dried lentils"
-            },
-            {
-                "display": "1 onion, diced"
-            },
-            {
-                "display": "2 carrots, diced"
-            },
-            {
-                "display": "2 celery stalks, diced"
-            },
-            {
-                "display": "4 cups vegetable broth"
-            },
-            {
-                "display": "1 tsp cumin"
-            },
-            {
-                "display": "1 tsp thyme"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Saut\u00e9 onion, carrots, and celery."
-            },
-            {
-                "text": "Add lentils, broth, and spices."
-            },
-            {
-                "text": "Simmer for 30-40 minutes until lentils are soft."
-            },
-            {
-                "text": "Blend half the soup for creaminess if desired."
-            }
-        ],
-        "id": "180cff2a-542e-4ab2-9aea-7276035de3f4",
-        "rating": 4
+      "id": "186b4121-e71e-4591-a132-056f01d64e3a",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Cabbage Wraps with Chicken, Vegetables, Olives, and Peppers",
+      "slug": "cabbage-wraps-with-chicken-vegetables-olives-and-peppers",
+      "image": "54",
+      "recipeServings": 4.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A delicious recipe for cabbage wraps filled with chicken, vegetables, olives, and peppers. Ideal for dinner.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 4.0,
+      "orgURL": null,
+      "dateAdded": "2026-02-08",
+      "dateUpdated": "2026-02-09T13:30:50.382562Z",
+      "createdAt": "2026-02-08T13:21:04.097446Z",
+      "updatedAt": "2026-02-14T00:40:37.724697Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "1 savoy cabbage"
+        },
+        {
+          "display": "2 chicken breasts cooked and shredded (or minced chicken)"
+        },
+        {
+          "display": "1 or onion"
+        },
+        {
+          "display": "1 carrot grated"
+        },
+        {
+          "display": "¹/₂ red pepper diced"
+        },
+        {
+          "display": "¹/₂ green or yellow pepper diced"
+        },
+        {
+          "display": "10 olives black or green, chopped"
+        },
+        {
+          "display": "2 tablespoons olive oils"
+        },
+        {
+          "display": "2 tablespoons creams or 3 tablespoons of cream cheese"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Separate the leaves of the savoy cabbage and blanch them in boiling salted water for 2-3 minutes until soft. Remove and drain."
+        },
+        {
+          "text": "In a pot or wide pan, heat the olive oil and sauté the leek (or onion)."
+        },
+        {
+          "text": "Add the carrot, peppers, and let soften."
+        },
+        {
+          "text": "Add the shredded chicken and olives."
+        },
+        {
+          "text": "Season with salt, pepper, and a touch of nutmeg."
+        },
+        {
+          "text": "Fold in the cream or cream cheese and turn off the heat."
+        },
+        {
+          "text": "Place a portion of filling in the centre of each cabbage leaf and roll it up to form a wrap."
+        },
+        {
+          "text": "Oven option (recommended): Place the wraps on a tray, sprinkle with grated cheese, and bake at 180°C for 15-20 minutes."
+        },
+        {
+          "text": "Pan option: Place the wraps in a large pot, add some water or stock, cover, and let cook for 10 minutes."
+        }
+      ]
     },
     {
-        "slug": "chicken-tikka-masala",
-        "name": "Chicken Tikka Masala",
-        "description": "Creamy and spicy Indian chicken curry.",
-        "recipeCategory": [
-            "Dinner",
-            "Indian"
-        ],
-        "tags": [
-            "chicken",
-            "spicy",
-            "comfort-food"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "500g chicken thighs, cubed"
-            },
-            {
-                "display": "1 cup yogurt"
-            },
-            {
-                "display": "2 tbsp tikka masala paste"
-            },
-            {
-                "display": "1 can tomato puree"
-            },
-            {
-                "display": "1/2 cup heavy cream"
-            },
-            {
-                "display": "Cilantro"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Marinate chicken in yogurt and paste for 1 hour."
-            },
-            {
-                "text": "Grill or fry chicken until charred."
-            },
-            {
-                "text": "Simmer tomato puree and cream."
-            },
-            {
-                "text": "Add chicken to sauce and simmer for 10 minutes."
-            },
-            {
-                "text": "Garnish with cilantro."
-            }
-        ],
-        "id": "68d7ce04-3b00-4e8b-97df-7292b467b42d",
-        "rating": 3
+      "id": "f29363e1-d5bb-44f8-bc2d-139fb96e8d41",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Chicken Breast Stuffed with Cheese and Cherry Tomatoes",
+      "slug": "chicken-breast-stuffed-with-cheese-and-cherry-tomatoes",
+      "image": "no image",
+      "recipeServings": 2.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A delicious dish featuring chicken breasts stuffed with cheese and cherry tomatoes, perfect for 2-3 people.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 5.0,
+      "orgURL": null,
+      "dateAdded": "2026-02-08",
+      "dateUpdated": "2026-02-08T13:20:26.744480Z",
+      "createdAt": "2026-02-08T13:19:52.961377Z",
+      "updatedAt": "2026-02-10T20:39:46.472831Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "2 chicken breasts large"
+        },
+        {
+          "display": "150 grams cherry tomatoes"
+        },
+        {
+          "display": "100 grams mozzarellas sliced or 40-50 g grated parmesan"
+        },
+        {
+          "display": "2 cloves garlics sliced"
+        },
+        {
+          "display": "4 tablespoons olive oils"
+        },
+        {
+          "display": "Salt and pepper to taste"
+        },
+        {
+          "display": "Oregano, thyme, or basil"
+        },
+        {
+          "display": "¹/₂ lemon Juice or balsamic vinegar"
+        },
+        {
+          "display": "Toothpicks (if necessary)"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Make a lateral cut in each breast (like a book) without completely separating. Season inside and out with salt, pepper, and lemon."
+        },
+        {
+          "text": "With mozzarella: place slices inside the chicken (you can add a basil leaf)."
+        },
+        {
+          "text": "With parmesan: sprinkle the inside with grated cheese (gives a more intense and dry flavour). Close and secure with toothpicks if needed."
+        },
+        {
+          "text": "Place the chicken on the tray, add the cherry tomatoes, garlic, herbs and drizzle with olive oil."
+        },
+        {
+          "text": "Bake in preheated oven at 190 °C for 30 minutes, basting halfway through."
+        },
+        {
+          "text": "Grill for 3–5 minutes at the end to brown (especially good with parmesan)."
+        }
+      ]
     },
     {
-        "slug": "mushroom-risotto",
-        "name": "Mushroom Risotto",
-        "description": "Creamy Italian rice dish with mixed mushrooms.",
-        "recipeCategory": [
-            "Dinner",
-            "Italian"
-        ],
-        "tags": [
-            "vegetarian",
-            "rice",
-            "gourmet"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1.5 cups arborio rice"
-            },
-            {
-                "display": "200g mushrooms, sliced"
-            },
-            {
-                "display": "1 onion, finely chopped"
-            },
-            {
-                "display": "1/2 cup white wine"
-            },
-            {
-                "display": "4 cups vegetable stock"
-            },
-            {
-                "display": "Butter"
-            },
-            {
-                "display": "Parmesan cheese"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Saut\u00e9 mushrooms and set aside."
-            },
-            {
-                "text": "Saut\u00e9 onion, then add rice and toast slightly."
-            },
-            {
-                "text": "Add wine and let evaporate."
-            },
-            {
-                "text": "Gradually add stock, stirring constantly."
-            },
-            {
-                "text": "Stir in mushrooms, butter, and parmesan at the end."
-            }
-        ],
-        "id": "fd57feb6-8dee-4e87-b3f9-1f1a21692e0f",
-        "rating": 4
+      "id": "0319f195-7acc-4bae-9f6d-7112901461d6",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Sautéed Aubergine in Frying Pan/Wok",
+      "slug": "sauteed-aubergine-in-frying-pan-wok",
+      "image": "no image",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A delicious sautéed aubergine dish with garlic and spices.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": null,
+      "orgURL": null,
+      "dateAdded": "2026-02-04",
+      "dateUpdated": "2026-02-04T20:57:03.866661Z",
+      "createdAt": "2026-02-04T20:56:28.720199Z",
+      "updatedAt": "2026-02-04T20:57:03.881840Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "1 aubergine large"
+        },
+        {
+          "display": "2 cloves garlics chopped"
+        },
+        {
+          "display": "3 tablespoons olive oils"
+        },
+        {
+          "display": "Salt to taste"
+        },
+        {
+          "display": "Black pepper to taste"
+        },
+        {
+          "display": "1 teaspoon paprika or sweet pepper optional"
+        },
+        {
+          "display": "1 tablespoon soy sauce optional, but gives a great touch"
+        },
+        {
+          "display": "Fresh or dried herbs (oregano, thyme or basil – optional)"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Prepare the aubergine. Wash the aubergine and cut it into cubes or half-moons. (Optional: sprinkle with salt and let it rest for 10 minutes; then dry with paper – this makes it less bitter and absorbs less oil.)"
+        },
+        {
+          "text": "Heat the frying pan/wok. Heat the olive oil over medium-high heat."
+        },
+        {
+          "text": "Sauté. Add the aubergine and let it brown without stirring too much in the first few minutes. Keep turning until soft inside and golden outside (8-10 minutes)."
+        },
+        {
+          "text": "Season. Add the garlic, salt, pepper, and paprika. Stir for 1 minute (careful not to burn the garlic)."
+        },
+        {
+          "text": "Finish. Add the soy sauce and herbs. Sauté for another 30 seconds and it's ready."
+        }
+      ]
     },
     {
-        "slug": "salmon-asparagus",
-        "name": "Baked Salmon with Asparagus",
-        "description": "Simple sheet pan dinner with healthy fats.",
-        "recipeCategory": [
-            "Dinner",
-            "Healthy"
-        ],
-        "tags": [
-            "pescatarian",
-            "keto",
-            "gluten-free"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "2 salmon fillets"
-            },
-            {
-                "display": "1 bunch asparagus"
-            },
-            {
-                "display": "2 tbsp olive oil"
-            },
-            {
-                "display": "1 lemon, sliced"
-            },
-            {
-                "display": "Dill"
-            },
-            {
-                "display": "Salt and pepper"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Preheat oven to 400\u00b0F (200\u00b0C)."
-            },
-            {
-                "text": "Place salmon and asparagus on a baking sheet."
-            },
-            {
-                "text": "Drizzle with oil and season."
-            },
-            {
-                "text": "Top with lemon slices and dill."
-            },
-            {
-                "text": "Bake for 12-15 minutes."
-            }
-        ],
-        "id": "e2e4fd9f-4f81-4f8d-b81d-521f2c6eb0dc",
-        "rating": 1
+      "id": "18f034a2-bd57-4fe5-8852-1f8d1b06422c",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Healthy Herb-Crusted Fish Fillets",
+      "slug": "healthy-herb-crusted-fish-fillets",
+      "image": "133",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A healthy recipe for fish fillets with a herb crust.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 5.0,
+      "orgURL": null,
+      "dateAdded": "2026-02-02",
+      "dateUpdated": "2026-02-02T20:00:44.590269Z",
+      "createdAt": "2026-02-02T19:57:51.620814Z",
+      "updatedAt": "2026-02-10T20:38:47.416201Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "Fish fillets"
+        },
+        {
+          "display": "2 tablespoons wholemeal breadcrumbs or oatmeal"
+        },
+        {
+          "display": "1 tablespoon olive oil"
+        },
+        {
+          "display": "Fresh or dried herbs (parsley, coriander, thyme, oregano)"
+        },
+        {
+          "display": "1 clove garlic small, finely chopped, optional"
+        },
+        {
+          "display": "Lemon zest"
+        },
+        {
+          "display": "Salt and pepper to taste"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Preheat the oven to 190 °C."
+        },
+        {
+          "text": "Mix the wholemeal breadcrumbs (or oatmeal), olive oil, herbs, garlic, and lemon zest."
+        },
+        {
+          "text": "Season the fillets with salt and pepper and place them on a baking tray lined with parchment paper."
+        },
+        {
+          "text": "Cover each fillet with the crust mixture, pressing lightly."
+        },
+        {
+          "text": "Bake for 15–20 minutes, until the fish is cooked and the crust is golden."
+        }
+      ]
     },
     {
-        "slug": "oatmeal-berries",
-        "name": "Oatmeal with Berries",
-        "description": "Warm breakfast oats with fresh antioxidant-rich berries.",
-        "recipeCategory": [
-            "Breakfast",
-            "Healthy"
-        ],
-        "tags": [
-            "vegan",
-            "breakfast",
-            "easy"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1/2 cup rolled oats"
-            },
-            {
-                "display": "1 cup almond milk"
-            },
-            {
-                "display": "1 tbsp drizzle maple syrup"
-            },
-            {
-                "display": "1/2 cup mixed berries"
-            },
-            {
-                "display": "1 tbsp chia seeds"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Combine oats and milk in a pot."
-            },
-            {
-                "text": "Cook over medium heat until thickened."
-            },
-            {
-                "text": "Stir in maple syrup."
-            },
-            {
-                "text": "Top with fresh berries and chia seeds."
-            }
-        ],
-        "id": "918f1ba5-6e26-426f-bb9a-3a0636cf4445",
-        "rating": 4
+      "id": "0f6d8b19-ef10-4e30-b111-52701749573b",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Sautéed 'Umami' Mushrooms in a Wok",
+      "slug": "sauteed-umami-mushrooms-in-a-wok",
+      "image": "no image",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A delicious umami-flavoured sautéed mushroom dish prepared using a wok.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": null,
+      "orgURL": null,
+      "dateAdded": "2026-02-01",
+      "dateUpdated": "2026-02-01T18:44:02.260221Z",
+      "createdAt": "2026-02-01T18:43:29.436996Z",
+      "updatedAt": "2026-02-01T18:44:02.275159Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "300 grams mushrooms shiitake, paris, portobello or mixed"
+        },
+        {
+          "display": "1 tablespoon olive oil plus 1 teaspoon of butter"
+        },
+        {
+          "display": "1 clove garlic crushed"
+        },
+        {
+          "display": "1 teaspoon soy sauce shoyu"
+        },
+        {
+          "display": "1 teaspoon balsamic vinegar or lemon"
+        },
+        {
+          "display": "Freshly ground black pepper"
+        },
+        {
+          "display": "Thyme or rosemary (optional)"
+        },
+        {
+          "display": "Salt (just a little!)"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Prepare the mushrooms: Clean with paper (do not wash, if possible). Cut into large pieces – they shrink."
+        },
+        {
+          "text": "Very hot pan: Wok or large frying pan, high heat. Only add the olive oil and wait for it to heat well."
+        },
+        {
+          "text": "Seal without stirring: Add the mushrooms and do not stir for 1–2 minutes. This creates a golden colour and prevents them from releasing too much water."
+        },
+        {
+          "text": "Flavour time: Stir, add the garlic and butter. Sauté for 1 more minute."
+        },
+        {
+          "text": "Umami finish: Add the shoyu (just a little!), balsamic/lemon and pepper. Throw in the herbs and stir."
+        }
+      ]
     },
     {
-        "slug": "beef-burger",
-        "name": "Classic Beef Burger",
-        "description": "Juicy homemade beef burger with fries.",
-        "recipeCategory": [
-            "Dinner",
-            "American"
-        ],
-        "tags": [
-            "beef",
-            "cheat-meal"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "500g ground beef"
-            },
-            {
-                "display": "4 burger buns"
-            },
-            {
-                "display": "Lettuce, tomato, onion"
-            },
-            {
-                "display": "Cheese slices"
-            },
-            {
-                "display": "4 large potatoes, cut into fries"
-            },
-            {
-                "display": "Salt"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Form beef into patties."
-            },
-            {
-                "text": "Fry or grill patties to desired doneness."
-            },
-            {
-                "text": "Fry potatoes until golden."
-            },
-            {
-                "text": "Assemble burgers with buns and toppings."
-            }
-        ],
-        "id": "b04331ac-8064-4213-a239-abc5824765d8",
-        "rating": 5
+      "id": "af0c3ab1-8471-42c8-bab2-16286e04f366",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Umami Stir-Fried Mushrooms in a Wok",
+      "slug": "umami-stir-fried-mushrooms-in-a-wok",
+      "image": "no image",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A savoury stir-fried mushroom dish with an umami flavour.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": null,
+      "orgURL": null,
+      "dateAdded": "2026-02-01",
+      "dateUpdated": "2026-02-01T18:42:39.225345Z",
+      "createdAt": "2026-02-01T18:42:39.234759Z",
+      "updatedAt": "2026-02-01T18:42:39.234763Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "300–400 g of mushrooms (shiitake, button, portobello or mixed)"
+        },
+        {
+          "display": "1 tablespoon of olive oil + 1 teaspoon of butter"
+        },
+        {
+          "display": "1 clove of crushed garlic"
+        },
+        {
+          "display": "1 teaspoon of soy sauce (shoyu)"
+        },
+        {
+          "display": "1 teaspoon of balsamic vinegar or lemon"
+        },
+        {
+          "display": "Freshly ground black pepper"
+        },
+        {
+          "display": "Thyme or rosemary (optional)"
+        },
+        {
+          "display": "Salt (just a pinch!)"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Prepare the mushrooms. Clean with paper (do not wash, if possible). Cut into large pieces—they shrink."
+        },
+        {
+          "text": "Get the pan very hot. Use a wok or wide frying pan on high heat. Add only the olive oil and wait until it heats well."
+        },
+        {
+          "text": "Sear without stirring. Add the mushrooms and do not stir for 1–2 minutes. This creates a golden colour and prevents them from releasing too much water."
+        },
+        {
+          "text": "Time for flavour. Stir, add the garlic and butter. Stir-fry for 1 more minute."
+        },
+        {
+          "text": "Final umami. Add the soy sauce (just a little!), balsamic/lemon, and pepper. Toss in the herbs and serve."
+        }
+      ]
     },
     {
-        "slug": "quinoa-salad-avocado",
-        "name": "Quinoa Salad with Avocado",
-        "description": "A refreshing and nutrient-dense salad with protein-rich quinoa and healthy fats.",
-        "recipeCategory": [
-            "Lunch",
-            "Salad"
-        ],
-        "tags": [
-            "vegan",
-            "gluten-free",
-            "superfood"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 cup quinoa, cooked"
-            },
-            {
-                "display": "1 avocado, diced"
-            },
-            {
-                "display": "1/2 cup cherry tomatoes, halved"
-            },
-            {
-                "display": "1/4 cup cucumber, diced"
-            },
-            {
-                "display": "Lemon juice"
-            },
-            {
-                "display": "Olive oil"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Cook quinoa according to package instructions and let cool."
-            },
-            {
-                "text": "Chop avocado, tomatoes, and cucumber."
-            },
-            {
-                "text": "Toss vegetables with quinoa."
-            },
-            {
-                "text": "Drizzle with olive oil and lemon juice before serving."
-            }
-        ],
-        "id": "1f7e4369-1a2c-492d-b6ab-7bb1afaf43e1",
-        "rating": 1
+      "id": "9deb818b-6a29-42f0-a9a0-2945ff1e810e",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Cabbage Wraps with Peppers and Olives",
+      "slug": "cabbage-wraps-with-peppers-and-olives",
+      "image": "133",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A delicious recipe for cabbage wraps filled with peppers and olives.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 4.0,
+      "orgURL": null,
+      "dateAdded": "2026-02-01",
+      "dateUpdated": "2026-02-02T12:21:57.903055Z",
+      "createdAt": "2026-02-01T18:40:00.304405Z",
+      "updatedAt": "2026-02-02T19:59:54.053819Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "1 savoy cabbage"
+        },
+        {
+          "display": "1 red pepper"
+        },
+        {
+          "display": "1 green or yellow pepper"
+        },
+        {
+          "display": "1 medium onion"
+        },
+        {
+          "display": "2 cloves garlics"
+        },
+        {
+          "display": "Black or green olives (pitted, sliced)"
+        },
+        {
+          "display": "Olive oil"
+        },
+        {
+          "display": "Salt and pepper"
+        },
+        {
+          "display": "Sweet or spicy paprika (optional)"
+        },
+        {
+          "display": "Herbs to taste (oregano, thyme, or bay leaf)"
+        },
+        {
+          "display": "Toothpicks or kitchen twine"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Prepare the cabbage"
+        },
+        {
+          "text": "Separate the large leaves of the savoy cabbage. Cook in salted water for 2–3 minutes, just until they become pliable. Remove and place in cold water. Drain well."
+        },
+        {
+          "text": "In a frying pan, heat the olive oil. Sauté the onion until soft. Add the garlic and the peppers in strips and sauté until soft, but still colourful. Add the olives, season with salt, pepper, paprika, and herbs. Turn off the heat."
+        },
+        {
+          "text": "Open a cabbage leaf, place a portion of filling in the centre. Fold the sides and roll like a parcel. Secure with toothpick or twine."
+        },
+        {
+          "text": "In the pan: Place the wraps, drizzle with olive oil and a little water or broth. Cover and cook for 10–15 minutes on low heat."
+        },
+        {
+          "text": "In the oven: Place in a baking dish, drizzle with olive oil, cover with aluminium foil and bake at 180°C for 20 minutes."
+        }
+      ]
     },
     {
-        "slug": "greek-yogurt-parfait",
-        "name": "Greek Yogurt Parfait",
-        "description": "High-protein breakfast with probiotics and fiber.",
-        "recipeCategory": [
-            "Breakfast",
-            "Healthy"
-        ],
-        "tags": [
-            "vegetarian",
-            "high-protein",
-            "quick"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 cup Greek yogurt"
-            },
-            {
-                "display": "1/2 cup granola"
-            },
-            {
-                "display": "1/2 cup mixed berries"
-            },
-            {
-                "display": "1 tbsp honey"
-            },
-            {
-                "display": "1 tsp flax seeds"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Layer yogurt in a bowl or glass."
-            },
-            {
-                "text": "Add a layer of granola."
-            },
-            {
-                "text": "Top with fresh berries."
-            },
-            {
-                "text": "Drizzle with honey and sprinkle flax seeds."
-            }
-        ],
-        "id": "487a6099-f164-4f70-8f61-e73b82935333",
-        "rating": 5
+      "id": "60b1c7b7-47b3-44b7-90dd-7f823a82fbb3",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Sautéed Leek with Hot Spices (Mediterranean Style)",
+      "slug": "sauteed-leek-with-hot-spices-mediterranean-style",
+      "image": "no image",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "Without sauces, without frying — the flavour comes from the spices.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 1.0,
+      "orgURL": null,
+      "dateAdded": "2026-01-29",
+      "dateUpdated": "2026-01-29T21:37:52.657180Z",
+      "createdAt": "2026-01-29T21:37:03.526285Z",
+      "updatedAt": "2026-02-14T00:40:02.823737Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "2 leeks"
+        },
+        {
+          "display": "1 tablespoon olive oil"
+        },
+        {
+          "display": "¹/₂ teaspoon ground cumin"
+        },
+        {
+          "display": "¹/₂ teaspoon sweet paprika"
+        },
+        {
+          "display": "1 pinch turmeric"
+        },
+        {
+          "display": "1 pinch cinnamon very little!"
+        },
+        {
+          "display": "Salt and black pepper"
+        },
+        {
+          "display": "Juice of half a lemon"
+        },
+        {
+          "display": "Fresh parsley or coriander"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Cut the leek into fine slices and wash well."
+        },
+        {
+          "text": "Heat the olive oil in a large frying pan over medium heat."
+        },
+        {
+          "text": "Add the leek and salt; let it sweat for 4–5 minutes."
+        },
+        {
+          "text": "Sprinkle the spices and mix well to release the aroma."
+        },
+        {
+          "text": "Cook for another 3–4 minutes until soft and golden."
+        },
+        {
+          "text": "Remove from the heat, add the lemon and fresh herb."
+        }
+      ]
     },
     {
-        "slug": "sweet-potato-chickpea-curry",
-        "name": "Sweet Potato and Chickpea Curry",
-        "description": "Warm and comforting vegan curry rich in fiber and vitamins.",
-        "recipeCategory": [
-            "Dinner",
-            "Indian"
-        ],
-        "tags": [
-            "vegan",
-            "gluten-free",
-            "comfort-food"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "2 sweet potatoes, cubed"
-            },
-            {
-                "display": "1 can chickpeas, drained"
-            },
-            {
-                "display": "1 can coconut milk"
-            },
-            {
-                "display": "1 tbsp red curry paste"
-            },
-            {
-                "display": "Spinach leaves"
-            },
-            {
-                "display": "Rice for serving"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Saut\u00e9 curry paste in a pot for a minute."
-            },
-            {
-                "text": "Add sweet potatoes and coconut milk."
-            },
-            {
-                "text": "Simmer until potatoes are tender."
-            },
-            {
-                "text": "Stir in chickpeas and spinach until wilted."
-            },
-            {
-                "text": "Serve hot over rice."
-            }
-        ],
-        "id": "28125367-a435-4688-aebb-740e8180060b",
-        "rating": 1
+      "id": "48d9d952-eba8-4633-9ba8-518ac1f85aaf",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Pork Neck Chops with Portuguese-Style Tomato (Classic)",
+      "slug": "pork-neck-chops-with-portuguese-style-tomato-classic",
+      "image": "180",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A classic Portuguese recipe featuring pork neck chops cooked with tomato and spices.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 3.0,
+      "orgURL": null,
+      "dateAdded": "2026-01-27",
+      "dateUpdated": "2026-02-02T12:21:24.285185Z",
+      "createdAt": "2026-01-27T23:47:36.496950Z",
+      "updatedAt": "2026-02-02T12:21:24.301065Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "4 pork neck chops"
+        },
+        {
+          "display": "1 onion large, sliced"
+        },
+        {
+          "display": "3 cloves garlics chopped"
+        },
+        {
+          "display": "400 grams peeled tomato or ripe tomato, chopped"
+        },
+        {
+          "display": "1 bay leaf"
+        },
+        {
+          "display": "olive oils as needed"
+        },
+        {
+          "display": "Salt and pepper"
+        },
+        {
+          "display": "White wine (a generous splash)"
+        },
+        {
+          "display": "Chopped parsley or coriander"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Season the chops with salt, pepper, and garlic."
+        },
+        {
+          "text": "Brown them in a large frying pan with olive oil. Remove and set aside."
+        },
+        {
+          "text": "In the same fat, sauté the onion and bay leaf."
+        },
+        {
+          "text": "Add the tomato and white wine. Let it simmer for 10 minutes."
+        },
+        {
+          "text": "Return the chops, cover and cook on a low heat for 20-25 minutes."
+        },
+        {
+          "text": "Finish with parsley or coriander."
+        }
+      ]
     },
     {
-        "slug": "shrimp-ceviche",
-        "name": "Shrimp Ceviche",
-        "description": "Fresh seafood dish cured in citrus juices.",
-        "recipeCategory": [
-            "Appetizer",
-            "Latin American"
-        ],
-        "tags": [
-            "pescatarian",
-            "low-carb",
-            "keto"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "500g raw shrimp, peeled and deveined"
-            },
-            {
-                "display": "1 cup lime juice"
-            },
-            {
-                "display": "1/2 red onion, finely sliced"
-            },
-            {
-                "display": "1 jalapeno, minced"
-            },
-            {
-                "display": "Cilantro, chopped"
-            },
-            {
-                "display": "Tomato, diced"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Chop shrimp into small pieces."
-            },
-            {
-                "text": "Marinate shrimp in lime juice for 20 minutes until opaque."
-            },
-            {
-                "text": "Mix in onion, jalapeno, tomato, and cilantro."
-            },
-            {
-                "text": "Serve with tortilla chips or on its own."
-            }
-        ],
-        "id": "4c57ab98-3b07-46f6-a853-d79a8e1016ee",
-        "rating": 4
+      "id": "69cde985-615e-41e6-9cf9-ad86894194d2",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Sautéed Broccoli with Butter and Garlic (Option 3)",
+      "slug": "sauteed-broccoli-with-butter-and-garlic-option-3",
+      "image": "no image",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A simple and tasty dish of sautéed broccoli with butter and garlic, perfect as a side dish.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 5.0,
+      "orgURL": null,
+      "dateAdded": "2026-01-25",
+      "dateUpdated": "2026-01-25T22:09:57.220157Z",
+      "createdAt": "2026-01-25T22:09:37.425230Z",
+      "updatedAt": "2026-01-25T22:10:11.758374Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "1 bunch broccoli"
+        },
+        {
+          "display": "1 tablespoon butter"
+        },
+        {
+          "display": "1 clove garlic chopped or crushed"
+        },
+        {
+          "display": "Salt to taste"
+        },
+        {
+          "display": "Black pepper (optional)"
+        },
+        {
+          "display": "A little lemon or vinegar (optional, but recommended)"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Prepare the broccoli. Separate the florets and cut the stems into thin slices. Steam or boil in hot water for 2–3 minutes until bright green and just tender. Drain well."
+        },
+        {
+          "text": "Melt the butter. In a large frying pan, over medium heat, melt the butter without letting it burn."
+        },
+        {
+          "text": "Sauté the garlic. Add the garlic and stir for a few seconds, just until fragrant."
+        },
+        {
+          "text": "Sauté the broccoli. Add the broccoli to the pan, mix well, and lightly brown for 2–4 minutes."
+        },
+        {
+          "text": "Finish. Adjust the salt, add the pepper if desired, and finish with a few drops of lemon or vinegar. Serve immediately."
+        }
+      ]
     },
     {
-        "slug": "turkey-chili",
-        "name": "Lean Turkey Chili",
-        "description": "A lighter version of classic chili using lean ground turkey.",
-        "recipeCategory": [
-            "Dinner",
-            "American"
-        ],
-        "tags": [
-            "high-protein",
-            "healthy",
-            "meal-prep"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "500g ground turkey"
-            },
-            {
-                "display": "1 can kidney beans"
-            },
-            {
-                "display": "1 can diced tomatoes"
-            },
-            {
-                "display": "1 onion, chopped"
-            },
-            {
-                "display": "2 tbsp chili powder"
-            },
-            {
-                "display": "1 bell pepper, chopped"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Brown turkey in a large pot."
-            },
-            {
-                "text": "Add onion and peppers, saut\u00e9 until soft."
-            },
-            {
-                "text": "Stir in tomatoes, beans, and spices."
-            },
-            {
-                "text": "Simmer for 30 minutes to blend flavors."
-            }
-        ],
-        "id": "fdccc1e2-74ad-4d23-946b-4c0f26c3c7f6",
-        "rating": 3
+      "id": "28e1e3ec-26b1-4d80-b105-7b9ba36325be",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Mushrooms in Butter with Garlic Paste",
+      "slug": "mushrooms-in-butter-with-garlic-paste",
+      "image": "117",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A delicious recipe for cooking mushrooms with garlic paste in butter.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 4.0,
+      "orgURL": null,
+      "dateAdded": "2026-01-24",
+      "dateUpdated": "2026-01-24T21:46:22.628419Z",
+      "createdAt": "2026-01-24T21:45:32.594498Z",
+      "updatedAt": "2026-01-25T12:09:04.915497Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "¹/₂ teaspoon garlic paste for every 250-300g of mushrooms (it is stronger than fresh garlic)"
+        },
+        {
+          "display": "1 drizzle olive oil"
+        },
+        {
+          "display": "1 tablespoon butter"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Prepare the mushrooms. Clean with paper towel and cut (small or coarsely sliced)."
+        },
+        {
+          "text": "Heat the pan. Medium-high heat. Add 1 drizzle of olive oil and 1 tablespoon of butter."
+        },
+        {
+          "text": "Brown the mushrooms first. Add the mushrooms and do not stir for 2-3 minutes until well browned. Turn and brown the other side."
+        },
+        {
+          "text": "Garlic paste time (be careful here). Lower the heat to medium. Move the mushrooms to the side of the pan and add the garlic paste in the free space. Sauté for 10-20 seconds, just until fragrant (do not let it darken)."
+        },
+        {
+          "text": "Mix and season. Mix everything, add salt and pepper to taste."
+        },
+        {
+          "text": "Finish. Turn off the heat and add herbs (parsley, thyme, rosemary)."
+        }
+      ]
     },
     {
-        "slug": "caprese-salad",
-        "name": "Classic Caprese Salad",
-        "description": "Simple Italian salad with fresh mozzarella and basil.",
-        "recipeCategory": [
-            "Salad",
-            "Italian"
-        ],
-        "tags": [
-            "vegetarian",
-            "classic",
-            "gluten-free"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "3 large tomatoes, sliced"
-            },
-            {
-                "display": "200g fresh mozzarella, sliced"
-            },
-            {
-                "display": "Fresh basil leaves"
-            },
-            {
-                "display": "Balsamic glaze"
-            },
-            {
-                "display": "Olive oil"
-            },
-            {
-                "display": "Salt and pepper"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Arrange tomato and mozzarella slices alternately on a platter."
-            },
-            {
-                "text": "Tuck fresh basil leaves between slices."
-            },
-            {
-                "text": "Drizzle with olive oil and balsamic glaze."
-            },
-            {
-                "text": "Season with salt and pepper."
-            }
-        ],
-        "id": "2a29ff21-27a4-47b8-ae51-d433054fe61d",
-        "rating": 4
+      "id": "02e3d83e-47d5-40a3-aec2-fbf08f28bf53",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Rojões à Moda do Minho (traditional)",
+      "slug": "rojoes-a-moda-do-minho-traditional",
+      "image": "no image",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "Traditional pork dish from the Minho region.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 3.0,
+      "orgURL": null,
+      "dateAdded": "2026-01-24",
+      "dateUpdated": "2026-01-24T14:26:51.018900Z",
+      "createdAt": "2026-01-24T14:25:29.213265Z",
+      "updatedAt": "2026-01-25T22:08:35.243075Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "1 kilogram rojões pork meat in medium cubes, preferably from the leg or shoulder"
+        },
+        {
+          "display": "4 cloves garlics chopped"
+        },
+        {
+          "display": "2 bay leaves"
+        },
+        {
+          "display": "1 teaspoon paprika/sweet pepper"
+        },
+        {
+          "display": "1 teaspoon cumin optional, but very typical"
+        },
+        {
+          "display": "1 cup white wine"
+        },
+        {
+          "display": "Salt and black pepper to taste"
+        },
+        {
+          "display": "Lard (or olive oil, but lard is best here)"
+        },
+        {
+          "display": "500 grams small potatoes for frying"
+        },
+        {
+          "display": "Floured tripe (optional, but very traditional)"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Marinate the meat"
+        },
+        {
+          "text": "Place the rojões in a bowl with garlic, bay leaves, white wine, paprika, cumin, salt, and pepper. Mix well and let it marinate for at least 2 hours (ideally overnight)."
+        },
+        {
+          "text": "Fry the rojões"
+        },
+        {
+          "text": "In a large pan, melt a good spoonful of lard. Add the drained meat (reserve the marinade) and fry over medium-high heat until golden brown on the outside."
+        },
+        {
+          "text": "Cook internally"
+        },
+        {
+          "text": "Once browned, add the reserved marinade. Lower the heat, cover, and let it cook for 20–30 minutes, stirring occasionally, until the meat is tender and juicy."
+        },
+        {
+          "text": "Potatoes"
+        },
+        {
+          "text": "Fry the small potatoes in hot oil until golden. Reserve."
+        }
+      ]
     },
     {
-        "slug": "tofu-stir-fry",
-        "name": "Crispy Tofu Stir Fry",
-        "description": "Vegetarian stir fry with crispy tofu cubes and vegetables.",
-        "recipeCategory": [
-            "Dinner",
-            "Asian"
-        ],
-        "tags": [
-            "vegan",
-            "high-protein",
-            "dairy-free"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 block firm tofu, pressed and cubed"
-            },
-            {
-                "display": "2 tbsp cornstarch"
-            },
-            {
-                "display": "Mixed stir-fry vegetables (broccoli, carrots, snow peas)"
-            },
-            {
-                "display": "2 tbsp soy sauce"
-            },
-            {
-                "display": "1 tbsp sesame oil"
-            },
-            {
-                "display": "Ginger and garlic"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Toss tofu in cornstarch."
-            },
-            {
-                "text": "Pan-fry tofu until golden and crispy."
-            },
-            {
-                "text": "Remove tofu, stir fry vegetables with aromatics."
-            },
-            {
-                "text": "Add tofu back in with soy sauce and toss."
-            }
-        ],
-        "id": "82445810-400a-472a-9bd8-2d54d3ec2709",
-        "rating": 1
+      "id": "6a8c7333-fc1a-4239-8343-127afaf0240f",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Savoy Cabbage with Black Beans",
+      "slug": "savoy-cabbage-with-black-beans",
+      "image": "24",
+      "recipeServings": 4.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A delicious and hearty dish combining savoy cabbage and black beans, perfect for a family meal.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 5.0,
+      "orgURL": null,
+      "dateAdded": "2026-01-23",
+      "dateUpdated": "2026-01-24T13:51:57.371268Z",
+      "createdAt": "2026-01-23T21:14:17.265397Z",
+      "updatedAt": "2026-01-24T13:52:02.158915Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "¹/₂ savoy cabbage medium, cut into strips"
+        },
+        {
+          "display": "2 cups black beans with some broth"
+        },
+        {
+          "display": "1 onion medium, chopped"
+        },
+        {
+          "display": "2 cloves garlics chopped"
+        },
+        {
+          "display": "1 bay leaf"
+        },
+        {
+          "display": "3 tablespoons olive oils"
+        },
+        {
+          "display": "1 teaspoon paprika optional, but great"
+        },
+        {
+          "display": "Salt and pepper to taste"
+        },
+        {
+          "display": "Water or vegetable stock as needed"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Heat a pan with the olive oil, add the onion and let it sauté until soft."
+        },
+        {
+          "text": "Add the garlic and bay leaf, stir for a few seconds until fragrant."
+        },
+        {
+          "text": "Add the savoy cabbage, season with salt and pepper, and let it 'wilt' a little, stirring."
+        },
+        {
+          "text": "Add the black beans with some broth and the paprika."
+        },
+        {
+          "text": "If necessary, add a little water or stock to prevent drying."
+        },
+        {
+          "text": "Cover and cook on medium heat for about 20-25 minutes, until the cabbage is very tender."
+        },
+        {
+          "text": "Adjust the seasoning, remove the bay leaf, and it's ready."
+        }
+      ]
     },
     {
-        "slug": "bison-burger",
-        "name": "Lean Bison Burger",
-        "description": "A leaner alternative to beef burgers with rich flavor.",
-        "recipeCategory": [
-            "Dinner",
-            "American"
-        ],
-        "tags": [
-            "high-protein",
-            "healthy",
-            "paleo"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "500g ground bison"
-            },
-            {
-                "display": "Salt and pepper"
-            },
-            {
-                "display": "Burger buns (or lettuce wraps)"
-            },
-            {
-                "display": "Red onion slices"
-            },
-            {
-                "display": "Pickles"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Form bison meat into patties gently."
-            },
-            {
-                "text": "Season generously with salt and pepper."
-            },
-            {
-                "text": "Grill or sear for 4-5 minutes per side."
-            },
-            {
-                "text": "Assemble with desired toppings."
-            }
-        ],
-        "id": "a24d988b-7553-472c-a75f-dc0f66a92d66",
-        "rating": 3
+      "id": "fe03d111-3298-4f28-825f-21c976c9af74",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Hake with Sautéed Tomato and Olives",
+      "slug": "hake-with-sauteed-tomato-and-olives",
+      "image": "70",
+      "recipeServings": 2.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A delicious hake dish prepared with sautéed tomatoes and olives.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 5.0,
+      "orgURL": null,
+      "dateAdded": "2026-01-22",
+      "dateUpdated": "2026-01-24T20:11:38.555803Z",
+      "createdAt": "2026-01-22T23:12:25.555075Z",
+      "updatedAt": "2026-01-24T20:11:40.668156Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "2 hake fillets"
+        },
+        {
+          "display": "2 tablespoons olive oils"
+        },
+        {
+          "display": "2 cloves garlics chopped or sliced"
+        },
+        {
+          "display": "1 large ripe tomato or 1/2 cup canned tomato, drained"
+        },
+        {
+          "display": "Black or green olives in slices"
+        },
+        {
+          "display": "Oregano or thyme"
+        },
+        {
+          "display": "Salt and pepper to taste"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Season the hake with salt and pepper."
+        },
+        {
+          "text": "Heat a frying pan with 1 tbsp olive oil and brown the hake for 2–3 minutes on each side. Remove and set aside."
+        },
+        {
+          "text": "In the same pan, add the remaining olive oil and garlic."
+        },
+        {
+          "text": "Add the cubed tomato (or canned tomato) and sauté for 2–3 minutes until the acidity reduces."
+        },
+        {
+          "text": "Add the olives and oregano."
+        },
+        {
+          "text": "Return the hake to the pan, coat with the sauce and let it simmer for 1 minute."
+        }
+      ]
     },
     {
-        "slug": "smoothie-bowl-acai",
-        "name": "Acai Smoothie Bowl",
-        "description": "Thick and creamy smoothie bowl topped with fruits.",
-        "recipeCategory": [
-            "Breakfast",
-            "Healthy"
-        ],
-        "tags": [
-            "vegan",
-            "breakfast",
-            "superfood"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 frozen acai pack"
-            },
-            {
-                "display": "1 frozen banana"
-            },
-            {
-                "display": "1/2 cup almond milk"
-            },
-            {
-                "display": "Toppings: granola, coconut flakes, berries"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Blend acai, banana, and milk until thick and creamy."
-            },
-            {
-                "text": "Pour into a bowl."
-            },
-            {
-                "text": "Arrange toppings artistically on top."
-            },
-            {
-                "text": "Serve immediately."
-            }
-        ],
-        "id": "0543f495-0d64-42ae-bad5-58e610e0efdc",
-        "rating": 3
+      "id": "e0cec0ba-f575-4508-b59b-3b72d5656c4b",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Wok of Savoy Cabbage, Leek and Red Pepper",
+      "slug": "wok-of-savoy-cabbage-leek-and-red-pepper",
+      "image": "74",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 3.0,
+      "orgURL": null,
+      "dateAdded": "2026-01-22",
+      "dateUpdated": "2026-01-24T13:53:33.379923Z",
+      "createdAt": "2026-01-22T21:26:08.017127Z",
+      "updatedAt": "2026-01-25T22:08:10.815895Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "¹/₂ savoy cabbage cut into thin strips"
+        },
+        {
+          "display": "1 leek sliced into thin rings"
+        },
+        {
+          "display": "1 red pepper in strips"
+        },
+        {
+          "display": "2 cloves garlics chopped"
+        },
+        {
+          "display": "2 tablespoons olive oils or sesame oil for an Asian touch"
+        },
+        {
+          "display": "1 tablespoon soy sauce optional, but recommended"
+        },
+        {
+          "display": "Salt and pepper to taste"
+        },
+        {
+          "display": "Chilli flakes or piri-piri (optional)"
+        },
+        {
+          "display": "A dash of lemon juice or rice vinegar at the end"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Heat the wok well on high heat. When hot, add the oil."
+        },
+        {
+          "text": "Quickly sauté the garlic (10–15 seconds, just until fragrant)."
+        },
+        {
+          "text": "Add the leek and stir well for 1–2 minutes until it starts to soften but is still firm."
+        },
+        {
+          "text": "Add the red pepper and sauté for 1 more minute."
+        },
+        {
+          "text": "Add the Savoy cabbage, mix everything and let it cook for 3–4 minutes, stirring constantly. The idea is to have it cooked but still crunchy."
+        },
+        {
+          "text": "Season with soy sauce, pepper and chilli. Taste before adding salt."
+        },
+        {
+          "text": "Turn off the heat and finish with a few drops of lemon juice or rice vinegar to add freshness."
+        }
+      ]
     },
     {
-        "slug": "zucchini-noodles-pesto",
-        "name": "Zucchini Noodles with Pesto",
-        "description": "Low-carb pasta alternative with fresh basil pesto.",
-        "recipeCategory": [
-            "Dinner",
-            "Light"
-        ],
-        "tags": [
-            "keto",
-            "low-carb",
-            "vegetarian"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "3 large zucchinis, spiralized"
-            },
-            {
-                "display": "1/2 cup basil pesto"
-            },
-            {
-                "display": "1/4 cup cherry tomatoes"
-            },
-            {
-                "display": "Parmesan cheese"
-            },
-            {
-                "display": "Pine nuts"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Saut\u00e9 zucchini noodles in a pan for 2-3 minutes (do not overcook)."
-            },
-            {
-                "text": "Toss with pesto off heat."
-            },
-            {
-                "text": "Top with tomatoes, pine nuts, and parmesan."
-            }
-        ],
-        "id": "5e4063d7-1214-4647-abc0-3d8322d6ab0e",
-        "rating": 5
+      "id": "c21c97d4-4c45-4ae4-a40a-0b24fc68fe25",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Oven-baked Vegetables with Spices",
+      "slug": "oven-baked-vegetables-with-spices",
+      "image": "no image",
+      "recipeServings": 2.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": "25-30 minutes",
+      "description": "A healthy dish rich in fibre, vitamins, and antioxidants, with a Nutri-Score of A.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": null,
+      "orgURL": null,
+      "dateAdded": "2026-01-22",
+      "dateUpdated": "2026-01-24T23:45:02.620841Z",
+      "createdAt": "2026-01-22T13:29:19.311611Z",
+      "updatedAt": "2026-01-24T23:45:02.629845Z",
+      "lastMade": "2026-01-24T23:45:01.849562Z",
+      "recipeIngredients": [
+        {
+          "display": "300 grams savoy cabbage"
+        },
+        {
+          "display": "1 leek large"
+        },
+        {
+          "display": "1 red pepper"
+        },
+        {
+          "display": "2 tablespoons olive oils"
+        },
+        {
+          "display": "1 teaspoon paprika sweet or smoked"
+        },
+        {
+          "display": "¹/₂ teaspoon turmeric"
+        },
+        {
+          "display": "Black pepper to taste"
+        },
+        {
+          "display": "Salt to taste, a little"
+        },
+        {
+          "display": "Optional: garlic powder, cumin, dried herbs (thyme or oregano)"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Preheat the oven to 200°C."
+        },
+        {
+          "text": "Wash the vegetables well."
+        },
+        {
+          "text": "Cut the savoy cabbage into medium strips, leek into thick slices, and red pepper into strips."
+        },
+        {
+          "text": "Place everything on a baking tray."
+        },
+        {
+          "text": "Add olive oil, spices, pepper, and a pinch of salt."
+        },
+        {
+          "text": "Mix well with hands or a spoon to combine everything."
+        },
+        {
+          "text": "Bake for 25–30 minutes, stirring halfway."
+        },
+        {
+          "text": "Remove when the vegetables are soft and slightly golden at the edges."
+        }
+      ]
     },
     {
-        "slug": "chicken-soup",
-        "name": "Classic Chicken Noodle Soup",
-        "description": "Healing and restorative soup for cold days.",
-        "recipeCategory": [
-            "Soup",
-            "Comfort"
-        ],
-        "tags": [
-            "classic",
-            "low-calorie",
-            "healthy"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 lb chicken breast"
-            },
-            {
-                "display": "6 cups chicken broth"
-            },
-            {
-                "display": "2 carrots, diced"
-            },
-            {
-                "display": "2 celery stalks, diced"
-            },
-            {
-                "display": "1 cup egg noodles"
-            },
-            {
-                "display": "Parsley"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Simmer chicken in broth until cooked, then shred."
-            },
-            {
-                "text": "In the same broth, cook carrots and celery until soft."
-            },
-            {
-                "text": "Add noodles and cook until tender."
-            },
-            {
-                "text": "Return chicken to pot and garnish with parsley."
-            }
-        ],
-        "id": "36f9bd7f-0a38-46d1-9039-d4c6c13cfa36",
-        "rating": 1
+      "id": "edad87dc-448f-4029-8953-104337ad3788",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Portuguese-style Heart Cabbage (Simple)",
+      "slug": "portuguese-style-heart-cabbage-simple",
+      "image": "122",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": "15 to 20 minutes",
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A simple and delicious preparation of heart cabbage, cooked in the Portuguese style.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 4.5,
+      "orgURL": null,
+      "dateAdded": "2026-01-22",
+      "dateUpdated": "2026-01-22T12:55:24.651928Z",
+      "createdAt": "2026-01-22T00:48:47.852709Z",
+      "updatedAt": "2026-01-22T12:56:46.035948Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "Heart cabbage"
+        },
+        {
+          "display": "onions"
+        },
+        {
+          "display": "garlics"
+        },
+        {
+          "display": "olive oils"
+        },
+        {
+          "display": "Salt"
+        },
+        {
+          "display": "sweet peppers optional"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Sauté onion and garlic, add finely chopped cabbage, season, and let stew with a little water."
+        }
+      ]
     },
     {
-        "slug": "eggplant-parmesan",
-        "name": "Baked Eggplant Parmesan",
-        "description": "Vegetarian classic with breaded eggplant and marinara.",
-        "recipeCategory": [
-            "Dinner",
-            "Italian"
-        ],
-        "tags": [
-            "vegetarian",
-            "comfort-food"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "2 eggplants, sliced"
-            },
-            {
-                "display": "1 cup breadcrumbs"
-            },
-            {
-                "display": "2 eggs, beaten"
-            },
-            {
-                "display": "2 cups marinara sauce"
-            },
-            {
-                "display": "1.5 cups mozzarella cheese"
-            },
-            {
-                "display": "Parmesan cheese"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Dip eggplant slices in egg, then breadcrumbs."
-            },
-            {
-                "text": "Bake slices until golden."
-            },
-            {
-                "text": "Layer baked eggplant with marinara and cheeses in a baking dish."
-            },
-            {
-                "text": "Bake until bubbly and browned."
-            }
-        ],
-        "id": "dbf90757-6f77-47c6-8691-af6a4aaef3b6",
-        "rating": 2
+      "id": "2545c7ad-fabe-4f0f-abec-c19c8c58a1e9",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Simple Baked Aubergine",
+      "slug": "simple-baked-aubergine",
+      "image": "129",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "A simple and delicious oven-baked aubergine recipe.",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 2.0,
+      "orgURL": null,
+      "dateAdded": "2026-01-22",
+      "dateUpdated": "2026-01-23T23:45:01.119225Z",
+      "createdAt": "2026-01-22T00:47:33.017019Z",
+      "updatedAt": "2026-01-23T23:45:01.131956Z",
+      "lastMade": "2026-01-23T23:45:00.132051Z",
+      "recipeIngredients": [
+        {
+          "display": "1 aubergine"
+        },
+        {
+          "display": "olive oils as needed"
+        },
+        {
+          "display": "Salt as needed"
+        },
+        {
+          "display": "Pepper optional"
+        },
+        {
+          "display": "garlic powders minced, or 1 clove of, optional"
+        },
+        {
+          "display": "oreganos optional"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Wash the aubergine and cut it into slices or strips."
+        },
+        {
+          "text": "Place on a baking tray lined with parchment paper."
+        },
+        {
+          "text": "Drizzle with a little olive oil."
+        },
+        {
+          "text": "Season with salt, pepper, and any spices you like."
+        },
+        {
+          "text": "Bake at 200°C for about 20-25 minutes, turning halfway through, until tender and golden."
+        }
+      ]
     },
     {
-        "slug": "miso-soup",
-        "name": "Traditional Miso Soup",
-        "description": "Classic Japanese soup with dashi, tofu, and seaweed.",
-        "recipeCategory": [
-            "Appetizer",
-            "Japanese"
-        ],
-        "tags": [
-            "vegan",
-            "light",
-            "healthy"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "4 cups dashi stock (or vegetable broth)"
-            },
-            {
-                "display": "3 tbsp miso paste"
-            },
-            {
-                "display": "1 block silken tofu, cubed"
-            },
-            {
-                "display": "2 stalks green onions, sliced"
-            },
-            {
-                "display": "Dried wakame seaweed"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Heat dashi stock but do not boil."
-            },
-            {
-                "text": "Whisk in miso paste until dissolved."
-            },
-            {
-                "text": "Add tofu and wakame."
-            },
-            {
-                "text": "Serve hot garnished with green onions."
-            }
-        ],
-        "id": "330b2406-3378-4897-8cfd-1ebfc8d60afc",
-        "rating": 1
-    },
-    {
-        "slug": "seared-scallops",
-        "name": "Pan-Seared Scallops",
-        "description": "Elegant seafood dish with a buttery crust.",
-        "recipeCategory": [
-            "Dinner",
-            "Fancy"
-        ],
-        "tags": [
-            "pescatarian",
-            "gourmet",
-            "gluten-free"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 lb sea scallops"
-            },
-            {
-                "display": "2 tbsp butter"
-            },
-            {
-                "display": "1 tbsp olive oil"
-            },
-            {
-                "display": "Salt and pepper"
-            },
-            {
-                "display": "Lemon wedges"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Pat scallops very dry and season."
-            },
-            {
-                "text": "Heat oil and butter in a pan until very hot."
-            },
-            {
-                "text": "Sear scallops for 2 minutes per side without moving them."
-            },
-            {
-                "text": "Serve immediately with lemon."
-            }
-        ],
-        "id": "ac2b7211-1451-4f4a-bd2e-f1eae613398b",
-        "rating": 1
-    },
-    {
-        "slug": "spinach-smoothie",
-        "name": "Green Power Smoothie",
-        "description": "Nutrient-packed green smoothie that tastes fruit.",
-        "recipeCategory": [
-            "Breakfast",
-            "Drink"
-        ],
-        "tags": [
-            "vegan",
-            "raw",
-            "healthy"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 cup spinach (fresh or frozen)"
-            },
-            {
-                "display": "1 banana"
-            },
-            {
-                "display": "1/2 cup pineapple chunks"
-            },
-            {
-                "display": "1 cup water or coconut water"
-            },
-            {
-                "display": "Chia seeds"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Place all ingredients in a blender."
-            },
-            {
-                "text": "Blend on high until completely smooth."
-            },
-            {
-                "text": "Drink immediately for best nutrition."
-            }
-        ],
-        "id": "89bcd087-583a-4a03-8823-3006f3aa52ae",
-        "rating": 1
-    },
-    {
-        "slug": "lamb-chops",
-        "name": "Rosemary Garlic Lamb Chops",
-        "description": "Tender and flavorful lamb chops.",
-        "recipeCategory": [
-            "Dinner",
-            "Meat"
-        ],
-        "tags": [
-            "keto",
-            "paleo",
-            "high-protein"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "8 lamb chops"
-            },
-            {
-                "display": "2 tbsp minced rosemary"
-            },
-            {
-                "display": "2 cloves garlic, minced"
-            },
-            {
-                "display": "Olive oil"
-            },
-            {
-                "display": "Salt and pepper"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Mix rosemary, garlic, and oil."
-            },
-            {
-                "text": "Rub mixture over lamb chops and let sit for 20 mins."
-            },
-            {
-                "text": "Sear in a hot pan for 3-4 minutes per side for medium-rare."
-            },
-            {
-                "text": "Rest for 5 minutes before serving."
-            }
-        ],
-        "id": "6bdf0646-fbb8-4339-8c86-885f510d1526",
-        "rating": 1
-    },
-    {
-        "slug": "ratatouille",
-        "name": "Classic Ratatouille",
-        "description": "French vegetable stew perfect for summer produce.",
-        "recipeCategory": [
-            "Dinner",
-            "French"
-        ],
-        "tags": [
-            "vegan",
-            "vegetarian",
-            "healthy"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 eggplant, cubed"
-            },
-            {
-                "display": "2 zucchinis, sliced"
-            },
-            {
-                "display": "2 bell peppers, chopped"
-            },
-            {
-                "display": "4 tomatoes, chopped"
-            },
-            {
-                "display": "Onion and garlic"
-            },
-            {
-                "display": "Herbes de Provence"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Saut\u00e9 onion and garlic."
-            },
-            {
-                "text": "Add peppers and eggplant, cook until softening."
-            },
-            {
-                "text": "Add zucchini and tomatoes."
-            },
-            {
-                "text": "Season with herbs and simmer gently until all veggies are tender."
-            }
-        ],
-        "id": "92ae0347-1270-4197-b20a-6b24540c4f3d",
-        "rating": 4
-    },
-    {
-        "slug": "overnight-oats",
-        "name": "Apple Cinnamon Overnight Oats",
-        "description": "No-cook breakfast ready when you wake up.",
-        "recipeCategory": [
-            "Breakfast",
-            "Meal Prep"
-        ],
-        "tags": [
-            "vegetarian",
-            "healthy",
-            "easy"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1/2 cup rolled oats"
-            },
-            {
-                "display": "1/2 cup milk (dairy or plant)"
-            },
-            {
-                "display": "1/2 apple, diced"
-            },
-            {
-                "display": "1/2 tsp cinnamon"
-            },
-            {
-                "display": "1 tsp maple syrup"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Mix oats, milk, cinnamon, and syrup in a jar."
-            },
-            {
-                "text": "Stir in apple pieces."
-            },
-            {
-                "text": "Cover and refrigerate overnight."
-            },
-            {
-                "text": "Stir again before eating in the morning."
-            }
-        ],
-        "id": "0824f74a-6453-4ef5-8e45-71d30d4d4ee6",
-        "rating": 3
-    },
-    {
-        "slug": "hummus-veggies",
-        "name": "Homemade Hummus and Veggies",
-        "description": "Creamy chickpea dip with fresh vegetable sticks.",
-        "recipeCategory": [
-            "Snack",
-            "Healthy"
-        ],
-        "tags": [
-            "vegan",
-            "gluten-free",
-            "snack"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 can chickpeas"
-            },
-            {
-                "display": "2 tbsp tahini"
-            },
-            {
-                "display": "1 lemon (juice)"
-            },
-            {
-                "display": "1 clove garlic"
-            },
-            {
-                "display": "Olive oil"
-            },
-            {
-                "display": "Carrot and cucumber sticks for dipping"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Blend chickpeas, tahini, lemon juice, garlic, and oil until smooth."
-            },
-            {
-                "text": "Add water if too thick."
-            },
-            {
-                "text": "Serve in a bowl drizzled with oil, alongside veggie sticks."
-            }
-        ],
-        "id": "e8a5e431-9ba7-4787-b3f6-1b46050c6838",
-        "rating": 5
-    },
-    {
-        "slug": "protein-pancakes",
-        "name": "Banana Oat Protein Pancakes",
-        "description": "Flourless pancakes packed with protein and fiber.",
-        "recipeCategory": [
-            "Breakfast",
-            "High-Protein"
-        ],
-        "tags": [
-            "vegetarian",
-            "gluten-free",
-            "healthy"
-        ],
-        "recipeIngredient": [
-            {
-                "display": "1 banana"
-            },
-            {
-                "display": "2 eggs"
-            },
-            {
-                "display": "1/2 cup oats"
-            },
-            {
-                "display": "1 scoop protein powder (optional)"
-            },
-            {
-                "display": "1/2 tsp baking powder"
-            }
-        ],
-        "recipeInstructions": [
-            {
-                "text": "Blend all ingredients until smooth."
-            },
-            {
-                "text": "Pour batter onto a hot greased griddle."
-            },
-            {
-                "text": "Cook until bubbles form, then flip."
-            },
-            {
-                "text": "Serve with toppings of choice."
-            }
-        ],
-        "id": "4bb34782-6e36-4b3f-8af1-26aaf5e2e71d",
-        "rating": 3
+      "id": "8d57ba4a-fa2b-40d4-a5c9-fc86508396f4",
+      "userId": "a2e34d76-04dd-46f5-b6d2-bc16d0af473f",
+      "householdId": "2ec90726-a5b9-4920-9e67-1a0096aabe29",
+      "groupId": "6e6e36a2-f0de-4500-aa2d-bffcfdc57f91",
+      "name": "Oven-Roasted Chickpeas",
+      "slug": "oven-roasted-chickpeas",
+      "image": "199",
+      "recipeServings": 0.0,
+      "recipeYieldQuantity": 0.0,
+      "recipeYield": "",
+      "totalTime": null,
+      "prepTime": null,
+      "cookTime": null,
+      "performTime": null,
+      "description": "",
+      "recipeCategory": [],
+      "tags": [],
+      "tools": [],
+      "rating": 4.5,
+      "orgURL": null,
+      "dateAdded": "2026-01-22",
+      "dateUpdated": "2026-02-13T17:11:40.981572Z",
+      "createdAt": "2026-01-22T00:44:30.528870Z",
+      "updatedAt": "2026-02-13T17:11:40.995802Z",
+      "lastMade": null,
+      "recipeIngredients": [
+        {
+          "display": "1 can canned chickpea or 250 g dry, soaked and cooked"
+        },
+        {
+          "display": "2 tablespoons olive oils"
+        },
+        {
+          "display": "1 teaspoon smoked paprika"
+        },
+        {
+          "display": "1 teaspoon cumin"
+        },
+        {
+          "display": "1 clove garlic minced or garlic powder"
+        },
+        {
+          "display": "Salt and pepper to taste"
+        },
+        {
+          "display": "piri-piri chilli flakes Optional, for spice"
+        }
+      ],
+      "recipeInstructions": [
+        {
+          "text": "Preheat the oven to 200°C."
+        },
+        {
+          "text": "Drain and dry the chickpeas well (the drier they are, the crunchier they'll be)."
+        },
+        {
+          "text": "In a bowl, mix the chickpeas with olive oil, garlic, paprika, cumin, salt, pepper, and chilli (if using)."
+        },
+        {
+          "text": "Spread the chickpeas on a baking tray lined with baking paper in a single layer."
+        },
+        {
+          "text": "Bake for 25–30 minutes, stirring halfway through, until golden and crispy."
+        },
+        {
+          "text": "Allow to cool slightly before serving (they become even crunchier as they cool)."
+        }
+      ]
     }
-]
+  ]
+}

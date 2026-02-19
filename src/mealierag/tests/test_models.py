@@ -13,7 +13,7 @@ def test_recipe_model_embedding_text():
         rating=5.0,
         recipeCategory=["Dinner", "Test"],
         tags=["Easy", "Quick"],
-        recipeIngredient=[
+        recipeIngredients=[
             RecipeIngredient(display="1 cup of tests"),
             RecipeIngredient(display="2 spoons of verification"),
         ],
@@ -51,7 +51,7 @@ def test_recipe_model_context_text():
         rating=5.0,
         recipeCategory=["Dinner", "Test"],
         tags=["Easy", "Quick"],
-        recipeIngredient=[
+        recipeIngredients=[
             RecipeIngredient(display="1 cup of tests"),
             RecipeIngredient(display="2 spoons of verification"),
         ],
@@ -91,3 +91,46 @@ def test_instruction_methods():
     instr = RecipeInstruction(text="test instruction")
     assert instr.get_text_for_embedding() == "test instruction"
     assert instr.get_text_for_context() == "test instruction"
+
+
+def test_generate_text_representation():
+    """
+    Test that generate_text_representation formats output correctly.
+    """
+    recipe = Recipe(
+        id="1",
+        name="Test Recipe",
+        slug="test-recipe",
+        description="A delicious test.",
+        rating=5.0,
+        recipeCategory=["Dinner", "Test"],
+        tags=["Easy", "Quick"],
+        recipeIngredients=[
+            RecipeIngredient(display="1 cup of tests"),
+            RecipeIngredient(display="2 spoons of verification"),
+        ],
+        recipeInstructions=[
+            RecipeInstruction(text="Mix tests."),
+            RecipeInstruction(text="Verify result."),
+        ],
+    )
+
+    # Test basic properties
+    # Note: Using strip() because the method adds newlines
+    text = recipe.get_text_representation(["name", "description"])
+    assert "**name:** Test Recipe" in text
+    assert "**description:** A delicious test." in text
+
+    # Test list properties
+    text = recipe.get_text_representation(["tags"])
+    assert "**tags:**\nEasy, Quick" in text
+
+    # Test ingredients
+    text = recipe.get_text_representation(["recipeIngredients"])
+    assert (
+        "**recipeIngredients:**\n- 1 cup of tests\n- 2 spoons of verification" in text
+    )
+
+    # Test instructions
+    text = recipe.get_text_representation(["recipeInstructions"])
+    assert "**recipeInstructions:**\n- Mix tests.\n- Verify result." in text

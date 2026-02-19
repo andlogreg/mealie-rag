@@ -12,17 +12,28 @@ from .models import QueryExtraction
 logger = logging.getLogger(__name__)
 
 
-def get_vector_db_client(url: str) -> QdrantClient:
+def get_vector_db_client(
+    url: str | None = None, path: str | None = None
+) -> QdrantClient:
     """
     Get a Qdrant client instance.
+    Prioritizes local path if provided, otherwise uses URL.
 
     Args:
         url: The URL of the Qdrant service.
+        path: The local path for Qdrant persistence.
 
     Returns:
         QdrantClient: Configured Qdrant client.
     """
-    return QdrantClient(url=url)
+    if path:
+        logger.info(f"Initializing Qdrant client with local path: {path}")
+        return QdrantClient(path=path)
+
+    if url:
+        return QdrantClient(url=url)
+
+    raise ValueError("Either url or path must be provided to initialize QdrantClient")
 
 
 def _build_filters(query_extraction: QueryExtraction | None) -> models.Filter | None:
@@ -46,7 +57,7 @@ def _build_filters(query_extraction: QueryExtraction | None) -> models.Filter | 
         for ing in query_extraction.negative_ingredients:
             must_not_conditions.append(
                 models.FieldCondition(
-                    key="ingredients",
+                    key="normalized_ingredients",
                     match=models.MatchText(text=ing),
                 )
             )

@@ -8,7 +8,7 @@ import logging
 
 import requests
 
-from .models import Recipe, RecipeResponse
+from .models import Recipe, RecipeResponse, Recipes
 
 logger = logging.getLogger(__name__)
 
@@ -89,18 +89,18 @@ def fetch_full_recipe(recipe: Recipe, mealie_api_url: str, mealie_token: str) ->
         raise Exception(f"Error fetching recipe {recipe.id}: {e}") from e
 
 
-def fetch_full_recipes(mealie_api_url: str, mealie_token: str) -> list[Recipe]:
+def fetch_full_recipes(mealie_api_url: str, mealie_token: str) -> Recipes:
     """
     Fetch all recipes with full details from Mealie.
 
     Args:
         mealie_api_url: Mealie API URL
         mealie_token: Mealie token
-
-    Returns:
-        List of recipes
     """
     recipes = fetch_recipes(mealie_api_url, mealie_token)
-    return [
-        fetch_full_recipe(recipe, mealie_api_url, mealie_token) for recipe in recipes
-    ]
+    return Recipes(
+        items=[
+            fetch_full_recipe(recipe, mealie_api_url, mealie_token)
+            for recipe in recipes
+        ]
+    )

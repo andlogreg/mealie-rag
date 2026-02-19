@@ -1,0 +1,1490 @@
+[
+    {
+        "slug": "spaghetti-carbonara",
+        "name": "Spaghetti Carbonara",
+        "description": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+        "recipeCategory": [
+            "Dinner",
+            "Italian"
+        ],
+        "tags": [
+            "pasta",
+            "pork",
+            "quick"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "400g spaghetti"
+            },
+            {
+                "display": "150g pancetta, diced"
+            },
+            {
+                "display": "4 large eggs"
+            },
+            {
+                "display": "50g pecorino cheese, grated"
+            },
+            {
+                "display": "50g parmesan cheese, grated"
+            },
+            {
+                "display": "Black pepper"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Boil water for pasta."
+            },
+            {
+                "text": "Fry pancetta until crisp."
+            },
+            {
+                "text": "Beat eggs with cheese and pepper."
+            },
+            {
+                "text": "Cook pasta until al dente."
+            },
+            {
+                "text": "Mix hot pasta with egg mixture and pancetta quickly to create a creamy sauce."
+            }
+        ],
+        "id": "cdd6f9f8-74f8-4717-9dc8-07b777ebbd20",
+        "rating": 1
+    },
+    {
+        "slug": "vegetable-stir-fry",
+        "name": "Vegetable Stir Fry",
+        "description": "A quick and healthy vegetarian stir fry with soy sauce.",
+        "recipeCategory": [
+            "Dinner",
+            "Asian"
+        ],
+        "tags": [
+            "vegetarian",
+            "healthy",
+            "quick"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 broccoli head, chopped"
+            },
+            {
+                "display": "2 carrots, sliced"
+            },
+            {
+                "display": "1 bell pepper, sliced"
+            },
+            {
+                "display": "200g snap peas"
+            },
+            {
+                "display": "3 tbsp soy sauce"
+            },
+            {
+                "display": "1 tbsp ginger, grated"
+            },
+            {
+                "display": "1 clove garlic, minced"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Heat oil in a wok."
+            },
+            {
+                "text": "Stir fry ginger and garlic."
+            },
+            {
+                "text": "Add vegetables and cook for 5-7 minutes."
+            },
+            {
+                "text": "Add soy sauce and toss well."
+            },
+            {
+                "text": "Serve with rice."
+            }
+        ],
+        "id": "42e5811b-0eef-4adb-b7c1-b3b1227803a7",
+        "rating": 2
+    },
+    {
+        "slug": "grilled-chicken-salad",
+        "name": "Grilled Chicken Salad",
+        "description": "A light and refreshing salad with grilled chicken breast.",
+        "recipeCategory": [
+            "Lunch",
+            "Healthy"
+        ],
+        "tags": [
+            "high-protein",
+            "low-carb",
+            "gluten-free"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "2 chicken breasts"
+            },
+            {
+                "display": "Mixed salad greens"
+            },
+            {
+                "display": "1 cucumber, sliced"
+            },
+            {
+                "display": "10 cherry tomatoes"
+            },
+            {
+                "display": "Olive oil"
+            },
+            {
+                "display": "Lemon juice"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Grill chicken breasts until cooked through."
+            },
+            {
+                "text": "Slice chicken."
+            },
+            {
+                "text": "Toss salad greens, cucumber, and tomatoes."
+            },
+            {
+                "text": "Top with chicken."
+            },
+            {
+                "text": "Drizzle with olive oil and lemon juice."
+            }
+        ],
+        "id": "b6b4a865-c443-48cc-951b-ad7daabb68c8",
+        "rating": 1
+    },
+    {
+        "slug": "beef-tacos",
+        "name": "Beef Tacos",
+        "description": "Classic Mexican-style beef tacos with fresh toppings.",
+        "recipeCategory": [
+            "Dinner",
+            "Mexican"
+        ],
+        "tags": [
+            "beef",
+            "family-friendly"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "500g ground beef"
+            },
+            {
+                "display": "1 packet taco seasoning"
+            },
+            {
+                "display": "8 taco shells"
+            },
+            {
+                "display": "Lettuce, shredded"
+            },
+            {
+                "display": "Cheddar cheese, shredded"
+            },
+            {
+                "display": "Salsa"
+            },
+            {
+                "display": "Sour cream"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Brown ground beef in a pan."
+            },
+            {
+                "text": "Add taco seasoning and water as per packet instructions."
+            },
+            {
+                "text": "Simmer until thickened."
+            },
+            {
+                "text": "Warm taco shells."
+            },
+            {
+                "text": "Assemble tacos with beef and toppings."
+            }
+        ],
+        "id": "be1433f9-af74-45bd-9f10-5766794d1ad4",
+        "rating": 4
+    },
+    {
+        "slug": "lentil-soup",
+        "name": "Lentil Soup",
+        "description": "Hearty and nutritious vegan lentil soup.",
+        "recipeCategory": [
+            "Lunch",
+            "Soup"
+        ],
+        "tags": [
+            "vegan",
+            "high-fiber",
+            "budget-friendly"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 cup dried lentils"
+            },
+            {
+                "display": "1 onion, diced"
+            },
+            {
+                "display": "2 carrots, diced"
+            },
+            {
+                "display": "2 celery stalks, diced"
+            },
+            {
+                "display": "4 cups vegetable broth"
+            },
+            {
+                "display": "1 tsp cumin"
+            },
+            {
+                "display": "1 tsp thyme"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Saut\u00e9 onion, carrots, and celery."
+            },
+            {
+                "text": "Add lentils, broth, and spices."
+            },
+            {
+                "text": "Simmer for 30-40 minutes until lentils are soft."
+            },
+            {
+                "text": "Blend half the soup for creaminess if desired."
+            }
+        ],
+        "id": "180cff2a-542e-4ab2-9aea-7276035de3f4",
+        "rating": 4
+    },
+    {
+        "slug": "chicken-tikka-masala",
+        "name": "Chicken Tikka Masala",
+        "description": "Creamy and spicy Indian chicken curry.",
+        "recipeCategory": [
+            "Dinner",
+            "Indian"
+        ],
+        "tags": [
+            "chicken",
+            "spicy",
+            "comfort-food"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "500g chicken thighs, cubed"
+            },
+            {
+                "display": "1 cup yogurt"
+            },
+            {
+                "display": "2 tbsp tikka masala paste"
+            },
+            {
+                "display": "1 can tomato puree"
+            },
+            {
+                "display": "1/2 cup heavy cream"
+            },
+            {
+                "display": "Cilantro"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Marinate chicken in yogurt and paste for 1 hour."
+            },
+            {
+                "text": "Grill or fry chicken until charred."
+            },
+            {
+                "text": "Simmer tomato puree and cream."
+            },
+            {
+                "text": "Add chicken to sauce and simmer for 10 minutes."
+            },
+            {
+                "text": "Garnish with cilantro."
+            }
+        ],
+        "id": "68d7ce04-3b00-4e8b-97df-7292b467b42d",
+        "rating": 3
+    },
+    {
+        "slug": "mushroom-risotto",
+        "name": "Mushroom Risotto",
+        "description": "Creamy Italian rice dish with mixed mushrooms.",
+        "recipeCategory": [
+            "Dinner",
+            "Italian"
+        ],
+        "tags": [
+            "vegetarian",
+            "rice",
+            "gourmet"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1.5 cups arborio rice"
+            },
+            {
+                "display": "200g mushrooms, sliced"
+            },
+            {
+                "display": "1 onion, finely chopped"
+            },
+            {
+                "display": "1/2 cup white wine"
+            },
+            {
+                "display": "4 cups vegetable stock"
+            },
+            {
+                "display": "Butter"
+            },
+            {
+                "display": "Parmesan cheese"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Saut\u00e9 mushrooms and set aside."
+            },
+            {
+                "text": "Saut\u00e9 onion, then add rice and toast slightly."
+            },
+            {
+                "text": "Add wine and let evaporate."
+            },
+            {
+                "text": "Gradually add stock, stirring constantly."
+            },
+            {
+                "text": "Stir in mushrooms, butter, and parmesan at the end."
+            }
+        ],
+        "id": "fd57feb6-8dee-4e87-b3f9-1f1a21692e0f",
+        "rating": 4
+    },
+    {
+        "slug": "salmon-asparagus",
+        "name": "Baked Salmon with Asparagus",
+        "description": "Simple sheet pan dinner with healthy fats.",
+        "recipeCategory": [
+            "Dinner",
+            "Healthy"
+        ],
+        "tags": [
+            "pescatarian",
+            "keto",
+            "gluten-free"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "2 salmon fillets"
+            },
+            {
+                "display": "1 bunch asparagus"
+            },
+            {
+                "display": "2 tbsp olive oil"
+            },
+            {
+                "display": "1 lemon, sliced"
+            },
+            {
+                "display": "Dill"
+            },
+            {
+                "display": "Salt and pepper"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Preheat oven to 400\u00b0F (200\u00b0C)."
+            },
+            {
+                "text": "Place salmon and asparagus on a baking sheet."
+            },
+            {
+                "text": "Drizzle with oil and season."
+            },
+            {
+                "text": "Top with lemon slices and dill."
+            },
+            {
+                "text": "Bake for 12-15 minutes."
+            }
+        ],
+        "id": "e2e4fd9f-4f81-4f8d-b81d-521f2c6eb0dc",
+        "rating": 1
+    },
+    {
+        "slug": "oatmeal-berries",
+        "name": "Oatmeal with Berries",
+        "description": "Warm breakfast oats with fresh antioxidant-rich berries.",
+        "recipeCategory": [
+            "Breakfast",
+            "Healthy"
+        ],
+        "tags": [
+            "vegan",
+            "breakfast",
+            "easy"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1/2 cup rolled oats"
+            },
+            {
+                "display": "1 cup almond milk"
+            },
+            {
+                "display": "1 tbsp drizzle maple syrup"
+            },
+            {
+                "display": "1/2 cup mixed berries"
+            },
+            {
+                "display": "1 tbsp chia seeds"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Combine oats and milk in a pot."
+            },
+            {
+                "text": "Cook over medium heat until thickened."
+            },
+            {
+                "text": "Stir in maple syrup."
+            },
+            {
+                "text": "Top with fresh berries and chia seeds."
+            }
+        ],
+        "id": "918f1ba5-6e26-426f-bb9a-3a0636cf4445",
+        "rating": 4
+    },
+    {
+        "slug": "beef-burger",
+        "name": "Classic Beef Burger",
+        "description": "Juicy homemade beef burger with fries.",
+        "recipeCategory": [
+            "Dinner",
+            "American"
+        ],
+        "tags": [
+            "beef",
+            "cheat-meal"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "500g ground beef"
+            },
+            {
+                "display": "4 burger buns"
+            },
+            {
+                "display": "Lettuce, tomato, onion"
+            },
+            {
+                "display": "Cheese slices"
+            },
+            {
+                "display": "4 large potatoes, cut into fries"
+            },
+            {
+                "display": "Salt"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Form beef into patties."
+            },
+            {
+                "text": "Fry or grill patties to desired doneness."
+            },
+            {
+                "text": "Fry potatoes until golden."
+            },
+            {
+                "text": "Assemble burgers with buns and toppings."
+            }
+        ],
+        "id": "b04331ac-8064-4213-a239-abc5824765d8",
+        "rating": 5
+    },
+    {
+        "slug": "quinoa-salad-avocado",
+        "name": "Quinoa Salad with Avocado",
+        "description": "A refreshing and nutrient-dense salad with protein-rich quinoa and healthy fats.",
+        "recipeCategory": [
+            "Lunch",
+            "Salad"
+        ],
+        "tags": [
+            "vegan",
+            "gluten-free",
+            "superfood"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 cup quinoa, cooked"
+            },
+            {
+                "display": "1 avocado, diced"
+            },
+            {
+                "display": "1/2 cup cherry tomatoes, halved"
+            },
+            {
+                "display": "1/4 cup cucumber, diced"
+            },
+            {
+                "display": "Lemon juice"
+            },
+            {
+                "display": "Olive oil"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Cook quinoa according to package instructions and let cool."
+            },
+            {
+                "text": "Chop avocado, tomatoes, and cucumber."
+            },
+            {
+                "text": "Toss vegetables with quinoa."
+            },
+            {
+                "text": "Drizzle with olive oil and lemon juice before serving."
+            }
+        ],
+        "id": "1f7e4369-1a2c-492d-b6ab-7bb1afaf43e1",
+        "rating": 1
+    },
+    {
+        "slug": "greek-yogurt-parfait",
+        "name": "Greek Yogurt Parfait",
+        "description": "High-protein breakfast with probiotics and fiber.",
+        "recipeCategory": [
+            "Breakfast",
+            "Healthy"
+        ],
+        "tags": [
+            "vegetarian",
+            "high-protein",
+            "quick"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 cup Greek yogurt"
+            },
+            {
+                "display": "1/2 cup granola"
+            },
+            {
+                "display": "1/2 cup mixed berries"
+            },
+            {
+                "display": "1 tbsp honey"
+            },
+            {
+                "display": "1 tsp flax seeds"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Layer yogurt in a bowl or glass."
+            },
+            {
+                "text": "Add a layer of granola."
+            },
+            {
+                "text": "Top with fresh berries."
+            },
+            {
+                "text": "Drizzle with honey and sprinkle flax seeds."
+            }
+        ],
+        "id": "487a6099-f164-4f70-8f61-e73b82935333",
+        "rating": 5
+    },
+    {
+        "slug": "sweet-potato-chickpea-curry",
+        "name": "Sweet Potato and Chickpea Curry",
+        "description": "Warm and comforting vegan curry rich in fiber and vitamins.",
+        "recipeCategory": [
+            "Dinner",
+            "Indian"
+        ],
+        "tags": [
+            "vegan",
+            "gluten-free",
+            "comfort-food"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "2 sweet potatoes, cubed"
+            },
+            {
+                "display": "1 can chickpeas, drained"
+            },
+            {
+                "display": "1 can coconut milk"
+            },
+            {
+                "display": "1 tbsp red curry paste"
+            },
+            {
+                "display": "Spinach leaves"
+            },
+            {
+                "display": "Rice for serving"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Saut\u00e9 curry paste in a pot for a minute."
+            },
+            {
+                "text": "Add sweet potatoes and coconut milk."
+            },
+            {
+                "text": "Simmer until potatoes are tender."
+            },
+            {
+                "text": "Stir in chickpeas and spinach until wilted."
+            },
+            {
+                "text": "Serve hot over rice."
+            }
+        ],
+        "id": "28125367-a435-4688-aebb-740e8180060b",
+        "rating": 1
+    },
+    {
+        "slug": "shrimp-ceviche",
+        "name": "Shrimp Ceviche",
+        "description": "Fresh seafood dish cured in citrus juices.",
+        "recipeCategory": [
+            "Appetizer",
+            "Latin American"
+        ],
+        "tags": [
+            "pescatarian",
+            "low-carb",
+            "keto"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "500g raw shrimp, peeled and deveined"
+            },
+            {
+                "display": "1 cup lime juice"
+            },
+            {
+                "display": "1/2 red onion, finely sliced"
+            },
+            {
+                "display": "1 jalapeno, minced"
+            },
+            {
+                "display": "Cilantro, chopped"
+            },
+            {
+                "display": "Tomato, diced"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Chop shrimp into small pieces."
+            },
+            {
+                "text": "Marinate shrimp in lime juice for 20 minutes until opaque."
+            },
+            {
+                "text": "Mix in onion, jalapeno, tomato, and cilantro."
+            },
+            {
+                "text": "Serve with tortilla chips or on its own."
+            }
+        ],
+        "id": "4c57ab98-3b07-46f6-a853-d79a8e1016ee",
+        "rating": 4
+    },
+    {
+        "slug": "turkey-chili",
+        "name": "Lean Turkey Chili",
+        "description": "A lighter version of classic chili using lean ground turkey.",
+        "recipeCategory": [
+            "Dinner",
+            "American"
+        ],
+        "tags": [
+            "high-protein",
+            "healthy",
+            "meal-prep"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "500g ground turkey"
+            },
+            {
+                "display": "1 can kidney beans"
+            },
+            {
+                "display": "1 can diced tomatoes"
+            },
+            {
+                "display": "1 onion, chopped"
+            },
+            {
+                "display": "2 tbsp chili powder"
+            },
+            {
+                "display": "1 bell pepper, chopped"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Brown turkey in a large pot."
+            },
+            {
+                "text": "Add onion and peppers, saut\u00e9 until soft."
+            },
+            {
+                "text": "Stir in tomatoes, beans, and spices."
+            },
+            {
+                "text": "Simmer for 30 minutes to blend flavors."
+            }
+        ],
+        "id": "fdccc1e2-74ad-4d23-946b-4c0f26c3c7f6",
+        "rating": 3
+    },
+    {
+        "slug": "caprese-salad",
+        "name": "Classic Caprese Salad",
+        "description": "Simple Italian salad with fresh mozzarella and basil.",
+        "recipeCategory": [
+            "Salad",
+            "Italian"
+        ],
+        "tags": [
+            "vegetarian",
+            "classic",
+            "gluten-free"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "3 large tomatoes, sliced"
+            },
+            {
+                "display": "200g fresh mozzarella, sliced"
+            },
+            {
+                "display": "Fresh basil leaves"
+            },
+            {
+                "display": "Balsamic glaze"
+            },
+            {
+                "display": "Olive oil"
+            },
+            {
+                "display": "Salt and pepper"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Arrange tomato and mozzarella slices alternately on a platter."
+            },
+            {
+                "text": "Tuck fresh basil leaves between slices."
+            },
+            {
+                "text": "Drizzle with olive oil and balsamic glaze."
+            },
+            {
+                "text": "Season with salt and pepper."
+            }
+        ],
+        "id": "2a29ff21-27a4-47b8-ae51-d433054fe61d",
+        "rating": 4
+    },
+    {
+        "slug": "tofu-stir-fry",
+        "name": "Crispy Tofu Stir Fry",
+        "description": "Vegetarian stir fry with crispy tofu cubes and vegetables.",
+        "recipeCategory": [
+            "Dinner",
+            "Asian"
+        ],
+        "tags": [
+            "vegan",
+            "high-protein",
+            "dairy-free"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 block firm tofu, pressed and cubed"
+            },
+            {
+                "display": "2 tbsp cornstarch"
+            },
+            {
+                "display": "Mixed stir-fry vegetables (broccoli, carrots, snow peas)"
+            },
+            {
+                "display": "2 tbsp soy sauce"
+            },
+            {
+                "display": "1 tbsp sesame oil"
+            },
+            {
+                "display": "Ginger and garlic"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Toss tofu in cornstarch."
+            },
+            {
+                "text": "Pan-fry tofu until golden and crispy."
+            },
+            {
+                "text": "Remove tofu, stir fry vegetables with aromatics."
+            },
+            {
+                "text": "Add tofu back in with soy sauce and toss."
+            }
+        ],
+        "id": "82445810-400a-472a-9bd8-2d54d3ec2709",
+        "rating": 1
+    },
+    {
+        "slug": "bison-burger",
+        "name": "Lean Bison Burger",
+        "description": "A leaner alternative to beef burgers with rich flavor.",
+        "recipeCategory": [
+            "Dinner",
+            "American"
+        ],
+        "tags": [
+            "high-protein",
+            "healthy",
+            "paleo"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "500g ground bison"
+            },
+            {
+                "display": "Salt and pepper"
+            },
+            {
+                "display": "Burger buns (or lettuce wraps)"
+            },
+            {
+                "display": "Red onion slices"
+            },
+            {
+                "display": "Pickles"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Form bison meat into patties gently."
+            },
+            {
+                "text": "Season generously with salt and pepper."
+            },
+            {
+                "text": "Grill or sear for 4-5 minutes per side."
+            },
+            {
+                "text": "Assemble with desired toppings."
+            }
+        ],
+        "id": "a24d988b-7553-472c-a75f-dc0f66a92d66",
+        "rating": 3
+    },
+    {
+        "slug": "smoothie-bowl-acai",
+        "name": "Acai Smoothie Bowl",
+        "description": "Thick and creamy smoothie bowl topped with fruits.",
+        "recipeCategory": [
+            "Breakfast",
+            "Healthy"
+        ],
+        "tags": [
+            "vegan",
+            "breakfast",
+            "superfood"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 frozen acai pack"
+            },
+            {
+                "display": "1 frozen banana"
+            },
+            {
+                "display": "1/2 cup almond milk"
+            },
+            {
+                "display": "Toppings: granola, coconut flakes, berries"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Blend acai, banana, and milk until thick and creamy."
+            },
+            {
+                "text": "Pour into a bowl."
+            },
+            {
+                "text": "Arrange toppings artistically on top."
+            },
+            {
+                "text": "Serve immediately."
+            }
+        ],
+        "id": "0543f495-0d64-42ae-bad5-58e610e0efdc",
+        "rating": 3
+    },
+    {
+        "slug": "zucchini-noodles-pesto",
+        "name": "Zucchini Noodles with Pesto",
+        "description": "Low-carb pasta alternative with fresh basil pesto.",
+        "recipeCategory": [
+            "Dinner",
+            "Light"
+        ],
+        "tags": [
+            "keto",
+            "low-carb",
+            "vegetarian"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "3 large zucchinis, spiralized"
+            },
+            {
+                "display": "1/2 cup basil pesto"
+            },
+            {
+                "display": "1/4 cup cherry tomatoes"
+            },
+            {
+                "display": "Parmesan cheese"
+            },
+            {
+                "display": "Pine nuts"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Saut\u00e9 zucchini noodles in a pan for 2-3 minutes (do not overcook)."
+            },
+            {
+                "text": "Toss with pesto off heat."
+            },
+            {
+                "text": "Top with tomatoes, pine nuts, and parmesan."
+            }
+        ],
+        "id": "5e4063d7-1214-4647-abc0-3d8322d6ab0e",
+        "rating": 5
+    },
+    {
+        "slug": "chicken-soup",
+        "name": "Classic Chicken Noodle Soup",
+        "description": "Healing and restorative soup for cold days.",
+        "recipeCategory": [
+            "Soup",
+            "Comfort"
+        ],
+        "tags": [
+            "classic",
+            "low-calorie",
+            "healthy"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 lb chicken breast"
+            },
+            {
+                "display": "6 cups chicken broth"
+            },
+            {
+                "display": "2 carrots, diced"
+            },
+            {
+                "display": "2 celery stalks, diced"
+            },
+            {
+                "display": "1 cup egg noodles"
+            },
+            {
+                "display": "Parsley"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Simmer chicken in broth until cooked, then shred."
+            },
+            {
+                "text": "In the same broth, cook carrots and celery until soft."
+            },
+            {
+                "text": "Add noodles and cook until tender."
+            },
+            {
+                "text": "Return chicken to pot and garnish with parsley."
+            }
+        ],
+        "id": "36f9bd7f-0a38-46d1-9039-d4c6c13cfa36",
+        "rating": 1
+    },
+    {
+        "slug": "eggplant-parmesan",
+        "name": "Baked Eggplant Parmesan",
+        "description": "Vegetarian classic with breaded eggplant and marinara.",
+        "recipeCategory": [
+            "Dinner",
+            "Italian"
+        ],
+        "tags": [
+            "vegetarian",
+            "comfort-food"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "2 eggplants, sliced"
+            },
+            {
+                "display": "1 cup breadcrumbs"
+            },
+            {
+                "display": "2 eggs, beaten"
+            },
+            {
+                "display": "2 cups marinara sauce"
+            },
+            {
+                "display": "1.5 cups mozzarella cheese"
+            },
+            {
+                "display": "Parmesan cheese"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Dip eggplant slices in egg, then breadcrumbs."
+            },
+            {
+                "text": "Bake slices until golden."
+            },
+            {
+                "text": "Layer baked eggplant with marinara and cheeses in a baking dish."
+            },
+            {
+                "text": "Bake until bubbly and browned."
+            }
+        ],
+        "id": "dbf90757-6f77-47c6-8691-af6a4aaef3b6",
+        "rating": 2
+    },
+    {
+        "slug": "miso-soup",
+        "name": "Traditional Miso Soup",
+        "description": "Classic Japanese soup with dashi, tofu, and seaweed.",
+        "recipeCategory": [
+            "Appetizer",
+            "Japanese"
+        ],
+        "tags": [
+            "vegan",
+            "light",
+            "healthy"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "4 cups dashi stock (or vegetable broth)"
+            },
+            {
+                "display": "3 tbsp miso paste"
+            },
+            {
+                "display": "1 block silken tofu, cubed"
+            },
+            {
+                "display": "2 stalks green onions, sliced"
+            },
+            {
+                "display": "Dried wakame seaweed"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Heat dashi stock but do not boil."
+            },
+            {
+                "text": "Whisk in miso paste until dissolved."
+            },
+            {
+                "text": "Add tofu and wakame."
+            },
+            {
+                "text": "Serve hot garnished with green onions."
+            }
+        ],
+        "id": "330b2406-3378-4897-8cfd-1ebfc8d60afc",
+        "rating": 1
+    },
+    {
+        "slug": "seared-scallops",
+        "name": "Pan-Seared Scallops",
+        "description": "Elegant seafood dish with a buttery crust.",
+        "recipeCategory": [
+            "Dinner",
+            "Fancy"
+        ],
+        "tags": [
+            "pescatarian",
+            "gourmet",
+            "gluten-free"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 lb sea scallops"
+            },
+            {
+                "display": "2 tbsp butter"
+            },
+            {
+                "display": "1 tbsp olive oil"
+            },
+            {
+                "display": "Salt and pepper"
+            },
+            {
+                "display": "Lemon wedges"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Pat scallops very dry and season."
+            },
+            {
+                "text": "Heat oil and butter in a pan until very hot."
+            },
+            {
+                "text": "Sear scallops for 2 minutes per side without moving them."
+            },
+            {
+                "text": "Serve immediately with lemon."
+            }
+        ],
+        "id": "ac2b7211-1451-4f4a-bd2e-f1eae613398b",
+        "rating": 1
+    },
+    {
+        "slug": "spinach-smoothie",
+        "name": "Green Power Smoothie",
+        "description": "Nutrient-packed green smoothie that tastes fruit.",
+        "recipeCategory": [
+            "Breakfast",
+            "Drink"
+        ],
+        "tags": [
+            "vegan",
+            "raw",
+            "healthy"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 cup spinach (fresh or frozen)"
+            },
+            {
+                "display": "1 banana"
+            },
+            {
+                "display": "1/2 cup pineapple chunks"
+            },
+            {
+                "display": "1 cup water or coconut water"
+            },
+            {
+                "display": "Chia seeds"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Place all ingredients in a blender."
+            },
+            {
+                "text": "Blend on high until completely smooth."
+            },
+            {
+                "text": "Drink immediately for best nutrition."
+            }
+        ],
+        "id": "89bcd087-583a-4a03-8823-3006f3aa52ae",
+        "rating": 1
+    },
+    {
+        "slug": "lamb-chops",
+        "name": "Rosemary Garlic Lamb Chops",
+        "description": "Tender and flavorful lamb chops.",
+        "recipeCategory": [
+            "Dinner",
+            "Meat"
+        ],
+        "tags": [
+            "keto",
+            "paleo",
+            "high-protein"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "8 lamb chops"
+            },
+            {
+                "display": "2 tbsp minced rosemary"
+            },
+            {
+                "display": "2 cloves garlic, minced"
+            },
+            {
+                "display": "Olive oil"
+            },
+            {
+                "display": "Salt and pepper"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Mix rosemary, garlic, and oil."
+            },
+            {
+                "text": "Rub mixture over lamb chops and let sit for 20 mins."
+            },
+            {
+                "text": "Sear in a hot pan for 3-4 minutes per side for medium-rare."
+            },
+            {
+                "text": "Rest for 5 minutes before serving."
+            }
+        ],
+        "id": "6bdf0646-fbb8-4339-8c86-885f510d1526",
+        "rating": 1
+    },
+    {
+        "slug": "ratatouille",
+        "name": "Classic Ratatouille",
+        "description": "French vegetable stew perfect for summer produce.",
+        "recipeCategory": [
+            "Dinner",
+            "French"
+        ],
+        "tags": [
+            "vegan",
+            "vegetarian",
+            "healthy"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 eggplant, cubed"
+            },
+            {
+                "display": "2 zucchinis, sliced"
+            },
+            {
+                "display": "2 bell peppers, chopped"
+            },
+            {
+                "display": "4 tomatoes, chopped"
+            },
+            {
+                "display": "Onion and garlic"
+            },
+            {
+                "display": "Herbes de Provence"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Saut\u00e9 onion and garlic."
+            },
+            {
+                "text": "Add peppers and eggplant, cook until softening."
+            },
+            {
+                "text": "Add zucchini and tomatoes."
+            },
+            {
+                "text": "Season with herbs and simmer gently until all veggies are tender."
+            }
+        ],
+        "id": "92ae0347-1270-4197-b20a-6b24540c4f3d",
+        "rating": 4
+    },
+    {
+        "slug": "overnight-oats",
+        "name": "Apple Cinnamon Overnight Oats",
+        "description": "No-cook breakfast ready when you wake up.",
+        "recipeCategory": [
+            "Breakfast",
+            "Meal Prep"
+        ],
+        "tags": [
+            "vegetarian",
+            "healthy",
+            "easy"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1/2 cup rolled oats"
+            },
+            {
+                "display": "1/2 cup milk (dairy or plant)"
+            },
+            {
+                "display": "1/2 apple, diced"
+            },
+            {
+                "display": "1/2 tsp cinnamon"
+            },
+            {
+                "display": "1 tsp maple syrup"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Mix oats, milk, cinnamon, and syrup in a jar."
+            },
+            {
+                "text": "Stir in apple pieces."
+            },
+            {
+                "text": "Cover and refrigerate overnight."
+            },
+            {
+                "text": "Stir again before eating in the morning."
+            }
+        ],
+        "id": "0824f74a-6453-4ef5-8e45-71d30d4d4ee6",
+        "rating": 3
+    },
+    {
+        "slug": "hummus-veggies",
+        "name": "Homemade Hummus and Veggies",
+        "description": "Creamy chickpea dip with fresh vegetable sticks.",
+        "recipeCategory": [
+            "Snack",
+            "Healthy"
+        ],
+        "tags": [
+            "vegan",
+            "gluten-free",
+            "snack"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 can chickpeas"
+            },
+            {
+                "display": "2 tbsp tahini"
+            },
+            {
+                "display": "1 lemon (juice)"
+            },
+            {
+                "display": "1 clove garlic"
+            },
+            {
+                "display": "Olive oil"
+            },
+            {
+                "display": "Carrot and cucumber sticks for dipping"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Blend chickpeas, tahini, lemon juice, garlic, and oil until smooth."
+            },
+            {
+                "text": "Add water if too thick."
+            },
+            {
+                "text": "Serve in a bowl drizzled with oil, alongside veggie sticks."
+            }
+        ],
+        "id": "e8a5e431-9ba7-4787-b3f6-1b46050c6838",
+        "rating": 5
+    },
+    {
+        "slug": "protein-pancakes",
+        "name": "Banana Oat Protein Pancakes",
+        "description": "Flourless pancakes packed with protein and fiber.",
+        "recipeCategory": [
+            "Breakfast",
+            "High-Protein"
+        ],
+        "tags": [
+            "vegetarian",
+            "gluten-free",
+            "healthy"
+        ],
+        "recipeIngredients": [
+            {
+                "display": "1 banana"
+            },
+            {
+                "display": "2 eggs"
+            },
+            {
+                "display": "1/2 cup oats"
+            },
+            {
+                "display": "1 scoop protein powder (optional)"
+            },
+            {
+                "display": "1/2 tsp baking powder"
+            }
+        ],
+        "recipeInstructions": [
+            {
+                "text": "Blend all ingredients until smooth."
+            },
+            {
+                "text": "Pour batter onto a hot greased griddle."
+            },
+            {
+                "text": "Cook until bubbles form, then flip."
+            },
+            {
+                "text": "Serve with toppings of choice."
+            }
+        ],
+        "id": "4bb34782-6e36-4b3f-8af1-26aaf5e2e71d",
+        "rating": 3
+    }
+]

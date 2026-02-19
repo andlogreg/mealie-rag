@@ -10,6 +10,10 @@ from .config import settings
 class PromptType(StrEnum):
     CHAT_GENERATION = "chat-generation"
     MULTI_QUERY_BUILDER = "multi-query-builder-generation"
+    METRIC_RELEVANCY = "metric-relevancy"
+    METRIC_FAITHFULNESS = "metric-faithfulness"
+    INGEST_NORMALIZE_INGREDIENTS = "ingest-normalize-ingredients"
+    INGEST_ENRICH_RECIPES = "ingest-enrich-recipes"
 
 
 class PromptManager(ABC):

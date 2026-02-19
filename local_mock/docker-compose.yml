@@ -32,6 +32,7 @@ services:
       - LANGFUSE_PUBLIC_KEY
       - LANGFUSE_HOST
       - OLLAMA_BASE_URL
+      - OLLAMA_HELIOS_BASE_URL
       - LITELLM_MASTER_KEY
 
   # ollama:

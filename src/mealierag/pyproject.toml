@@ -38,6 +38,7 @@ dev = [
     "pytest-mock~=3.15.1",
     "jupyter~=1.1.1",
     "ipykernel~=6.29.5",
+    "ragas",
 ]
 
 [tool.pytest.ini_options]
@@ -46,3 +47,6 @@ addopts = "-ra --cov-report=term-missing"
 testpaths = [
     "tests",
 ]
+
+[tool.uv.sources]
+ragas = { git = "https://github.com/vibrantlabsai/ragas", rev = "2b38724" }
