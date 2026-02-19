@@ -14,6 +14,7 @@ class PromptType(StrEnum):
     METRIC_FAITHFULNESS = "metric-faithfulness"
     INGEST_NORMALIZE_INGREDIENTS = "ingest-normalize-ingredients"
     INGEST_ENRICH_RECIPES = "ingest-enrich-recipes"
+    DATA_QUERY_GENERATION = "data-query-generation"
 
 
 class PromptManager(ABC):

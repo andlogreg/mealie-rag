@@ -47,6 +47,9 @@ addopts = "-ra --cov-report=term-missing"
 testpaths = [
     "tests",
 ]
+pythonpath = [
+    "evals/scripts",
+]
 
 [tool.uv.sources]
 ragas = { git = "https://github.com/vibrantlabsai/ragas", rev = "2b38724" }
