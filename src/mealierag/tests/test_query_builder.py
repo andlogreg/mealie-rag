@@ -4,6 +4,19 @@ from mealierag.models import QueryExtraction
 from mealierag.query_builder import DefaultQueryBuilder, MultiQueryQueryBuilder
 
 
+def _make_builder(mock_client, enable_expand=True, enable_culinary_brainstorm=True):
+    """Helper to construct a MultiQueryQueryBuilder with the given feature flags."""
+    return MultiQueryQueryBuilder(
+        llm_client=mock_client,
+        model="test-model",
+        temperature=0.7,
+        seed=42,
+        prompt_manager=MagicMock(),
+        enable_expand=enable_expand,
+        enable_culinary_brainstorm=enable_culinary_brainstorm,
+    )
+
+
 def test_default_query_builder():
     """Test DefaultQueryBuilder."""
     builder = DefaultQueryBuilder()
@@ -11,19 +24,13 @@ def test_default_query_builder():
     assert result.expanded_queries == ["test query"]
 
 
-def test_multi_query_query_builder(mock_ollama_client):
-    """Test MultiQueryQueryBuilder."""
-    builder = MultiQueryQueryBuilder(
-        llm_client=mock_ollama_client,
-        model="test-model",
-        temperature=0.7,
-        seed=42,
-        prompt_manager=MagicMock(),
-    )
+def test_multi_query_builder_both_enabled(mock_ollama_client):
+    """Expand=True, Brainstorm=True (default behaviour).
 
-    # Mock LLM response
-    # We expect 1 call for initial query generation
-    # And then 1 call for each generated query (3 in this case)
+    Expects 1 LLM call for expansion + 1 per expanded query for brainstorm.
+    """
+    builder = _make_builder(mock_ollama_client)
+
     mock_ollama_client.chat.side_effect = [
         QueryExtraction(expanded_queries=["Query 1", "Query 2", "Query 3"]),
         "Refined Query 1",
@@ -32,20 +39,67 @@ def test_multi_query_query_builder(mock_ollama_client):
     ]
 
     response = builder("original query")
-    queries = response.expanded_queries
 
-    # Check if chat was called correctly (1 initial + 3 refinements)
+    # 1 expansion + 3 brainstorm calls
     assert mock_ollama_client.chat.call_count == 4
 
-    # Check the first call arguments
     first_call_kwargs = mock_ollama_client.chat.call_args_list[0].kwargs
     assert first_call_kwargs["model"] == "test-model"
     assert first_call_kwargs["temperature"] == 0.7
     assert first_call_kwargs["seed"] == 42
     assert first_call_kwargs["response_model"] == QueryExtraction
 
-    # Check parsing logic
-    assert len(queries) == 3
-    assert "Refined Query 1" in queries
-    assert "Refined Query 2" in queries
-    assert "Refined Query 3" in queries
+    assert response.expanded_queries == [
+        "Refined Query 1",
+        "Refined Query 2",
+        "Refined Query 3",
+    ]
+
+
+def test_multi_query_builder_expand_only(mock_ollama_client):
+    """Expand=True, Brainstorm=False.
+
+    Expects 1 LLM call for expansion and raw expanded queries returned unchanged.
+    """
+    builder = _make_builder(mock_ollama_client, enable_culinary_brainstorm=False)
+
+    mock_ollama_client.chat.side_effect = [
+        QueryExtraction(expanded_queries=["Query 1", "Query 2", "Query 3"]),
+    ]
+
+    response = builder("original query")
+
+    # Only the expansion call
+    assert mock_ollama_client.chat.call_count == 1
+    assert response.expanded_queries == ["Query 1", "Query 2", "Query 3"]
+
+
+def test_multi_query_builder_brainstorm_only(mock_ollama_client):
+    """Expand=False, Brainstorm=True.
+
+    The user input is passed as-is to brainstorm — expects 1 brainstorm LLM call.
+    """
+    builder = _make_builder(mock_ollama_client, enable_expand=False)
+
+    mock_ollama_client.chat.side_effect = ["Brainstormed query"]
+
+    response = builder("original query")
+
+    # 0 expansion calls + 1 brainstorm call for the single passthrough query
+    assert mock_ollama_client.chat.call_count == 1
+    assert response.expanded_queries == ["Brainstormed query"]
+
+
+def test_multi_query_builder_both_disabled(mock_ollama_client):
+    """Expand=False, Brainstorm=False.
+
+    No LLM calls at all; user input returned as the sole query.
+    """
+    builder = _make_builder(
+        mock_ollama_client, enable_expand=False, enable_culinary_brainstorm=False
+    )
+
+    response = builder("original query")
+
+    assert mock_ollama_client.chat.call_count == 0
+    assert response.expanded_queries == ["original query"]
