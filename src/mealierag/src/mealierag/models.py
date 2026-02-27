@@ -201,14 +201,7 @@ class QueryExtraction(BaseModel):
     expanded_queries: list[str] = Field(
         description="5 diverse search variations. Transform general terms (meat) to specific ones (chicken, beef, etc)."
     )
-    negative_ingredients: list[str] | None = Field(
-        None,
-        description="Individual food items to exclude. Singular lowercase nouns only (e.g., 'shrimp', 'mushroom').",
-    )
-    other_negative_constraints: list[str] | None = Field(
-        None,
-        description="Non-ingredient exclusions like equipment (no oven), time (no long prep), or diet (no fried).",
-    )
+
     min_rating: int | None = Field(
         None,
         description="Minimum recipe rating filter, inclusive. Only use if explicitly specified.",
@@ -216,4 +209,34 @@ class QueryExtraction(BaseModel):
     max_rating: int | None = Field(
         None,
         description="Maximum recipe rating filter, exclusive. Only use if explicitly specified.",
+    )
+    max_total_time_minutes: int | None = Field(
+        None,
+        description="Maximum total time filter. Only use if explicitly specified.",
+    )
+
+    tools: list[str] | None = Field(
+        None,
+        description="Tools filter. Only use if explicitly specified.",
+    )
+    methods: list[str] | None = Field(
+        None,
+        description="Method filter. Only use if explicitly specified.",
+    )
+    is_healthy: bool | None = Field(
+        None,
+        description="Healthy filter. Only use if explicitly specified.",
+    )
+
+    negative_ingredients: list[str] | None = Field(
+        None,
+        description="Individual food items to exclude. Singular lowercase nouns only (e.g., 'shrimp', 'mushroom').",
+    )
+    negative_tools: list[str] | None = Field(
+        None,
+        description="Tools to exclude. Singular lowercase nouns only (e.g., 'oven', 'stove').",
+    )
+    negative_methods: list[str] | None = Field(
+        None,
+        description="Methods to exclude. Singular lowercase nouns only (e.g., 'fried', 'baked').",
     )
