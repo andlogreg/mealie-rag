@@ -159,13 +159,31 @@ def run_experiment(config: EvaluationConfig) -> None:
             )
             return []
 
-        relevant_ids = get_relevant_ids(qdrant_client, collection_name, gt_filter)
+        relevant_id_to_slug = get_relevant_ids(
+            qdrant_client, collection_name, gt_filter
+        )
+        relevant_ids = set(relevant_id_to_slug.keys())
         retrieved_ids = output.get("retrieved_ids", [])
         metrics = compute_retrieval_metrics(retrieved_ids, relevant_ids)
         log_retrieval_metrics(metrics)
 
+        sorted_pairs = sorted(relevant_id_to_slug.items())
+        sorted_relevant_ids = [id_ for id_, _ in sorted_pairs]
+        sorted_relevant_slugs = [slug for _, slug in sorted_pairs]
+
         return [
-            Evaluation(name="retrieval_precision", value=metrics.precision),
+            Evaluation(
+                name="retrieval_precision",
+                value=metrics.precision,
+                metadata={
+                    "retrieved_and_relevant_ids": sorted(
+                        list(metrics.retrieved_and_relevant_ids)
+                    ),
+                    "retrieved_and_not_relevant_ids": sorted(
+                        list(metrics.retrieved_and_not_relevant_ids)
+                    ),
+                },
+            ),
             Evaluation(name="retrieval_recall", value=metrics.recall),
             Evaluation(name="retrieval_recall_capped", value=metrics.recall_capped),
             Evaluation(name="retrieval_mrr", value=metrics.mrr),
@@ -174,6 +192,10 @@ def run_experiment(config: EvaluationConfig) -> None:
                 name="retrieval_hit",
                 value=metrics.hit,
                 comment=f"relevant_count={metrics.relevant_count}",
+                metadata={
+                    "relevant_ids": sorted_relevant_ids,
+                    "relevant_slugs": sorted_relevant_slugs,
+                },
                 data_type=ScoreDataType.BOOLEAN,
             ),
         ]

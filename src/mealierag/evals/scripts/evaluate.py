@@ -95,7 +95,9 @@ async def evaluate_service(
                 query,
             )
         else:
-            relevant_ids = get_relevant_ids(qdrant_client, collection_name, gt_filter)
+            relevant_ids = set(
+                get_relevant_ids(qdrant_client, collection_name, gt_filter).keys()
+            )
             retrieved_ids = [str(h.id) for h in hits]
             retrieval = compute_retrieval_metrics(retrieved_ids, relevant_ids)
             log_retrieval_metrics(retrieval)
