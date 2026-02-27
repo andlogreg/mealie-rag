@@ -52,6 +52,8 @@ def _build_filters(query_extraction: QueryExtraction | None) -> models.Filter | 
     must_not_conditions = []
     must_conditions = []
 
+    # --- Negative filters (must_not) ---
+
     # Negative Ingredients
     if query_extraction.negative_ingredients:
         for ing in query_extraction.negative_ingredients:
@@ -61,6 +63,30 @@ def _build_filters(query_extraction: QueryExtraction | None) -> models.Filter | 
                     match=models.MatchText(text=ing),
                 )
             )
+
+    # Negative Tools — exclude recipes that use ANY of the listed tools
+    if query_extraction.negative_tools:
+        must_not_conditions.append(
+            models.FieldCondition(
+                key="tools",
+                match=models.MatchAny(
+                    any=[t.lower() for t in query_extraction.negative_tools]
+                ),
+            )
+        )
+
+    # Negative Methods — exclude recipes that use ANY of the listed methods
+    if query_extraction.negative_methods:
+        must_not_conditions.append(
+            models.FieldCondition(
+                key="method",
+                match=models.MatchAny(
+                    any=[m.lower() for m in query_extraction.negative_methods]
+                ),
+            )
+        )
+
+    # --- Positive filters (must) ---
 
     # Ratings Range
     if (
@@ -74,6 +100,44 @@ def _build_filters(query_extraction: QueryExtraction | None) -> models.Filter | 
                     gte=query_extraction.min_rating,
                     lt=query_extraction.max_rating,
                 ),
+            )
+        )
+
+    # Max Total Time
+    if query_extraction.max_total_time_minutes is not None:
+        must_conditions.append(
+            models.FieldCondition(
+                key="total_time_minutes",
+                range=models.Range(lte=query_extraction.max_total_time_minutes),
+            )
+        )
+
+    # Tools — recipe must use at least one of the desired tools
+    if query_extraction.tools:
+        must_conditions.append(
+            models.FieldCondition(
+                key="tools",
+                match=models.MatchAny(any=[t.lower() for t in query_extraction.tools]),
+            )
+        )
+
+    # Methods — recipe must use at least one of the desired methods
+    if query_extraction.methods:
+        must_conditions.append(
+            models.FieldCondition(
+                key="method",
+                match=models.MatchAny(
+                    any=[m.lower() for m in query_extraction.methods]
+                ),
+            )
+        )
+
+    # Is Healthy
+    if query_extraction.is_healthy is not None:
+        must_conditions.append(
+            models.FieldCondition(
+                key="is_healthy",
+                match=models.MatchValue(value=query_extraction.is_healthy),
             )
         )
 

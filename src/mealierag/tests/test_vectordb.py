@@ -127,3 +127,121 @@ def test_build_filters_all():
     assert filters is not None
     assert len(filters.must_not) == 1
     assert len(filters.must) == 1
+
+
+def test_build_filters_max_total_time():
+    """Test _build_filters with max_total_time_minutes."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(expanded_queries=["q1"], max_total_time_minutes=30)
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    assert filters.must_not is None
+    assert len(filters.must) == 1
+    assert filters.must[0].key == "total_time_minutes"
+    assert filters.must[0].range.lte == 30
+
+
+def test_build_filters_tools():
+    """Test _build_filters with positive tools filter (OR semantics)."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(expanded_queries=["q1"], tools=["Oven", "Stove"])
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    assert filters.must_not is None
+    assert len(filters.must) == 1
+    assert filters.must[0].key == "tools"
+    assert filters.must[0].match.any == ["oven", "stove"]
+
+
+def test_build_filters_methods():
+    """Test _build_filters with positive methods filter (OR semantics)."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(expanded_queries=["q1"], methods=["Fried", "Baked"])
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    assert filters.must_not is None
+    assert len(filters.must) == 1
+    assert filters.must[0].key == "method"
+    assert filters.must[0].match.any == ["fried", "baked"]
+
+
+def test_build_filters_is_healthy():
+    """Test _build_filters with is_healthy filter."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(expanded_queries=["q1"], is_healthy=True)
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    assert filters.must_not is None
+    assert len(filters.must) == 1
+    assert filters.must[0].key == "is_healthy"
+    assert filters.must[0].match.value is True
+
+
+def test_build_filters_negative_tools():
+    """Test _build_filters with negative tools filter."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(
+        expanded_queries=["q1"], negative_tools=["Microwave", "Deep Fryer"]
+    )
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    assert filters.must is None
+    assert len(filters.must_not) == 1
+    assert filters.must_not[0].key == "tools"
+    assert filters.must_not[0].match.any == ["microwave", "deep fryer"]
+
+
+def test_build_filters_negative_methods():
+    """Test _build_filters with negative methods filter."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(expanded_queries=["q1"], negative_methods=["Fried", "Baked"])
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    assert filters.must is None
+    assert len(filters.must_not) == 1
+    assert filters.must_not[0].key == "method"
+    assert filters.must_not[0].match.any == ["fried", "baked"]
+
+
+def test_build_filters_comprehensive():
+    """Test _build_filters with all fields populated at once."""
+    from mealierag.models import QueryExtraction
+    from mealierag.vectordb import _build_filters
+
+    qe = QueryExtraction(
+        expanded_queries=["q1"],
+        min_rating=3,
+        max_rating=5,
+        max_total_time_minutes=45,
+        tools=["oven"],
+        methods=["baked"],
+        is_healthy=True,
+        negative_ingredients=["onion", "garlic"],
+        negative_tools=["microwave"],
+        negative_methods=["fried"],
+    )
+    filters = _build_filters(qe)
+
+    assert filters is not None
+    # must: rating + time + tools + methods + is_healthy = 5
+    assert len(filters.must) == 5
+    # must_not: 2 ingredients + 1 negative_tools + 1 negative_methods = 4
+    assert len(filters.must_not) == 4
