@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.9.0](https://github.com/andlogreg/mealie-rag/compare/mealierag-v0.8.0...mealierag-v0.9.0) (2026-02-27)
+
+
+### Features
+
+* **evals:** add evals with Langfuse + RAGAS. Add DVC tracked data ([64feeec](https://github.com/andlogreg/mealie-rag/commit/64feeecfac21211fe4399efe466d6c56f237cb0c))
+* **ingest:** normalize and enrich recipes on ingestion ([4ccb3d0](https://github.com/andlogreg/mealie-rag/commit/4ccb3d0dc7a7bf7b02881071d198cd5f039292c4))
+* **query-builder:** expand search queries to recipes ([7214ffd](https://github.com/andlogreg/mealie-rag/commit/7214ffd6923c394196e993a3ae21c34289e0eec9))
+* **vectordb:** add total_time_minutes, tools and methods filtering ([3d122c3](https://github.com/andlogreg/mealie-rag/commit/3d122c3bea65bc9f7c0013e0f2d11668f27e3c2a))
+
+
+### Bug Fixes
+
+* **config:** add multiquery_expand and multiquery_culinary_brainstorm ([41b7d3d](https://github.com/andlogreg/mealie-rag/commit/41b7d3d8c2e2baa05eddd9dad255d5e6cad05312))
+* **evals:** add relevant IDs debug info to retrieval metrics ([f5fd351](https://github.com/andlogreg/mealie-rag/commit/f5fd351fa1a06f6749ff49ab091ad51f3a2a0f82))
+* **UX:** improve user friendliness with Recipe links and more responsive debug info ([2d0dc9a](https://github.com/andlogreg/mealie-rag/commit/2d0dc9a37450b68a2a7b946204b2f85fe98fd371))
+
 ## [0.8.0](https://github.com/andlogreg/mealie-rag/compare/mealierag-v0.7.0...mealierag-v0.8.0) (2026-02-12)
 
 
