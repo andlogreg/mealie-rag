@@ -61,6 +61,8 @@ class MultiQueryQueryBuilder(QueryBuilder):
         temperature: float,
         seed: int,
         prompt_manager: PromptManager,
+        enable_expand: bool = True,
+        enable_culinary_brainstorm: bool = True,
     ):
         """
         Initialize the MultiQueryQueryBuilder.
@@ -71,12 +73,19 @@ class MultiQueryQueryBuilder(QueryBuilder):
             temperature: Sampling temperature for the LLM.
             seed: Random seed for reproducibility.
             prompt_manager: Manager for retrieving prompts.
+            enable_expand: Expand the query into multiple variations.
+                If False, user input is used as the single query.
+            enable_culinary_brainstorm: Rewrite each expanded query as
+                a short cooking-instruction sentence.
+                If False, raw expanded queries are used.
         """
         self.llm_client = llm_client
         self.model = model
         self.temperature = temperature
         self.seed = seed
         self.prompt_manager = prompt_manager
+        self.enable_expand = enable_expand
+        self.enable_culinary_brainstorm = enable_culinary_brainstorm
 
     def build(self, user_input: str) -> QueryExtraction:
         """
@@ -88,43 +97,56 @@ class MultiQueryQueryBuilder(QueryBuilder):
         Returns:
             QueryExtraction: The generated queries and negative constraints.
         """
-        prompt = self.prompt_manager.get_prompt(PromptType.MULTI_QUERY_BUILDER)
-        messages = prompt.compile(user_input=user_input)
-        chat_messages = ChatMessages(messages=messages, prompt=prompt)
+        if self.enable_expand:
+            prompt = self.prompt_manager.get_prompt(PromptType.MULTI_QUERY_BUILDER)
+            messages = prompt.compile(user_input=user_input)
+            chat_messages = ChatMessages(messages=messages, prompt=prompt)
 
-        logger.debug(
-            "Generating multi-query variations",
-            extra={"user_input": user_input, "messages": messages},
-        )
-
-        response = self.llm_client.chat(
-            chat_messages=chat_messages,
-            model=self.model,
-            temperature=self.temperature,
-            seed=self.seed,
-            response_model=QueryExtraction,
-        )
-        logger.debug("Generated queries", extra={"response": response})
-
-        culinary_brainstorm_prompt = self.prompt_manager.get_prompt(
-            PromptType.CULINARY_BRAINSTORM
-        )
-        for idx, query in enumerate(response.expanded_queries):
-            messages = culinary_brainstorm_prompt.compile(user_input=query)
-            chat_messages = ChatMessages(
-                messages=messages, prompt=culinary_brainstorm_prompt
+            logger.debug(
+                "Generating multi-query variations",
+                extra={"user_input": user_input, "messages": messages},
             )
-            culinary_brainstorm_response = self.llm_client.chat(
+
+            response = self.llm_client.chat(
                 chat_messages=chat_messages,
                 model=self.model,
                 temperature=self.temperature,
                 seed=self.seed,
+                response_model=QueryExtraction,
             )
+            logger.debug("Generated queries", extra={"response": response})
+        else:
             logger.debug(
-                "Generated culinary brainstorm",
-                extra={"response": culinary_brainstorm_response},
+                "Multi-query expansion disabled - using raw user input",
+                extra={"user_input": user_input},
             )
-            response.expanded_queries[idx] = culinary_brainstorm_response
+            response = QueryExtraction(expanded_queries=[user_input])
+
+        if self.enable_culinary_brainstorm:
+            culinary_brainstorm_prompt = self.prompt_manager.get_prompt(
+                PromptType.CULINARY_BRAINSTORM
+            )
+            for idx, query in enumerate(response.expanded_queries):
+                messages = culinary_brainstorm_prompt.compile(user_input=query)
+                chat_messages = ChatMessages(
+                    messages=messages, prompt=culinary_brainstorm_prompt
+                )
+                culinary_brainstorm_response = self.llm_client.chat(
+                    chat_messages=chat_messages,
+                    model=self.model,
+                    temperature=self.temperature,
+                    seed=self.seed,
+                )
+                logger.debug(
+                    "Generated culinary brainstorm",
+                    extra={"response": culinary_brainstorm_response},
+                )
+                response.expanded_queries[idx] = culinary_brainstorm_response
+        else:
+            logger.debug(
+                "Culinary brainstorm disabled - using raw expanded queries",
+                extra={"queries": response.expanded_queries},
+            )
 
         logger.debug("Final Generated queries", extra={"response": response})
 

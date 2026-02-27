@@ -4,7 +4,7 @@ Config module.
 
 from enum import StrEnum, auto
 
-from pydantic import Field, SecretStr
+from pydantic import Field, SecretStr, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     )
     mealie_token: SecretStr | None = Field(None, description="Mealie API Token")
 
-    vectordb_url: str = Field(
+    vectordb_url: str | None = Field(
         "http://localhost:6333", description="Vector DB (qdrant) URL"
     )
     vectordb_collection_name: str = Field(
@@ -58,6 +58,14 @@ class Settings(BaseSettings):
     search_strategy: SearchStrategy = Field(
         SearchStrategy.SIMPLE, description="Search Strategy"
     )
+    multiquery_expand: bool = Field(
+        True,
+        description="LLM-based multi-query expansion (only for search_strategy=multiquery)",
+    )
+    multiquery_culinary_brainstorm: bool = Field(
+        False,
+        description="Culinary brainstorm rewriting of expanded queries (only for search_strategy=multiquery)",
+    )
 
     # ingest specific settings
     delete_collection_if_exists: bool = Field(
@@ -80,6 +88,16 @@ class Settings(BaseSettings):
     )
     tracing_environment: str = Field("development", description="Langfuse Environment")
     tracing_enabled: bool = Field(False, description="Enable tracing")
+
+    @model_validator(mode="after")
+    def check_vectordb_exclusivity(self) -> "Settings":
+        if self.vectordb_url and self.vectordb_path:
+            raise ValueError(
+                "VECTORDB_URL and VECTORDB_PATH are mutually exclusive — set only one."
+            )
+        if not self.vectordb_url and not self.vectordb_path:
+            raise ValueError("One of VECTORDB_URL or VECTORDB_PATH must be set.")
+        return self
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

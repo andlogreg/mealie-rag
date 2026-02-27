@@ -140,6 +140,8 @@ def create_mealie_rag_service(settings_obj=settings) -> MealieRAGService:
             temperature=settings_obj.llm_temperature,
             seed=settings_obj.llm_seed,
             prompt_manager=prompt_manager,
+            enable_expand=settings_obj.multiquery_expand,
+            enable_culinary_brainstorm=settings_obj.multiquery_culinary_brainstorm,
         )
         retrieve_results_fn = retrieve_results_rrf
     else:
