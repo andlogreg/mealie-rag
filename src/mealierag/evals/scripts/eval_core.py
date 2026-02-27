@@ -218,9 +218,9 @@ def get_relevant_ids(
     client: Any,
     collection_name: str,
     gt_filter: qdrant_models.Filter,
-) -> set[str]:
-    """Scroll *collection_name* and return the set of all matching recipe IDs."""
-    relevant: set[str] = set()
+) -> dict[str, str]:
+    """Scroll collection_name and return recipe ID → slug mapping."""
+    relevant: dict[str, str] = {}
     offset = None
 
     while True:
@@ -229,11 +229,11 @@ def get_relevant_ids(
             scroll_filter=gt_filter,
             limit=1000,
             offset=offset,
-            with_payload=False,
+            with_payload=True,
             with_vectors=False,
         )
         for point in points:
-            relevant.add(str(point.id))
+            relevant[str(point.id)] = point.payload["slug"]
 
         if next_offset is None:
             break
@@ -258,6 +258,8 @@ class RetrievalMetrics:
     ndcg: float
     hit: bool
     relevant_count: int
+    retrieved_and_relevant_ids: set[str]
+    retrieved_and_not_relevant_ids: set[str]
 
 
 def _calculate_ndcg(retrieved_ids: list[str], relevant_ids: set[str], k: int) -> float:
@@ -278,7 +280,9 @@ def compute_retrieval_metrics(
 ) -> RetrievalMetrics:
     """Compute Precision@K, Recall@K, MRR, nDCG@K, and Hit Rate."""
     k = len(retrieved_ids)
-    relevant_retrieved = sum(1 for rid in retrieved_ids if rid in relevant_ids)
+    retrieved_and_relevant_ids = set(retrieved_ids) & relevant_ids
+    retrieved_and_not_relevant_ids = set(retrieved_ids) - relevant_ids
+    relevant_retrieved = len(retrieved_and_relevant_ids)
 
     precision = relevant_retrieved / k if k > 0 else 0.0
     recall = relevant_retrieved / len(relevant_ids) if relevant_ids else 0.0
@@ -305,6 +309,8 @@ def compute_retrieval_metrics(
         ndcg=ndcg,
         hit=hit,
         relevant_count=len(relevant_ids),
+        retrieved_and_relevant_ids=retrieved_and_relevant_ids,
+        retrieved_and_not_relevant_ids=retrieved_and_not_relevant_ids,
     )
 
 
