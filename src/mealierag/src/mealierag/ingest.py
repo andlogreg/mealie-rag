@@ -47,6 +47,7 @@ def enrich_recipe_properties(
         "method",
         "is_healthy",
         "total_time_minutes",
+        "ingredientCategories",
     ]
 
     for field_name in target_fields:
@@ -120,6 +121,7 @@ def create_point_from_recipe(recipe: Recipe, embedding: list[float]) -> PointStr
         "ingredients": [ing.display for ing in recipe.recipeIngredients],
         "instructions": [inst.text for inst in recipe.recipeInstructions],
         "normalized_ingredients": recipe.normalizedRecipeIngredients.flatten(),
+        "ingredient_categories": [cat.lower() for cat in recipe.ingredientCategories],
         # Temporary: nested model_dump to ease recipe recreation at query/search time
         "model_dump": recipe.model_dump(),
     }

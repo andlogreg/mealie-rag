@@ -1,6 +1,6 @@
 outs:
-- md5: d41ccfc3fb6bc934b56a932a2105e218.dir
-  size: 62055
-  nfiles: 1
+- md5: b1e21de553f7ea6c8fef03d24be37dae.dir
+  size: 170715
+  nfiles: 2
   hash: md5
   path: enriched

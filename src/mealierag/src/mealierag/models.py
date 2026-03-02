@@ -111,6 +111,10 @@ class Recipe(BaseModel):
         default_factory=NormalizedRecipeIngredients,
         description="Normalized ingredients of the recipe",
     )
+    ingredientCategories: list[str] = Field(
+        default_factory=list,
+        description="Broad canonical categories for the recipe's ingredients, e.g. ['fish', 'meat', 'dairy', 'vegetable']",
+    )
 
     model_config = ConfigDict(extra="ignore")
 
