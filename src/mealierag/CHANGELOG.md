@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.0](https://github.com/andlogreg/mealie-rag/compare/mealierag-v0.9.0...mealierag-v0.10.0) (2026-03-02)
+
+
+### Features
+
+* **retrieval:** implement broad ingredient categorization for robust negative filtering ([539ff47](https://github.com/andlogreg/mealie-rag/commit/539ff47c78acadddddaa594403ca4bd2f21a2276))
+* **ui,tracing:** enhance QA UI, allow for feedback comment and expance recipes metadata ([842493c](https://github.com/andlogreg/mealie-rag/commit/842493c82945a3acfa654e99e8366af62939e21e))
+
 ## [0.9.0](https://github.com/andlogreg/mealie-rag/compare/mealierag-v0.8.0...mealierag-v0.9.0) (2026-02-27)
 
 
