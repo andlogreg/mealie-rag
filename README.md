@@ -14,8 +14,8 @@ I use this project as an **engineering sandbox** to explore the challenges of op
 
 ## Engineering Highlights
 
-*   **Advanced Retrieval Strategies**: Implements **Structured Query Extraction**, **Multi-Query Expansion**, and **Reciprocal Rank Fusion (RRF)** to filter and rank results.
-*   **LLM-Driven Ingestion Enrichment**: At ingest time, a structured LLM pipeline is used to normalise ingredients and infers missing recipe properties (`categories`, `tags`, `cooking method`, `is_healthy`, `total_time_minutes`), making filtering and retrieval significantly more reliable.
+*   **Advanced Retrieval Strategies**: Implements **Structured Query Extraction**, **Multi-Query Expansion**, and **Reciprocal Rank Fusion (RRF)** to filter and rank results. Supports fine-grained Qdrant filtering on ingredients, tools, methods, cooking time, health attributes, and ratings.
+*   **LLM-Driven Ingestion Enrichment**: At ingest time, a structured LLM pipeline normalises ingredients and infers missing recipe properties (`categories`, `tags`, `cooking method`, `ingredient_categories`, `is_healthy`, `total_time_minutes`), making filtering and retrieval significantly more reliable.
 *   **End-to-End Observability**: Integration with **Langfuse** for tracing execution paths, managing prompt versions, and tracking model usage/costs. (Prometheus metrics to be added in the future...)
 *   **Offline Evaluation Pipeline**: A reproducible evaluation subsystem using **Ragas** (generation quality) and custom retrieval metrics (Precision@K, Recall@K, MRR, nDCG@K, Hit Rate). Results can be stored as **Langfuse Experiments** for tracking across runs. Eval datasets are versioned with **DVC**.
 *   **Data Infrastructure**: Integration with **Qdrant** for efficient vector operations (server and local embedded modes).

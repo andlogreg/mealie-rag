@@ -58,9 +58,17 @@ def _build_filters(query_extraction: QueryExtraction | None) -> models.Filter | 
     if query_extraction.negative_ingredients:
         for ing in query_extraction.negative_ingredients:
             must_not_conditions.append(
-                models.FieldCondition(
-                    key="normalized_ingredients",
-                    match=models.MatchText(text=ing),
+                models.Filter(
+                    should=[
+                        models.FieldCondition(
+                            key="normalized_ingredients",
+                            match=models.MatchText(text=ing),
+                        ),
+                        models.FieldCondition(
+                            key="ingredient_categories",
+                            match=models.MatchText(text=ing),
+                        ),
+                    ]
                 )
             )
 

@@ -92,8 +92,14 @@ def test_build_filters_negative_ingredients():
     assert filters is not None
     assert filters.must is None
     assert len(filters.must_not) == 2
-    assert filters.must_not[0].key == "normalized_ingredients"
-    assert filters.must_not[0].match.text == "onion"
+
+    # First negative ingredient filter
+    filter_1 = filters.must_not[0]
+    assert len(filter_1.should) == 2
+    assert filter_1.should[0].key == "normalized_ingredients"
+    assert filter_1.should[0].match.text == "onion"
+    assert filter_1.should[1].key == "ingredient_categories"
+    assert filter_1.should[1].match.text == "onion"
 
 
 def test_build_filters_ratings():

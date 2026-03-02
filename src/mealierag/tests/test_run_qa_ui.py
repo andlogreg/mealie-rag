@@ -101,8 +101,11 @@ def test_chat_fn_no_results(mocker):
 # ---------------------------------------------------------------------------
 
 
-def test_handle_like_stores_pending_and_shows_row():
+def test_handle_like_stores_pending_and_shows_row(mocker):
     """handle_like should store the reaction value and show the feedback row."""
+    mocker.patch(
+        "mealierag.tracing.tracer.get_trace_url", return_value="http://mock-url"
+    )
     ctx = TraceContext()
     ctx.set_trace_id("trace-123")
 

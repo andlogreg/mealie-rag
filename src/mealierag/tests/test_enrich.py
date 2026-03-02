@@ -47,6 +47,7 @@ def test_enrich_recipe_properties_fills_missing_category():
     assert "is_healthy" in properties
     assert "total_time_minutes" in properties
     assert "method" in properties
+    assert "ingredientCategories" in properties
 
 
 def test_enrich_recipe_properties_skips_existing():
@@ -61,6 +62,7 @@ def test_enrich_recipe_properties_skips_existing():
         rating=5.0,
         is_healthy=True,
         total_time_minutes=30,
+        ingredientCategories=["Lunch"],
         recipeIngredients=[],
         recipeInstructions=[],
     )
@@ -115,6 +117,7 @@ def test_enrich_recipe_properties_partial():
     properties = schema["properties"]
     assert "tags" in properties
     assert "method" in properties
+    assert "ingredientCategories" in properties
     assert "recipeCategory" not in properties  # Should not be asked for
     assert "tools" not in properties
     assert "rating" not in properties
@@ -155,6 +158,7 @@ def test_enrich_recipe_properties_is_healthy():
     assert "is_healthy" in properties
     assert "total_time_minutes" in properties
     assert "method" in properties
+    assert "ingredientCategories" in properties
 
 
 def test_enrich_recipe_properties_total_time():
@@ -188,3 +192,4 @@ def test_enrich_recipe_properties_total_time():
     properties = schema["properties"]
     assert "total_time_minutes" in properties
     assert "method" in properties
+    assert "ingredientCategories" in properties
