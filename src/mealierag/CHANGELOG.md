@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/andlogreg/mealie-rag/compare/mealierag-v0.10.0...mealierag-v0.11.0) (2026-03-03)
+
+
+### Features
+
+* **api:** create API server and standalone UI client ([#27](https://github.com/andlogreg/mealie-rag/issues/27)) ([432a9a3](https://github.com/andlogreg/mealie-rag/commit/432a9a3077cb719f7b1dac10de15386958530217))
+
 ## [0.10.0](https://github.com/andlogreg/mealie-rag/compare/mealierag-v0.9.0...mealierag-v0.10.0) (2026-03-02)
 
 
