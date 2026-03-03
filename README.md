@@ -25,7 +25,7 @@ I use this project as an **engineering sandbox** to explore the challenges of op
 
 ## Technology Stack
 
-*   **Core Application**: Python, Typer (CLI), Gradio (Web UI)
+*   **Core Application**: Python, Typer (CLI), Gradio (Web UI), FastAPI (REST API)
 *   **Inference & Storage**: Qdrant, OpenAI SDK / Ollama (Code-level abstraction for Ollama/OpenAI)
 *   **Observability & Evaluation**: Langfuse, Ragas
 *   **Infrastructure**: Docker Compose, GitHub Actions, DVC
