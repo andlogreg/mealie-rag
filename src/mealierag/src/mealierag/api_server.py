@@ -128,6 +128,7 @@ def chat(body: ChatRequest) -> StreamingResponse:
 
     @tracer.observe(transform_to_string=lambda _: None)
     def _traced_pipeline():
+        nonlocal trace_url
         ctx.set_trace_id(tracer.get_current_trace_id())
         trace_url = tracer.get_trace_url(ctx.trace_id)
         tracer.update_current_trace(
@@ -187,10 +188,10 @@ def chat(body: ChatRequest) -> StreamingResponse:
             yield from _traced_pipeline()
         except Exception:
             logger.exception("Error during chat pipeline")
-            yield _format_sse(
-                data="Internal server error. Trace available at: " + trace_url,
-                event="error",
-            )
+            error_msg = "Internal server error."
+            if trace_url:
+                error_msg += f" Trace available at: {trace_url}"
+            yield _format_sse(data=error_msg, event="error")
 
     return StreamingResponse(_safe_generator(), media_type="text/event-stream")
 
