@@ -50,6 +50,18 @@ Launch the Gradio-based chat interface:
 uv run mealierag qa-ui
 ```
 
+### Start API Server
+Serve the QA RAG REST API:
+```bash
+uv run mealierag qa-api
+```
+
+### Start Web UI (Client Mode)
+Launch the Gradio-based chat interface connected to the REST API:
+```bash
+uv run mealierag qa-ui-client --api-url http://localhost:8000
+```
+
 ### CLI Chat
 Run a quick chat session in the terminal:
 ```bash

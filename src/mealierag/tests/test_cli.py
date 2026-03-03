@@ -51,3 +51,19 @@ def test_cli_qa_ui(mocker):
     result = runner.invoke(app, ["qa-ui"])
     assert result.exit_code == 0
     mock_main.assert_called_once()
+
+
+def test_cli_qa_api(mocker):
+    """Test qa-api command."""
+    mock_main = mocker.patch("mealierag.cli.qa_api_main")
+    result = runner.invoke(app, ["qa-api"])
+    assert result.exit_code == 0
+    mock_main.assert_called_once()
+
+
+def test_cli_qa_ui_client(mocker):
+    """Test qa-ui-client command."""
+    mock_main = mocker.patch("mealierag.cli.qa_ui_client_main")
+    result = runner.invoke(app, ["qa-ui-client", "--api-url", "http://test:8000"])
+    assert result.exit_code == 0
+    mock_main.assert_called_once_with(api_url="http://test:8000")

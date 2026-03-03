@@ -9,11 +9,13 @@ import logging
 import typer
 from pythonjsonlogger.json import JsonFormatter
 
+from .api_server import main as qa_api_main
 from .config import settings
 from .run_fetch import main as fetch_main
 from .run_ingest import main as ingest_main
 from .run_qa_cli import main as qa_cli_main
 from .run_qa_ui import main as qa_ui_main
+from .run_qa_ui_client import main as qa_ui_client_main
 
 app = typer.Typer()
 
@@ -63,8 +65,25 @@ def qa_cli():
 
 @app.command()
 def qa_ui():
-    """Serve the QA Rag UI in the browser."""
+    """Serve the QA Rag UI in the browser (standalone mode)."""
     qa_ui_main()
+
+
+@app.command()
+def qa_api():
+    """Serve the QA Rag REST API."""
+    qa_api_main()
+
+
+@app.command()
+def qa_ui_client(
+    api_url: str = typer.Option(
+        "http://localhost:8000",
+        help="Base URL of the running MealieRAG API server.",
+    ),
+):
+    """Serve the QA Rag UI as an API client."""
+    qa_ui_client_main(api_url=api_url)
 
 
 if __name__ == "__main__":

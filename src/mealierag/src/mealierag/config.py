@@ -55,6 +55,15 @@ class Settings(BaseSettings):
     ui_username: str = Field("mealie", description="UI Username")
     ui_password: SecretStr = Field("rag", description="UI Password")
 
+    api_port: int = Field(8000, description="Port to serve the API on")
+    # TODO: Make this a required field
+    api_key: SecretStr = Field(
+        "mealie-rag-dev-key", description="API Key for authentication"
+    )
+    api_cors_origins: str = Field(
+        "*", description="Comma-separated CORS allowed origins"
+    )
+
     search_strategy: SearchStrategy = Field(
         SearchStrategy.SIMPLE, description="Search Strategy"
     )
