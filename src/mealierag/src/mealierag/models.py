@@ -9,6 +9,8 @@ from itertools import chain
 
 from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
+from .config import settings
+
 
 class RecipeIngredient(BaseModel):
     display: str
@@ -244,3 +246,38 @@ class QueryExtraction(BaseModel):
         None,
         description="Methods to exclude. Singular lowercase nouns only (e.g., 'fried', 'baked').",
     )
+
+
+class RecipeHit(BaseModel):
+    """A recipe returned by the search."""
+
+    name: str = "N/A"
+    url: str
+    recipe_id: str
+    rating: float | None = None
+    total_time_minutes: int | None = None
+    tools: list[str] = []
+    method: list[str] = []
+    ingredient_count: int | None = None
+    tags: list[str] = []
+    category: list[str] | None = None
+    score: float
+
+    @classmethod
+    def from_scored_point(cls, hit) -> "RecipeHit":
+        """Build a RecipeHit from a Qdrant ScoredPoint."""
+        payload = hit.payload or {}
+        recipe_id = payload.get("recipe_id", "")
+        return cls(
+            name=payload.get("name", "N/A"),
+            url=f"{settings.mealie_external_url}/g/home/r/{recipe_id}",
+            recipe_id=recipe_id,
+            rating=payload.get("rating"),
+            total_time_minutes=payload.get("total_time_minutes"),
+            tools=payload.get("tools", []),
+            method=payload.get("method", []),
+            ingredient_count=payload.get("ingredient_count"),
+            tags=payload.get("tags", []),
+            category=payload.get("category"),
+            score=hit.score,
+        )
