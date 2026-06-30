@@ -135,3 +135,21 @@ def test_create_mealie_rag_service(mocker):
     service_openai = create_mealie_rag_service(mock_settings)
     assert isinstance(service_openai, MealieRAGService)
     assert service_openai.llm_client is not None
+
+
+def test_get_service_lazy_singleton(mocker):
+    """get_service constructs lazily once and caches the instance."""
+    import mealierag.service as service_module
+
+    sentinel = MagicMock(spec=MealieRAGService)
+    factory = mocker.patch(
+        "mealierag.service.create_mealie_rag_service", return_value=sentinel
+    )
+    mocker.patch.object(service_module, "_service", None)
+
+    first = service_module.get_service()
+    second = service_module.get_service()
+
+    assert first is sentinel
+    assert second is sentinel
+    factory.assert_called_once()

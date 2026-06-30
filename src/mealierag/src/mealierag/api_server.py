@@ -16,12 +16,10 @@ from pydantic import BaseModel, Field
 
 from .config import settings
 from .models import RecipeHit
-from .service import create_mealie_rag_service
+from .service import MealieRAGService, get_service
 from .tracing import TraceContext, tracer
 
 logger = logging.getLogger(__name__)
-
-service = create_mealie_rag_service()
 
 # ---------------------------------------------------------------------------
 # FastAPI app
@@ -101,7 +99,7 @@ def _format_sse(data: str | list | dict, event: str) -> str:
 
 
 @app.get("/api/v1/health", response_model=HealthResponse)
-def health():
+def health(service: MealieRAGService = Depends(get_service)):
     """Check whether the Qdrant collection is available."""
     healthy = service.check_health()
     resp = HealthResponse(
@@ -118,7 +116,10 @@ def health():
     response_class=StreamingResponse,
     dependencies=[Depends(verify_api_key)],
 )
-def chat(body: ChatRequest) -> StreamingResponse:
+def chat(
+    body: ChatRequest,
+    service: MealieRAGService = Depends(get_service),
+) -> StreamingResponse:
     """Stream chat response as SSE events."""
     # NOTE: TraceContext probably not needed anymore when using API
     ctx = TraceContext()

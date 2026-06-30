@@ -8,12 +8,11 @@ import sys
 from qdrant_client.http.models import ScoredPoint
 
 from .config import settings
-from .service import create_mealie_rag_service
+from .service import get_service
 from .tracing import TraceContext, tracer
 
-# Initialize service
+# Initialize trace context
 trace_context = TraceContext()
-service = create_mealie_rag_service()
 
 logger = logging.getLogger(__name__)
 
@@ -35,6 +34,7 @@ def transform_fn(inputs):
 
 @tracer.observe(transform_to_string=transform_fn)
 def process_input(user_input: str):
+    service = get_service()
     trace_context.set_trace_id(tracer.get_current_trace_id())
     tracer.update_current_trace(
         name="qa_cli_trace",
@@ -86,6 +86,8 @@ def process_input(user_input: str):
 
 def main():
     print("Welcome to Mealie QA! (Type 'exit' to quit)")
+
+    service = get_service()
 
     # Initial check
     if not service.check_health():

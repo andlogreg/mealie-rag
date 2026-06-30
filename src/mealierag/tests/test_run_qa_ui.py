@@ -13,7 +13,7 @@ from mealierag.tracing import TraceContext
 def test_chat_fn(mocker):
     """Test chat generator function."""
     mock_service = MagicMock()
-    mocker.patch("mealierag.run_qa_ui.service", mock_service)
+    mocker.patch("mealierag.run_qa_ui.get_service", return_value=mock_service)
 
     mock_service.generate_queries.return_value = QueryExtraction(
         expanded_queries=["query"]
@@ -45,7 +45,7 @@ def test_chat_fn(mocker):
 def test_chat_fn_no_results(mocker):
     """Test chat function with no results."""
     mock_service = MagicMock()
-    mocker.patch("mealierag.run_qa_ui.service", mock_service)
+    mocker.patch("mealierag.run_qa_ui.get_service", return_value=mock_service)
 
     mock_service.generate_queries.return_value = QueryExtraction(
         expanded_queries=["query"]

@@ -9,12 +9,10 @@ import gradio as gr
 from .config import settings
 from .models import RecipeHit
 from .qa_ui_core import _TABLE_CSS, build_demo, print_hits
-from .service import create_mealie_rag_service
+from .service import get_service
 from .tracing import TraceContext, tracer
 
 logger = logging.getLogger(__name__)
-
-service = create_mealie_rag_service()
 
 
 # ---------------------------------------------------------------------------
@@ -25,6 +23,7 @@ service = create_mealie_rag_service()
 @tracer.observe(transform_to_string=lambda _: None)
 def process_input(user_input: str, ctx: TraceContext):
     """Process the user input and generate a response."""
+    service = get_service()
     ctx.set_trace_id(tracer.get_current_trace_id())
     tracer.update_current_trace(
         name="qa_ui_trace",

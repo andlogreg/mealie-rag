@@ -7,6 +7,7 @@ from qdrant_client.http.models import ScoredPoint
 
 from mealierag.api_server import app
 from mealierag.models import QueryExtraction
+from mealierag.service import get_service
 
 API_KEY = "mealie-rag-dev-key"
 AUTH_HEADERS = {"X-API-Key": API_KEY}
@@ -18,10 +19,11 @@ def client():
 
 
 @pytest.fixture()
-def mock_service(mocker):
+def mock_service():
     svc = MagicMock()
-    mocker.patch("mealierag.api_server.service", svc)
-    return svc
+    app.dependency_overrides[get_service] = lambda: svc
+    yield svc
+    app.dependency_overrides.pop(get_service, None)
 
 
 # ---------------------------------------------------------------------------
@@ -198,7 +200,7 @@ def test_chat_no_hits(client, mock_service):
     assert "No relevant recipes" in done_data.get("message", "")
 
 
-def test_chat_missing_message(client):
+def test_chat_missing_message(client, mock_service):
     """Empty or missing message should return 422."""
     resp = client.post("/api/v1/chat", json={}, headers=AUTH_HEADERS)
     assert resp.status_code == 422
