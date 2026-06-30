@@ -155,3 +155,20 @@ def create_mealie_rag_service(settings_obj=settings) -> MealieRAGService:
         query_builder=query_builder,
         retrieve_results_fn=retrieve_results_fn,
     )
+
+
+_service: MealieRAGService | None = None
+
+
+def get_service() -> MealieRAGService:
+    """
+    Return a lazily-constructed, process-wide MealieRAGService singleton.
+
+    Constructing the service instantiates an LLM provider (which may require an
+    API key), so it must not happen at module import time. Entry points call
+    this inside their handlers / main() so importing them stays side-effect free.
+    """
+    global _service
+    if _service is None:
+        _service = create_mealie_rag_service()
+    return _service

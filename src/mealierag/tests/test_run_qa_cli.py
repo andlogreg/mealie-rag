@@ -11,7 +11,7 @@ def test_run_qa_cli_health_check_failure(mocker):
     """Test exit on health check failure."""
     mock_service = MagicMock()
     mock_service.check_health.return_value = False
-    mocker.patch("mealierag.run_qa_cli.service", mock_service)
+    mocker.patch("mealierag.run_qa_cli.get_service", return_value=mock_service)
 
     with pytest.raises(SystemExit):
         main()
@@ -42,7 +42,7 @@ def test_run_qa_cli_loop(mocker):
 
     mock_service.chat.return_value = iter(["Response"])
 
-    mocker.patch("mealierag.run_qa_cli.service", mock_service)
+    mocker.patch("mealierag.run_qa_cli.get_service", return_value=mock_service)
 
     mocker.patch("builtins.input", side_effect=["Who am I?", "exit"])
 
