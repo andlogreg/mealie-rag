@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.1](https://github.com/andlogreg/mealie-rag/compare/mealierag-v0.11.0...mealierag-v0.11.1) (2026-06-30)
+
+
+### Bug Fixes
+
+* construct RAG service lazily to keep module imports key-free ([#29](https://github.com/andlogreg/mealie-rag/issues/29)) ([68014fb](https://github.com/andlogreg/mealie-rag/commit/68014fb71a7099b3332df674336561926d23ed91))
+
 ## [0.11.0](https://github.com/andlogreg/mealie-rag/compare/mealierag-v0.10.0...mealierag-v0.11.0) (2026-03-03)
 
 
